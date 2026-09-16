@@ -14,7 +14,7 @@ export function Overview() {
         number="01"
         kicker="ABOUT THE HACKATHON"
         title="場所を越えて、アイデアを実装する。"
-        description="全国のGDGコミュニティから参加する開発者が、5日間でプロトタイプを形にするハッカソンです。各Regional Roundから選ばれたチームが、東京・渋谷で行われるDemo Dayに進出します。"
+        description="18歳以上の大学生・大学院生・博士課程の学生を対象に、Google Cloud PlatformやGeminiを活用して5日間でプロトタイプを形にするハッカソンです。"
       />
       <div className="overview-stats">
         {stats.map(({ icon: Icon, label, value, note }, index) => (

@@ -12,7 +12,7 @@ export function Header() {
     <header className="site-header">
       <a className="wordmark" href="#top" aria-label="DevFest Hackathon 2026 トップへ">
         <img src="/brand/gdg-lockup.svg" alt="" />
-        <span><b>DevFest</b> Hackathon 2026</span>
+        <span className="wordmark-copy"><b>Google Developer Groups</b><small>On Campus · Japan</small></span>
       </a>
       <nav className="desktop-nav" aria-label="メインナビゲーション">
         {navItems.map(([label, href]) => (

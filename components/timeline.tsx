@@ -1,12 +1,5 @@
-import { ArrowRight } from "lucide-react";
+import { CalendarDays, Code2, Presentation } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
-
-const buildDays = [
-  { day: "DAY 0", title: "Kickoff", detail: "テーマ発表・ルール説明・チームビルディング" },
-  { day: "DAY 1", title: "Frame", detail: "課題を定義し、つくるものを決める" },
-  { day: "DAY 2—4", title: "Build", detail: "実装・検証・メンタリング" },
-  { day: "DAY 5", title: "Ship", detail: "提出・Regional Round審査" },
-];
 
 export function Timeline() {
   return (
@@ -15,34 +8,46 @@ export function Timeline() {
         <SectionHeading
           number="02"
           kicker="SCHEDULE"
-          title="5日でつくり、1日で未来を見せる。"
-          description="Regional Roundの開催日は会場ごとに異なります。各会場は11月2日〜14日の期間内に、5日間の開発プログラムを実施します。"
+          title="5日間、ひとつのプロダクトに向き合う。"
+          description="開発期間は途中で区切らず、各会場で連続した5日間として実施します。Regional Roundの開催日は会場ごとに異なります。"
           light
         />
-        <div className="date-band">
-          <div><span>REGIONAL ROUND</span><strong>NOV. 02—14</strong></div>
-          <ArrowRight aria-hidden="true" />
-          <div><span>DEMO DAY</span><strong>NOV. 27 / PM</strong></div>
+
+        <div className="schedule-overview">
+          <article className="schedule-milestone">
+            <CalendarDays aria-hidden="true" />
+            <p>COMMON KICKOFF · ONLINE</p>
+            <strong>11.01</strong>
+            <span>テーマ発表・ルール説明</span>
+          </article>
+
+          <article className="development-window">
+            <div className="development-label">
+              <Code2 aria-hidden="true" />
+              <div><p>REGIONAL ROUND</p><h3>5 DAYS DEVELOPMENT</h3></div>
+            </div>
+            <strong>11.02 — 11.14</strong>
+            <p className="development-copy">各会場の開催日程に合わせ、5日間を通して企画・実装・検証・提出まで行います。</p>
+            <div className="development-track" aria-hidden="true"><span /><i>START</i><i>CODE FREEZE</i></div>
+          </article>
+
+          <article className="schedule-milestone demo-milestone">
+            <Presentation aria-hidden="true" />
+            <p>DEMO DAY · SHIBUYA</p>
+            <strong>11.27</strong>
+            <span>プレゼンテーション・審査・表彰</span>
+          </article>
         </div>
-        <div className="build-days">
-          {buildDays.map((item, index) => (
-            <article className="build-day" key={item.day}>
-              <div className="day-marker"><span>{String(index + 1).padStart(2, "0")}</span></div>
-              <p>{item.day}</p>
-              <h3>{item.title}</h3>
-              <small>{item.detail}</small>
-            </article>
-          ))}
-        </div>
+
         <div className="demo-highlight">
           <div>
             <span className="demo-badge">FINAL STAGE</span>
             <h3>Demo Day</h3>
           </div>
-          <p>ファイナリストがGoogle 渋谷オフィスに集結。プロダクトをプレゼンテーションし、審査・表彰を行います。</p>
+          <p>ファイナリストがGoogle 渋谷オフィスに集結。プロダクトをプレゼンテーションし、優勝チームを決定します。</p>
           <strong>11.27<br /><span>FRI / PM</span></strong>
         </div>
-        <p className="schedule-caption">※ 上記はデザイン検討用の仮タイムテーブルです。各会場の開始日・詳細時刻は決定後に更新します。</p>
+        <p className="schedule-caption">※ 各会場の開始日・詳細時刻は決定後に更新します。オンライン参加者は11月2日開発開始、11月6日Code Freezeの予定です。</p>
       </div>
     </section>
   );

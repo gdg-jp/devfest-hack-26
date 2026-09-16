@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const EVENT_START = new Date("2026-11-02T00:00:00+09:00").getTime();
+const EVENT_START = new Date("2026-11-01T00:00:00+09:00").getTime();
 
 function getRemaining() {
   const distance = Math.max(0, EVENT_START - Date.now());
@@ -30,10 +30,10 @@ export function Countdown() {
   ];
 
   return (
-    <section className="countdown" aria-label="Regional Round 開始までのカウントダウン">
+    <section className="countdown" aria-label="共通キックオフまでのカウントダウン">
       <div className="countdown-label">
         <span className="live-dot" />
-        <p>REGIONAL ROUND STARTS IN</p>
+        <p>COMMON KICKOFF STARTS IN</p>
       </div>
       <div className="countdown-grid" aria-live="polite">
         {units.map(([label, value]) => (
@@ -43,7 +43,7 @@ export function Countdown() {
           </div>
         ))}
       </div>
-      <p className="countdown-foot">2026.11.02 / JST</p>
+      <p className="countdown-foot">2026.11.01 / JST</p>
     </section>
   );
 }

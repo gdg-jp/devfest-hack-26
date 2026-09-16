@@ -1,10 +1,11 @@
-import { MoveUpRight } from "lucide-react";
+import { Cloud, Cpu, Presentation, TrainFront, Trophy, Utensils } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 
-const prizes = [
-  { rank: "01", name: "GRAND PRIZE", ja: "最優秀賞", reward: "COMING SOON", color: "blue" },
-  { rank: "02", name: "RUNNER-UP", ja: "優秀賞", reward: "COMING SOON", color: "red" },
-  { rank: "03", name: "SPECIAL AWARD", ja: "特別賞", reward: "COMING SOON", color: "green" },
+const winnerBenefits = [
+  { icon: Cpu, title: "Google ハードウェア製品" },
+  { icon: Trophy, title: "優勝トロフィー" },
+  { icon: Presentation, title: "Google エンジニアリングリーダーシップへのプレゼンテーション機会" },
+  { icon: Utensils, title: "Google インターン採用チームとのランチセッション" },
 ];
 
 export function Prizes() {
@@ -13,24 +14,39 @@ export function Prizes() {
       <div className="section-shell">
         <SectionHeading
           number="04"
-          kicker="PRIZES"
-          title="挑戦の先に、次のチャンスを。"
-          description="各賞の賞品・審査基準はブランドガイド内の正式情報に合わせて更新予定です。ここではレイアウト確認用の仮表示を使用しています。"
+          kicker="WINNER BENEFITS"
+          title="優勝チームに贈られる、次の機会。"
+          description="Demo Dayのプライズは優勝チームのみが対象です。内容はGoogle側で最終調整中のため、確定後に正式情報へ更新します。"
         />
-        <div className="prize-list">
-          {prizes.map((prize) => (
-            <article className="prize-row" key={prize.rank}>
-              <span className={`prize-color ${prize.color}`} />
-              <span className="prize-rank">{prize.rank}</span>
-              <div><p>{prize.name}</p><h3>{prize.ja}</h3></div>
-              <strong>{prize.reward}</strong>
-              <MoveUpRight aria-hidden="true" />
-            </article>
-          ))}
-        </div>
-        <div className="travel-support">
-          <span>+ TRAVEL SUPPORT</span>
-          <p>Regional Roundを通過したファイナリストには、Demo Day参加のための東京までの交通費を支援します。</p>
+
+        <article className="winner-prize">
+          <header>
+            <span>DEMO DAY · GRAND PRIZE</span>
+            <h3>For the Winner</h3>
+            <p>優勝チームのみ</p>
+          </header>
+          <div className="winner-benefit-list">
+            {winnerBenefits.map(({ icon: Icon, title }) => (
+              <div className="winner-benefit" key={title}>
+                <Icon aria-hidden="true" />
+                <p>{title}</p>
+                <span>調整中</span>
+              </div>
+            ))}
+          </div>
+        </article>
+
+        <div className="participant-benefits">
+          <article className="cloud-credit-card">
+            <Cloud aria-hidden="true" />
+            <div><span>FOR ALL PARTICIPANTS</span><h3>Google Cloud Credit</h3></div>
+            <p>Regional Roundの参加者へ、開発に利用できるGoogle Cloud Creditを配布します。</p>
+          </article>
+          <article className="travel-support">
+            <TrainFront aria-hidden="true" />
+            <div><span>FOR FINALISTS</span><h3>Travel Support</h3></div>
+            <p>決勝進出者には、Demo Day参加のための東京までの交通費を支援します。</p>
+          </article>
         </div>
       </div>
     </section>
