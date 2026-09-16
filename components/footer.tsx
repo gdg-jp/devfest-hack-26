@@ -1,17 +1,26 @@
+"use client";
+
 import { ArrowUp, ArrowUpRight } from "lucide-react";
+import { motion } from "motion/react";
 
 export function FinalCta() {
   return (
-    <section className="final-cta">
-      <p className="final-cta-kicker">YOUR IDEA. FIVE DAYS. ONE DEMO.</p>
-      <h2>そのアイデアを、<br />動く未来に。</h2>
-      <a href="https://example.com" target="_blank" rel="noreferrer">
+    <motion.section
+      className="final-cta"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.25 }}
+      variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
+    >
+      <motion.p className="final-cta-kicker" variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0 } }}>YOUR IDEA. FIVE DAYS. ONE DEMO.</motion.p>
+      <motion.h2 variants={{ hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0 } }}>そのアイデアを、<br />動く未来に。</motion.h2>
+      <motion.a href="https://example.com" target="_blank" rel="noreferrer" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} whileHover={{ y: -4 }} whileTap={{ scale: 0.98 }}>
         <span>ハッカソンに応募する</span>
         <ArrowUpRight aria-hidden="true" size={30} />
-      </a>
-      <p className="final-cta-note">応募ページは準備中です。公開後、外部サイトへ移動します。</p>
+      </motion.a>
+      <motion.p className="final-cta-note" variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>応募ページは準備中です。公開後、外部サイトへ移動します。</motion.p>
       <div className="final-colorbar" aria-hidden="true"><span /><span /><span /><span /></div>
-    </section>
+    </motion.section>
   );
 }
 

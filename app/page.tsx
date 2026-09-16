@@ -6,19 +6,22 @@ import { Overview } from "@/components/overview";
 import { Prizes } from "@/components/prizes";
 import { Timeline } from "@/components/timeline";
 import { FinalCta, Footer } from "@/components/footer";
+import { MotionShell } from "@/components/motion-shell";
 
 export default function Home() {
   return (
-    <main>
-      <Header />
-      <Hero />
-      <Countdown />
-      <Overview />
-      <Timeline />
-      <Locations />
-      <Prizes />
-      <FinalCta />
-      <Footer />
-    </main>
+    <MotionShell>
+      <main>
+        <Header />
+        <Hero />
+        <Countdown />
+        <Overview />
+        <Timeline />
+        <Locations />
+        <Prizes />
+        <FinalCta />
+        <Footer />
+      </main>
+    </MotionShell>
   );
 }

@@ -1,4 +1,7 @@
+"use client";
+
 import { Monitor, Navigation } from "lucide-react";
+import { motion } from "motion/react";
 import { SectionHeading } from "@/components/section-heading";
 
 const venues = [
@@ -19,9 +22,20 @@ export function Locations() {
         title="あなたの街から、参加できる。"
         description="会場参加とオンライン参加に対応。地域の仲間と集まり、全国のコミュニティとつながりながら開発します。"
       />
-      <div className="venue-grid">
+      <motion.div
+        className="venue-grid"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.12 }}
+        variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.07 } } }}
+      >
         {venues.map((venue) => (
-          <article className="venue-row" key={venue.id}>
+          <motion.article
+            className="venue-row"
+            key={venue.id}
+            variants={{ hidden: { opacity: 0, y: 22 }, visible: { opacity: 1, y: 0 } }}
+            whileHover={{ y: -4 }}
+          >
             <span className={`venue-dot ${venue.color}`} />
             <span className="venue-id">{venue.id}</span>
             <p className="venue-city">{venue.city}</p>
@@ -30,16 +44,21 @@ export function Locations() {
               <p>{venue.place}</p>
             </div>
             {venue.online ? <Monitor aria-hidden="true" /> : <Navigation aria-hidden="true" />}
-          </article>
+          </motion.article>
         ))}
-      </div>
-      <div className="final-location">
+      </motion.div>
+      <motion.div
+        className="final-location"
+        initial={{ opacity: 0, y: 28 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.28 }}
+      >
         <p><span>DEMO DAY VENUE</span> FINALISTS ONLY</p>
         <div>
           <strong>Google<br />渋谷オフィス</strong>
           <p>東京都渋谷区<br />11月27日（金）午後</p>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

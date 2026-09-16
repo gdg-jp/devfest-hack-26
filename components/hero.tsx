@@ -1,49 +1,106 @@
+"use client";
+
 import { ArrowDown, ArrowRight, ArrowUpRight, Braces, Globe2 } from "lucide-react";
+import { motion } from "motion/react";
+
+const item = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0 },
+};
 
 export function Hero() {
   return (
     <section className="hero" id="top">
       <div className="hero-inner">
-        <div className="hero-symbols" aria-hidden="true">
-          <div className="symbol-dots"><span /><span /><span /></div>
-          <div className="symbol-line"><span /><ArrowRight /></div>
-          <Globe2 className="symbol-globe" />
-          <div className="symbol-slashes"><i /><i /></div>
-        </div>
+        <motion.div
+          className="hero-symbols"
+          aria-hidden="true"
+          initial="hidden"
+          animate="visible"
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.12 } } }}
+        >
+          <div className="symbol-dots">
+            {[0, 1, 2].map((dot) => (
+              <motion.span key={dot} variants={{ hidden: { opacity: 0, scale: 0 }, visible: { opacity: 1, scale: 1 } }} />
+            ))}
+          </div>
+          <div className="symbol-line">
+            <motion.span variants={{ hidden: { scaleX: 0 }, visible: { scaleX: 1 } }} />
+            <motion.div variants={{ hidden: { opacity: 0, x: -10 }, visible: { opacity: 1, x: 0 } }}><ArrowRight /></motion.div>
+          </div>
+          <motion.div variants={{ hidden: { opacity: 0, rotate: -20 }, visible: { opacity: 1, rotate: 0 } }}>
+            <Globe2 className="symbol-globe" />
+          </motion.div>
+          <motion.div className="symbol-slashes" variants={{ hidden: { opacity: 0, x: 18 }, visible: { opacity: 1, x: 0 } }}>
+            <i /><i />
+          </motion.div>
+        </motion.div>
 
-        <div className="hero-copy-block">
-          <p className="hero-overline">GOOGLE DEVELOPER GROUPS ON CAMPUS · JAPAN</p>
-          <h1>DevFest<br /><span>Hackathon</span></h1>
-          <div className="hero-year-row">
+        <motion.div
+          className="hero-copy-block"
+          initial="hidden"
+          animate="visible"
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.25 } } }}
+        >
+          <motion.p className="hero-overline" variants={item}>GOOGLE DEVELOPER GROUPS ON CAMPUS · JAPAN</motion.p>
+          <motion.h1 variants={item}>DevFest<br /><span>Hackathon</span></motion.h1>
+          <motion.div className="hero-year-row" variants={item}>
             <strong>2026</strong>
             <p>つくる5日間。<br />つながる、その先へ。</p>
-          </div>
-          <div className="hero-actions">
-            <a className="primary-cta" href="https://example.com" target="_blank" rel="noreferrer">
+          </motion.div>
+          <motion.div className="hero-actions" variants={item}>
+            <motion.a
+              className="primary-cta"
+              href="https://example.com"
+              target="_blank"
+              rel="noreferrer"
+              whileHover={{ y: -3 }}
+              whileTap={{ scale: 0.98 }}
+            >
               ハッカソンに応募する <ArrowUpRight aria-hidden="true" />
-            </a>
-            <a className="scroll-link" href="#about">詳しく見る <ArrowDown aria-hidden="true" size={18} /></a>
-          </div>
-        </div>
+            </motion.a>
+            <a className="scroll-link" href="#about">開催概要を見る <ArrowDown aria-hidden="true" size={18} /></a>
+          </motion.div>
+        </motion.div>
 
-        <aside className="hero-info-panel">
+        <motion.aside
+          className="hero-info-panel"
+          initial={{ opacity: 0, x: 42, scale: 0.97 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ delay: 0.42, duration: 0.78 }}
+        >
           <div className="hero-info-heading">
             <Braces aria-hidden="true" />
-            <span>EVENT INFO</span>
+            <div><span>EVENT OVERVIEW</span><small>AT A GLANCE</small></div>
           </div>
-          <p>全国の学生ビルダーが、Google Cloud PlatformやGeminiを活用してプロダクトを開発する5日間。</p>
-          <dl>
-            <div><dt>REGIONAL ROUND</dt><dd>11.02—14</dd></div>
-            <div><dt>DEVELOPMENT</dt><dd>5 DAYS</dd></div>
-            <div><dt>DEMO DAY</dt><dd>11.27 PM</dd></div>
-          </dl>
-          <small>Tokyo · Osaka · Nagoya · Aizu · Online</small>
-        </aside>
 
-        <div className="hero-brand-lockup">
+          <div className="hero-main-date">
+            <p>REGIONAL ROUND</p>
+            <strong><small>NOV.</small> 02—14</strong>
+            <span>会場ごとに、この期間内の連続5日間で開催</span>
+          </div>
+
+          <div className="hero-date-pair">
+            <div><span>COMMON KICKOFF</span><strong>11.01</strong><small>ONLINE</small></div>
+            <div><span>DEMO DAY</span><strong>11.27</strong><small>PM · SHIBUYA</small></div>
+          </div>
+
+          <ul className="hero-facts" aria-label="イベントの要点">
+            <li>18歳以上の学生対象</li>
+            <li>全国5地域 + オンライン</li>
+            <li>Google Cloud / Gemini</li>
+          </ul>
+        </motion.aside>
+
+        <motion.div
+          className="hero-brand-lockup"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.78 }}
+        >
           <img src="/brand/gdg-lockup.svg" alt="Google Developer Groups" />
           <span><b>Google Developer Groups</b><small>On Campus · Japan</small></span>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

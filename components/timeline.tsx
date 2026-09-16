@@ -1,4 +1,7 @@
+"use client";
+
 import { CalendarDays, Code2, Presentation } from "lucide-react";
+import { motion } from "motion/react";
 import { SectionHeading } from "@/components/section-heading";
 
 export function Timeline() {
@@ -13,40 +16,54 @@ export function Timeline() {
           light
         />
 
-        <div className="schedule-overview">
-          <article className="schedule-milestone">
+        <motion.div
+          className="schedule-overview"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }}
+        >
+          <motion.article className="schedule-milestone" variants={{ hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0 } }}>
             <CalendarDays aria-hidden="true" />
             <p>COMMON KICKOFF · ONLINE</p>
             <strong>11.01</strong>
             <span>テーマ発表・ルール説明</span>
-          </article>
+          </motion.article>
 
-          <article className="development-window">
+          <motion.article className="development-window" variants={{ hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0 } }}>
             <div className="development-label">
               <Code2 aria-hidden="true" />
               <div><p>REGIONAL ROUND</p><h3>5 DAYS DEVELOPMENT</h3></div>
             </div>
             <strong>11.02 — 11.14</strong>
             <p className="development-copy">各会場の開催日程に合わせ、5日間を通して企画・実装・検証・提出まで行います。</p>
-            <div className="development-track" aria-hidden="true"><span /><i>START</i><i>CODE FREEZE</i></div>
-          </article>
+            <div className="development-track" aria-hidden="true">
+              <motion.span initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.35 }} />
+              <i>START</i><i>CODE FREEZE</i>
+            </div>
+          </motion.article>
 
-          <article className="schedule-milestone demo-milestone">
+          <motion.article className="schedule-milestone demo-milestone" variants={{ hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0 } }}>
             <Presentation aria-hidden="true" />
             <p>DEMO DAY · SHIBUYA</p>
             <strong>11.27</strong>
             <span>プレゼンテーション・審査・表彰</span>
-          </article>
-        </div>
+          </motion.article>
+        </motion.div>
 
-        <div className="demo-highlight">
+        <motion.div
+          className="demo-highlight"
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+        >
           <div>
             <span className="demo-badge">FINAL STAGE</span>
             <h3>Demo Day</h3>
           </div>
           <p>ファイナリストがGoogle 渋谷オフィスに集結。プロダクトをプレゼンテーションし、優勝チームを決定します。</p>
           <strong>11.27<br /><span>FRI / PM</span></strong>
-        </div>
+        </motion.div>
         <p className="schedule-caption">※ 各会場の開始日・詳細時刻は決定後に更新します。オンライン参加者は11月2日開発開始、11月6日Code Freezeの予定です。</p>
       </div>
     </section>

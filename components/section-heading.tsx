@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "motion/react";
+
 type SectionHeadingProps = {
   number: string;
   kicker: string;
@@ -8,13 +12,29 @@ type SectionHeadingProps = {
 
 export function SectionHeading({ number, kicker, title, description, light = false }: SectionHeadingProps) {
   return (
-    <header className={`section-heading${light ? " section-heading-light" : ""}`}>
-      <p className="section-index">{number}</p>
-      <div>
+    <motion.header
+      className={`section-heading${light ? " section-heading-light" : ""}`}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.35 }}
+      variants={{
+        hidden: {},
+        visible: { transition: { staggerChildren: 0.09 } },
+      }}
+    >
+      <motion.p className="section-index" variants={{ hidden: { opacity: 0, scale: 0.82 }, visible: { opacity: 1, scale: 1 } }}>{number}</motion.p>
+      <motion.div variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }}>
         <p className="section-kicker">{kicker}</p>
         <h2>{title}</h2>
-      </div>
-      {description ? <p className="section-description">{description}</p> : null}
-    </header>
+      </motion.div>
+      {description ? (
+        <motion.p
+          className="section-description"
+          variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+        >
+          {description}
+        </motion.p>
+      ) : null}
+    </motion.header>
   );
 }

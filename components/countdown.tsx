@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 
 const EVENT_START = new Date("2026-11-01T00:00:00+09:00").getTime();
 
@@ -30,20 +31,36 @@ export function Countdown() {
   ];
 
   return (
-    <section className="countdown" aria-label="共通キックオフまでのカウントダウン">
-      <div className="countdown-label">
+    <motion.section
+      className="countdown"
+      aria-label="共通キックオフまでのカウントダウン"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.72 }}
+    >
+      <motion.div className="countdown-label" initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.82 }}>
         <span className="live-dot" />
         <p>COMMON KICKOFF STARTS IN</p>
-      </div>
-      <div className="countdown-grid" aria-live="polite">
-        {units.map(([label, value]) => (
-          <div className="countdown-unit" key={label}>
-            <strong>{String(value).padStart(2, "0")}</strong>
+      </motion.div>
+      <motion.div className="countdown-grid" aria-live="polite" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.88 }}>
+        {units.map(([label, value], index) => (
+          <motion.div className="countdown-unit" key={label} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.92 + index * 0.06 }}>
+            <AnimatePresence mode="popLayout" initial={false}>
+              <motion.strong
+                key={value}
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 8 }}
+                transition={{ duration: 0.2 }}
+              >
+                {String(value).padStart(2, "0")}
+              </motion.strong>
+            </AnimatePresence>
             <span>{label}</span>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
       <p className="countdown-foot">2026.11.01 / JST</p>
-    </section>
+    </motion.section>
   );
 }
