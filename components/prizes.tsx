@@ -19,7 +19,7 @@ export function Prizes() {
         <SectionHeading
           number="04"
           kicker="WINNER BENEFITS"
-          title="優勝チームに贈られる、次の機会。"
+          title="勝者の特典。"
           description="Demo Dayのプライズは優勝チームのみが対象です。内容はGoogle側で最終調整中のため、確定後に正式情報へ更新します。"
         />
 

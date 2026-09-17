@@ -1,12 +1,10 @@
 "use client";
 
 import { motion } from "motion/react";
-import type { ReactNode } from "react";
-
 type SectionHeadingProps = {
   number: string;
   kicker: string;
-  title: ReactNode;
+  title: string;
   description?: string;
   light?: boolean;
 };

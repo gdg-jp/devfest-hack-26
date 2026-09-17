@@ -629,6 +629,12 @@ body {
 .section-description { max-width: 580px; margin-top: 43px; font-size: 19px; line-height: 1.82; }
 .section-kicker { font-size: 14px; }
 
+/* Section titles are intentionally concise: keep each message as a single,
+   deliberate line on wide screens instead of letting Japanese copy break mid-thought. */
+@media (min-width: 981px) {
+  .section-heading h2 { white-space: nowrap; }
+}
+
 .overview-section { padding-bottom: clamp(104px, 11vw, 150px); }
 .overview-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .overview-fact { min-height: 196px; display: grid; grid-template-columns: 52px 1fr; align-content: start; gap: 20px; padding: 28px; border: 2px solid var(--ink); border-radius: 20px; background: white; }
@@ -739,7 +745,7 @@ body {
   .countdown-unit { min-height: 108px; }
   .countdown-unit strong { font-size: 47px; }
   .section-heading { grid-template-columns: 1fr; gap: 20px; padding: 76px 0 42px; }
-  .section-heading h2 { font-size: clamp(40px, 11.5vw, 56px); }
+  .section-heading h2 { font-size: clamp(38px, 10.5vw, 48px); }
   .section-description { grid-column: 1; font-size: 18px; line-height: 1.75; }
   .overview-fact { grid-template-columns: 46px 1fr; padding: 24px 20px; }
   .overview-fact > svg { width: 44px; height: 44px; }

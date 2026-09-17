@@ -23,7 +23,7 @@ export function Overview() {
       <SectionHeading
         number="01"
         kicker="EVENT OVERVIEW"
-        title={<>まず知ってほしい、<br />開催概要。</>}
+        title="5日間だけ。"
         description="全国の学生がGoogle Cloud PlatformやGeminiを活用し、連続した5日間でプロトタイプを形にするハッカソンです。Regional Roundの日程は会場ごとに異なります。"
       />
 

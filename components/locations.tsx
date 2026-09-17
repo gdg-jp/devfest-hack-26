@@ -20,7 +20,7 @@ export function Locations() {
       <SectionHeading
         number="03"
         kicker="REGIONAL BASES"
-        title="あなたの街から、参加できる。"
+        title="全国6拠点。"
         description="会場参加とオンライン参加に対応。地域の仲間と集まり、全国のコミュニティとつながりながら開発します。"
       />
       <motion.div
