@@ -435,7 +435,7 @@ a { color: inherit; text-decoration: none; }
 .schedule-milestone, .development-window { border: 2px solid var(--ink); border-radius: 22px; background: white; }
 .schedule-milestone { min-height: 360px; display: flex; flex-direction: column; padding: 24px; }
 .schedule-milestone > svg { width: 54px; height: 54px; padding: 12px; border: 2px solid var(--ink); border-radius: 50%; background: var(--yellow-soft); }
-.schedule-milestone > p { margin: auto 0 12px; font-family: "Google Sans Mono", monospace; font-size: 12px; font-weight: 700; line-height: 1.5; }
+.schedule-milestone > p { margin: 28px 0 12px; font-family: "Google Sans Mono", monospace; font-size: 12px; font-weight: 700; line-height: 1.5; }
 .schedule-milestone > strong { font-size: clamp(45px, 5vw, 68px); line-height: 1; font-weight: 700; letter-spacing: -.06em; }
 .schedule-milestone > span { margin-top: 18px; font-size: 14px; line-height: 1.5; }
 .demo-milestone { background: var(--red-soft); }
@@ -928,4 +928,24 @@ p { text-wrap: pretty; }
   .demo-highlight-meta > div + div { border-top: 1.5px solid var(--ink); border-left: 0; }
   .demo-highlight-meta strong { font-size: 49px; }
   .demo-highlight-meta > div + div strong { font-size: 32px; }
+}
+
+/* Footer composition: the organizer stays at the visual center, independent of
+   the width of the brand and utility controls on either side. */
+.footer { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
+.footer-organizer { grid-column: 2; justify-self: center; white-space: nowrap; }
+.footer-actions { grid-column: 3; justify-self: end; display: flex; align-items: center; gap: 34px; }
+.footer-actions p { white-space: nowrap; }
+
+@media (max-width: 980px) {
+  .footer { grid-template-columns: minmax(0, 1fr) auto; }
+  .footer-organizer { grid-column: 1 / -1; grid-row: 2; justify-self: start; }
+  .footer-actions { grid-column: 2; grid-row: 1; }
+}
+
+@media (max-width: 640px) {
+  .footer { grid-template-columns: 1fr; }
+  .footer-organizer, .footer-actions { grid-column: 1; justify-self: start; }
+  .footer-organizer { grid-row: 2; white-space: normal; }
+  .footer-actions { grid-row: 3; align-items: flex-start; flex-direction: column; gap: 14px; }
 }

@@ -28,9 +28,11 @@ export function Footer() {
   return (
     <footer className="footer">
       <div className="footer-brand"><img src="/brand/gdg-lockup.svg" alt="" /><span>DevFest</span> Hackathon 2026</div>
-      <p>Organized by Google Developer Groups in Japan</p>
-      <p>© 2026 DevFest Hackathon</p>
-      <a href="#top" aria-label="ページ上部へ戻る">BACK TO TOP <ArrowUp aria-hidden="true" size={16} /></a>
+      <p className="footer-organizer">Organized by Google Developer Groups on Campus Japan</p>
+      <div className="footer-actions">
+        <p>© 2026 DevFest Hackathon</p>
+        <a href="#top" aria-label="ページ上部へ戻る">BACK TO TOP <ArrowUp aria-hidden="true" size={16} /></a>
+      </div>
     </footer>
   );
 }
