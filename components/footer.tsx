@@ -13,7 +13,7 @@ export function FinalCta() {
       variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
     >
       <motion.p className="final-cta-kicker" variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0 } }}>YOUR IDEA. FIVE DAYS. ONE DEMO.</motion.p>
-      <motion.h2 variants={{ hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0 } }}>そのアイデアを、<br />動く未来に。</motion.h2>
+      <motion.h2 variants={{ hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0 } }}>アイデアを、<br />動く未来に。</motion.h2>
       <motion.a href="https://example.com" target="_blank" rel="noreferrer" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} whileHover={{ y: -4 }} whileTap={{ scale: 0.98 }}>
         <span>ハッカソンに応募する</span>
         <ArrowUpRight aria-hidden="true" size={30} />
@@ -28,7 +28,11 @@ export function Footer() {
   return (
     <footer className="footer">
       <div className="footer-brand"><img src="/brand/gdg-lockup.svg" alt="" /><span>DevFest</span> Hackathon 2026</div>
-      <p className="footer-organizer">Organized by Google Developer Groups on Campus Japan</p>
+      <p className="footer-organizer">
+        <span>Organized by</span>
+        <span>Google Developer Groups</span>
+        <span>on Campus Japan</span>
+      </p>
       <div className="footer-actions">
         <p>© 2026 DevFest Hackathon</p>
         <a href="#top" aria-label="ページ上部へ戻る">BACK TO TOP <ArrowUp aria-hidden="true" size={16} /></a>

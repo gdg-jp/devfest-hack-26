@@ -933,7 +933,7 @@ p { text-wrap: pretty; }
 /* Footer composition: the organizer stays at the visual center, independent of
    the width of the brand and utility controls on either side. */
 .footer { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
-.footer-organizer { grid-column: 2; justify-self: center; white-space: nowrap; }
+.footer-organizer { grid-column: 2; display: flex; justify-self: center; gap: .5em; white-space: nowrap; }
 .footer-actions { grid-column: 3; justify-self: end; display: flex; align-items: center; gap: 34px; }
 .footer-actions p { white-space: nowrap; }
 
@@ -946,6 +946,6 @@ p { text-wrap: pretty; }
 @media (max-width: 640px) {
   .footer { grid-template-columns: 1fr; }
   .footer-organizer, .footer-actions { grid-column: 1; justify-self: start; }
-  .footer-organizer { grid-row: 2; white-space: normal; }
+  .footer-organizer { grid-row: 2; flex-direction: column; gap: 5px; white-space: normal; }
   .footer-actions { grid-row: 3; align-items: flex-start; flex-direction: column; gap: 14px; }
 }
