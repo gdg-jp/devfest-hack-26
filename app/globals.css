@@ -899,11 +899,21 @@ p { text-wrap: pretty; }
 }
 
 @media (max-width: 640px) {
+  .site-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 8px;
+    padding: 10px 12px;
+  }
+  .wordmark { gap: 8px; }
+  .wordmark > img { width: 36px; height: 26px; }
+  .wordmark .wordmark-copy { gap: 1px; padding-left: 8px; font-size: 11px; }
+  .wordmark-copy small { font-size: 9px; }
   .loader-lockup { align-items: center; flex-direction: column; gap: 3px; text-align: center; }
   .loader-lockup p { font-size: 28px; }
   .loader-caption { max-width: 280px; line-height: 1.6; }
   .scroll-progress { height: 3px; }
-  .header-cta { min-height: 46px; padding-inline: 14px; font-size: 14px; }
+  .header-cta { min-height: 42px; gap: 6px; padding-inline: 9px; font-size: 12px; }
+  .header-cta svg { width: 15px; height: 15px; }
   .countdown { padding: 32px 16px 40px; }
   .countdown-head { align-items: stretch; flex-direction: column; gap: 16px; }
   .countdown-foot { align-self: flex-start; justify-self: auto; }
