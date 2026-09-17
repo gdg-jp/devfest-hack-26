@@ -3,6 +3,7 @@
 import { CalendarDays, Cloud, MapPin, TrainFront, Users } from "lucide-react";
 import { motion } from "motion/react";
 import { SectionHeading } from "@/components/section-heading";
+import { cardHover, cardTap, cardTransition, rowHover } from "@/components/motion-presets";
 
 const facts = [
   { icon: Users, label: "WHO", value: "18歳以上の学生", note: "大学・大学院・博士課程／休学中を含む" },
@@ -22,7 +23,7 @@ export function Overview() {
       <SectionHeading
         number="01"
         kicker="EVENT OVERVIEW"
-        title="まず知ってほしい、開催概要。"
+        title={<>まず知ってほしい、<br />開催概要。</>}
         description="全国の学生がGoogle Cloud PlatformやGeminiを活用し、連続した5日間でプロトタイプを形にするハッカソンです。Regional Roundの日程は会場ごとに異なります。"
       />
 
@@ -35,9 +36,12 @@ export function Overview() {
       >
         {facts.map(({ icon: Icon, label, value, note }) => (
           <motion.article
-            className="overview-fact"
+            className="overview-fact motion-card"
             key={label}
             variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }}
+            whileHover={cardHover}
+            whileTap={cardTap}
+            transition={cardTransition}
           >
             <Icon aria-hidden="true" />
             <div><span>{label}</span><strong>{value}</strong><p>{note}</p></div>
@@ -46,11 +50,13 @@ export function Overview() {
       </motion.div>
 
       <motion.div
-        className="overview-schedule"
+        className="overview-schedule motion-card"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.25 }}
         variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.11 } } }}
+        whileHover={{ y: -6 }}
+        transition={cardTransition}
       >
         <div className="overview-schedule-head">
           <CalendarDays aria-hidden="true" />
@@ -62,6 +68,8 @@ export function Overview() {
               className={index === 1 ? "overview-schedule-item is-primary" : "overview-schedule-item"}
               key={event.date}
               variants={{ hidden: { opacity: 0, x: 28 }, visible: { opacity: 1, x: 0 } }}
+              whileHover={rowHover}
+              transition={cardTransition}
             >
               <strong>{event.date}</strong>
               <div><span>{event.eyebrow}</span><h4>{event.title}</h4><p>{event.detail}</p></div>
@@ -71,10 +79,12 @@ export function Overview() {
       </motion.div>
 
       <motion.aside
-        className="overview-note"
+        className="overview-note motion-card"
         initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.6 }}
+        whileHover={cardHover}
+        transition={cardTransition}
       >
         <TrainFront aria-hidden="true" />
         <span>FOR FINALISTS</span>

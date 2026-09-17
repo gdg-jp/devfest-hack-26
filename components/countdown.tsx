@@ -38,29 +38,40 @@ export function Countdown() {
       animate={{ opacity: 1 }}
       transition={{ delay: 0.72 }}
     >
-      <motion.div className="countdown-label" initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.82 }}>
-        <span className="live-dot" />
-        <p>COMMON KICKOFF STARTS IN</p>
-      </motion.div>
-      <motion.div className="countdown-grid" aria-live="polite" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.88 }}>
-        {units.map(([label, value], index) => (
-          <motion.div className="countdown-unit" key={label} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.92 + index * 0.06 }}>
-            <AnimatePresence mode="popLayout" initial={false}>
-              <motion.strong
-                key={value}
-                initial={{ opacity: 0, y: -8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 8 }}
-                transition={{ duration: 0.2 }}
-              >
-                {String(value).padStart(2, "0")}
-              </motion.strong>
-            </AnimatePresence>
-            <span>{label}</span>
+      <div className="countdown-inner">
+        <div className="countdown-head">
+          <motion.div className="countdown-label" initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.82 }}>
+            <span className="live-dot" />
+            <div><p>COMMON KICKOFF STARTS IN</p><small>共通キックオフまで</small></div>
           </motion.div>
-        ))}
-      </motion.div>
-      <p className="countdown-foot">2026.11.01 / JST</p>
+          <motion.p className="countdown-foot" initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.82 }}>2026.11.01 / JST</motion.p>
+        </div>
+        <motion.div className="countdown-grid motion-card" aria-live="polite" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.88 }} whileHover={{ y: -6 }}>
+          {units.map(([label, value], index) => (
+            <motion.div
+              className="countdown-unit"
+              key={label}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              whileHover={{ backgroundColor: ["#c3ecf6", "#f8d8d8", "#ffe7a5", "#ccf6c5"][index], scale: 1.025, transition: { duration: 0.2, delay: 0 } }}
+              transition={{ delay: 0.92 + index * 0.06 }}
+            >
+              <AnimatePresence mode="popLayout" initial={false}>
+                <motion.strong
+                  key={value}
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 8 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {String(value).padStart(2, "0")}
+                </motion.strong>
+              </AnimatePresence>
+              <span>{label}</span>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
     </motion.section>
   );
 }

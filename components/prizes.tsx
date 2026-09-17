@@ -3,6 +3,7 @@
 import { Cloud, Cpu, Presentation, TrainFront, Trophy, Utensils } from "lucide-react";
 import { motion } from "motion/react";
 import { SectionHeading } from "@/components/section-heading";
+import { cardHover, cardTap, cardTransition, rowHover } from "@/components/motion-presets";
 
 const winnerBenefits = [
   { icon: Cpu, title: "Google ハードウェア製品" },
@@ -23,10 +24,12 @@ export function Prizes() {
         />
 
         <motion.article
-          className="winner-prize"
+          className="winner-prize motion-card"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
+          whileHover={{ y: -8, scale: 1.006 }}
+          transition={cardTransition}
         >
           <header>
             <span>DEMO DAY · GRAND PRIZE</span>
@@ -42,6 +45,7 @@ export function Prizes() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.07 }}
+                whileHover={{ ...rowHover, transition: cardTransition }}
               >
                 <Icon aria-hidden="true" />
                 <p>{title}</p>
@@ -52,12 +56,12 @@ export function Prizes() {
         </motion.article>
 
         <div className="participant-benefits">
-          <motion.article className="cloud-credit-card" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.35 }}>
+          <motion.article className="cloud-credit-card motion-card" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.35 }} whileHover={cardHover} whileTap={cardTap} transition={cardTransition}>
             <Cloud aria-hidden="true" />
             <div><span>FOR ALL PARTICIPANTS</span><h3>Google Cloud Credit</h3></div>
             <p>Regional Roundの参加者へ、開発に利用できるGoogle Cloud Creditを配布します。</p>
           </motion.article>
-          <motion.article className="travel-support" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.35 }} transition={{ delay: 0.08 }}>
+          <motion.article className="travel-support motion-card" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.35 }} whileHover={cardHover} whileTap={cardTap} transition={cardTransition}>
             <TrainFront aria-hidden="true" />
             <div><span>FOR FINALISTS</span><h3>Travel Support</h3></div>
             <p>決勝進出者には、Demo Day参加のための東京までの交通費を支援します。</p>

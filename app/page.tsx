@@ -7,10 +7,14 @@ import { Prizes } from "@/components/prizes";
 import { Timeline } from "@/components/timeline";
 import { FinalCta, Footer } from "@/components/footer";
 import { MotionShell } from "@/components/motion-shell";
+import { PageLoader } from "@/components/page-loader";
+import { ScrollProgress } from "@/components/scroll-progress";
 
 export default function Home() {
   return (
     <MotionShell>
+      <PageLoader />
+      <ScrollProgress />
       <main>
         <Header />
         <Hero />

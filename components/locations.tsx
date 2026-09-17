@@ -3,6 +3,7 @@
 import { Monitor, Navigation } from "lucide-react";
 import { motion } from "motion/react";
 import { SectionHeading } from "@/components/section-heading";
+import { cardHover, cardTap, cardTransition } from "@/components/motion-presets";
 
 const venues = [
   { id: "01", city: "TOKYO", name: "東京会場 A", place: "会場調整中", color: "blue" },
@@ -31,10 +32,12 @@ export function Locations() {
       >
         {venues.map((venue) => (
           <motion.article
-            className="venue-row"
+            className="venue-row motion-card"
             key={venue.id}
             variants={{ hidden: { opacity: 0, y: 22 }, visible: { opacity: 1, y: 0 } }}
-            whileHover={{ y: -4 }}
+            whileHover={cardHover}
+            whileTap={cardTap}
+            transition={cardTransition}
           >
             <span className={`venue-dot ${venue.color}`} />
             <span className="venue-id">{venue.id}</span>
@@ -48,10 +51,12 @@ export function Locations() {
         ))}
       </motion.div>
       <motion.div
-        className="final-location"
+        className="final-location motion-card"
         initial={{ opacity: 0, y: 28 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.28 }}
+        whileHover={{ y: -8, scale: 1.008 }}
+        transition={cardTransition}
       >
         <p><span>DEMO DAY VENUE</span> FINALISTS ONLY</p>
         <div>

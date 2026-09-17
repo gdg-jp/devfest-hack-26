@@ -2,6 +2,7 @@
 
 import { ArrowDown, ArrowRight, ArrowUpRight, Braces, Globe2 } from "lucide-react";
 import { motion } from "motion/react";
+import { cardHover, cardTransition } from "@/components/motion-presets";
 
 const item = {
   hidden: { opacity: 0, y: 28 },
@@ -21,7 +22,13 @@ export function Hero() {
         >
           <div className="symbol-dots">
             {[0, 1, 2].map((dot) => (
-              <motion.span key={dot} variants={{ hidden: { opacity: 0, scale: 0 }, visible: { opacity: 1, scale: 1 } }} />
+              <motion.span
+                key={dot}
+                variants={{
+                  hidden: { opacity: 0, scale: 0 },
+                  visible: { opacity: 1, scale: 1, y: [0, -5, 0], transition: { y: { delay: 1 + dot * 0.12, duration: 2.4, repeat: Infinity } } },
+                }}
+              />
             ))}
           </div>
           <div className="symbol-line">
@@ -29,7 +36,7 @@ export function Hero() {
             <motion.div variants={{ hidden: { opacity: 0, x: -10 }, visible: { opacity: 1, x: 0 } }}><ArrowRight /></motion.div>
           </div>
           <motion.div variants={{ hidden: { opacity: 0, rotate: -20 }, visible: { opacity: 1, rotate: 0 } }}>
-            <Globe2 className="symbol-globe" />
+            <motion.div animate={{ rotate: 360 }} transition={{ duration: 28, repeat: Infinity, ease: "linear" }}><Globe2 className="symbol-globe" /></motion.div>
           </motion.div>
           <motion.div className="symbol-slashes" variants={{ hidden: { opacity: 0, x: 18 }, visible: { opacity: 1, x: 0 } }}>
             <i /><i />
@@ -64,10 +71,11 @@ export function Hero() {
         </motion.div>
 
         <motion.aside
-          className="hero-info-panel"
+          className="hero-info-panel motion-card"
           initial={{ opacity: 0, x: 42, scale: 0.97 }}
           animate={{ opacity: 1, x: 0, scale: 1 }}
           transition={{ delay: 0.42, duration: 0.78 }}
+          whileHover={{ ...cardHover, transition: cardTransition }}
         >
           <div className="hero-info-heading">
             <Braces aria-hidden="true" />
@@ -86,17 +94,18 @@ export function Hero() {
           </div>
 
           <ul className="hero-facts" aria-label="イベントの要点">
-            <li>18歳以上の学生対象</li>
-            <li>全国5地域 + オンライン</li>
-            <li>Google Cloud / Gemini</li>
+            {['18歳以上の学生対象', '全国5地域 + オンライン', 'Google Cloud / Gemini'].map((fact) => (
+              <motion.li key={fact} whileHover={{ y: -3, backgroundColor: "#ffe7a5" }} transition={cardTransition}>{fact}</motion.li>
+            ))}
           </ul>
         </motion.aside>
 
         <motion.div
-          className="hero-brand-lockup"
+          className="hero-brand-lockup motion-card"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.78 }}
+          whileHover={{ y: -5, transition: cardTransition }}
         >
           <img src="/brand/gdg-lockup.svg" alt="Google Developer Groups" />
           <span><b>Google Developer Groups</b><small>On Campus · Japan</small></span>
