@@ -18,7 +18,6 @@ export function FinalCta() {
         <span>ハッカソンに応募する</span>
         <ArrowUpRight aria-hidden="true" size={30} />
       </motion.a>
-      <motion.p className="final-cta-note" variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>応募ページは準備中です。公開後、外部サイトへ移動します。</motion.p>
       <div className="final-colorbar" aria-hidden="true"><span /><span /><span /><span /></div>
     </motion.section>
   );
