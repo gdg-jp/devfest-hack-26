@@ -629,11 +629,8 @@ body {
 .section-description { max-width: 580px; margin-top: 43px; font-size: 19px; line-height: 1.82; }
 .section-kicker { font-size: 14px; }
 
-/* Section titles are intentionally concise: keep each message as a single,
-   deliberate line on wide screens instead of letting Japanese copy break mid-thought. */
-@media (min-width: 981px) {
-  .section-heading h2 { white-space: nowrap; }
-}
+/* Explicit line groups keep Japanese headlines visually intentional at every width. */
+.section-title-line { display: block; white-space: nowrap; }
 
 .overview-section { padding-bottom: clamp(104px, 11vw, 150px); }
 .overview-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }

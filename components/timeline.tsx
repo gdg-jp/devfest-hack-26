@@ -12,7 +12,7 @@ export function Timeline() {
         <SectionHeading
           number="02"
           kicker="SCHEDULE"
-          title="5日間の挑戦。"
+          title={<><span className="section-title-line">5日間の、</span><span className="section-title-line">開発に集中。</span></>}
           description="開発期間は途中で区切らず、各会場で連続した5日間として実施します。Regional Roundの開催日は会場ごとに異なります。"
           light
         />

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
 const EVENT_START = new Date("2026-11-01T00:00:00+09:00").getTime();
+const INITIAL_REMAINING = { days: 0, hours: 0, minutes: 0, seconds: 0 };
 
 function getRemaining() {
   const distance = Math.max(0, EVENT_START - Date.now());
@@ -16,9 +17,12 @@ function getRemaining() {
 }
 
 export function Countdown() {
-  const [remaining, setRemaining] = useState(getRemaining);
+  // Keep the first server and client render identical. The live clock begins
+  // immediately after hydration, preventing a one-second SSR/client mismatch.
+  const [remaining, setRemaining] = useState(INITIAL_REMAINING);
 
   useEffect(() => {
+    setRemaining(getRemaining());
     const timer = window.setInterval(() => setRemaining(getRemaining()), 1_000);
     return () => window.clearInterval(timer);
   }, []);
