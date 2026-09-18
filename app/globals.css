@@ -886,7 +886,7 @@ p { text-wrap: pretty; }
     box-shadow: 8px 10px 0 rgba(30, 30, 30, .92);
   }
 
-  .hero-brand-lockup.motion-card:hover { box-shadow: 5px 6px 0 rgba(30, 30, 30, .9); }
+  .hero-brand-lockup.motion-card:hover { box-shadow: none; }
   .countdown-grid.motion-card:hover { box-shadow: 8px 10px 0 rgba(30, 30, 30, .92); }
   .winner-benefit { transition: background-color .2s ease; }
   .winner-benefit:hover { background: var(--yellow-soft); }

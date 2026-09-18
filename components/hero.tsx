@@ -97,7 +97,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.78 }}
-          whileHover={{ y: -5, transition: cardTransition }}
+          whileHover={{ x: 4, transition: cardTransition }}
         >
           <img src="/brand/gdg-lockup.svg" alt="Google Developer Groups" />
           <span><b>Google Developer Groups</b><small>On Campus · Japan</small></span>
