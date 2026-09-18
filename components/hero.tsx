@@ -15,15 +15,21 @@ export function Hero() {
     <section className="hero" id="top">
       <div className="hero-inner">
         <motion.div
+          className="hero-event-logo-wrap"
+          initial={{ opacity: 0, y: 18, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ delay: 0.16, duration: 0.72 }}
+        >
+          <img className="hero-event-logo" src="/brand/devfest-hackathon-logo.png" alt="DevFest Hackathon 2026" />
+        </motion.div>
+
+        <motion.div
           className="hero-copy-block"
           initial="hidden"
           animate="visible"
           variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.25 } } }}
         >
           <motion.p className="hero-overline" variants={item}>GOOGLE DEVELOPER GROUPS ON CAMPUS · JAPAN</motion.p>
-          <motion.div className="hero-event-logo-wrap" variants={item}>
-            <img className="hero-event-logo" src="/brand/devfest-hackathon-logo.png" alt="DevFest Hackathon 2026" />
-          </motion.div>
           <motion.div className="hero-year-row" variants={item}>
             <strong>2026</strong>
             <p>つくる5日間。<br />つながる、その先へ。</p>

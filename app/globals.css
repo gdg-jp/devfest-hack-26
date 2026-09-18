@@ -1003,26 +1003,28 @@ p { text-wrap: pretty; }
 
 /* Hero logo lockup */
 .hero-inner {
-  grid-template-areas: "copy panel" "brand panel";
-  grid-template-rows: minmax(0, 1fr) auto;
+  grid-template-areas: "logo logo" "copy panel" "brand panel";
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 20px clamp(38px, 5vw, 76px);
 }
-.hero-copy-block { align-self: center; }
-.hero-event-logo-wrap { width: min(100%, 860px); margin: 16px 0 0; }
-.hero-event-logo { display: block; width: 100%; height: auto; object-fit: contain; }
-.hero-year-row { margin-top: 38px; }
+.hero-copy-block { align-self: start; padding-top: 10px; }
+.hero-event-logo-wrap { grid-area: logo; width: min(100%, 1220px); margin: 16px auto 4px 0; }
+.hero-event-logo { display: block; width: 100%; height: auto; max-height: 350px; object-fit: contain; object-position: left center; }
+.hero-year-row { margin-top: 32px; }
 .hero-brand-lockup { align-self: end; }
 
 @media (max-width: 980px) {
   .hero-inner {
-    grid-template-areas: "copy" "panel" "brand";
+    grid-template-areas: "logo" "copy" "panel" "brand";
     grid-template-rows: auto;
   }
   .hero-copy-block { align-self: start; }
-  .hero-event-logo-wrap { width: min(100%, 900px); }
+  .hero-event-logo-wrap { width: 100%; margin: 10px auto 0; }
+  .hero-event-logo { max-height: none; }
   .hero-brand-lockup { align-self: start; }
 }
 
 @media (max-width: 640px) {
-  .hero-event-logo-wrap { margin-top: 12px; }
+  .hero-event-logo-wrap { margin-top: 4px; }
   .hero-year-row { margin-top: 28px; }
 }
