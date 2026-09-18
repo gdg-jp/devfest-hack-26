@@ -1,7 +1,7 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
+import { ApplyButton } from "@/components/application-modal";
 
 const navItems = [
   ["About", "#about"],
@@ -22,9 +22,7 @@ export function Header() {
           <motion.a key={href} href={href} whileHover={{ y: -2 }}>{label}</motion.a>
         ))}
       </nav>
-      <motion.a className="header-cta" href="https://example.com" target="_blank" rel="noreferrer" whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}>
-        応募する <ArrowUpRight aria-hidden="true" size={17} />
-      </motion.a>
+      <ApplyButton className="header-cta" />
     </motion.header>
   );
 }

@@ -1,7 +1,8 @@
 "use client";
 
-import { ArrowUp, ArrowUpRight } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import { motion } from "motion/react";
+import { ApplyButton } from "@/components/application-modal";
 
 export function FinalCta() {
   return (
@@ -14,10 +15,7 @@ export function FinalCta() {
     >
       <motion.p className="final-cta-kicker" variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0 } }}>YOUR IDEA. FIVE DAYS. ONE DEMO.</motion.p>
       <motion.h2 variants={{ hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0 } }}>アイデアを、<br />動く未来に。</motion.h2>
-      <motion.a href="https://example.com" target="_blank" rel="noreferrer" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} whileHover={{ y: -4 }} whileTap={{ scale: 0.98 }}>
-        <span>ハッカソンに応募する</span>
-        <ArrowUpRight aria-hidden="true" size={30} />
-      </motion.a>
+      <ApplyButton className="final-apply-button">ハッカソンに応募する</ApplyButton>
       <div className="final-colorbar" aria-hidden="true"><span /><span /><span /><span /></div>
     </motion.section>
   );

@@ -1,8 +1,9 @@
 "use client";
 
-import { ArrowDown, ArrowRight, ArrowUpRight, Braces, Globe2 } from "lucide-react";
+import { ArrowDown, ArrowRight, Braces, Globe2 } from "lucide-react";
 import { motion } from "motion/react";
 import { cardHover, cardTransition } from "@/components/motion-presets";
+import { ApplyButton } from "@/components/application-modal";
 
 const item = {
   hidden: { opacity: 0, y: 28 },
@@ -56,16 +57,7 @@ export function Hero() {
             <p>つくる5日間。<br />つながる、その先へ。</p>
           </motion.div>
           <motion.div className="hero-actions" variants={item}>
-            <motion.a
-              className="primary-cta"
-              href="https://example.com"
-              target="_blank"
-              rel="noreferrer"
-              whileHover={{ y: -3 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              ハッカソンに応募する <ArrowUpRight aria-hidden="true" />
-            </motion.a>
+            <ApplyButton className="primary-cta" >ハッカソンに応募する</ApplyButton>
             <a className="scroll-link" href="#about">開催概要を見る <ArrowDown aria-hidden="true" size={18} /></a>
           </motion.div>
         </motion.div>

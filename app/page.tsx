@@ -9,23 +9,26 @@ import { FinalCta, Footer } from "@/components/footer";
 import { MotionShell } from "@/components/motion-shell";
 import { PageLoader } from "@/components/page-loader";
 import { ScrollProgress } from "@/components/scroll-progress";
+import { ApplicationModalProvider } from "@/components/application-modal";
 
 export default function Home() {
   return (
     <MotionShell>
-      <PageLoader />
-      <ScrollProgress />
-      <main>
-        <Header />
-        <Hero />
-        <Countdown />
-        <Overview />
-        <Timeline />
-        <Locations />
-        <Prizes />
-        <FinalCta />
-        <Footer />
-      </main>
+      <ApplicationModalProvider>
+        <PageLoader />
+        <ScrollProgress />
+        <main>
+          <Header />
+          <Hero />
+          <Countdown />
+          <Overview />
+          <Timeline />
+          <Locations />
+          <Prizes />
+          <FinalCta />
+          <Footer />
+        </main>
+      </ApplicationModalProvider>
     </MotionShell>
   );
 }
