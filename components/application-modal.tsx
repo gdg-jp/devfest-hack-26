@@ -13,7 +13,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-export const APPLICATION_URL = "https://example.com";
+export const APPLICATION_URL = "https://www.craftstadium.com/organizer/google-developer-groups-on-campus-japan-96";
 
 type ApplicationModalContextValue = {
   open: () => void;
