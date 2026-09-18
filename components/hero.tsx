@@ -51,7 +51,10 @@ export function Hero() {
           variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.25 } } }}
         >
           <motion.p className="hero-overline" variants={item}>GOOGLE DEVELOPER GROUPS ON CAMPUS · JAPAN</motion.p>
-          <motion.h1 variants={item}>DevFest<br /><span>Hackathon</span></motion.h1>
+          <motion.h1 variants={item} aria-label="DevFest Hackathon">
+            <span className="hero-title-brand">DevFest</span>
+            <span className="hero-title-main">Hackathon</span>
+          </motion.h1>
           <motion.div className="hero-year-row" variants={item}>
             <strong>2026</strong>
             <p>つくる5日間。<br />つながる、その先へ。</p>
