@@ -1053,7 +1053,8 @@ p { text-wrap: pretty; }
 .hero-event-logo { display: block; width: min(100%, 980px); height: auto; margin: auto; object-fit: contain; }
 .hero-copy-block { align-self: start; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 42px; padding: 24px 0 8px; border-top: 2px solid var(--ink); }
 .hero-copy-block .hero-year-row { margin-top: 0; }
-.hero-copy-block .hero-year-row > p { white-space: nowrap; }
+.hero-copy-block .hero-year-row { gap: 22px; }
+.hero-copy-block .hero-year-row > p { white-space: nowrap; font-size: clamp(19px, 1.7vw, 25px); }
 .hero-copy-block .hero-actions { margin-top: 0; }
 .hero-info-panel { align-self: start; height: fit-content; }
 .hero-brand-lockup { align-self: start; justify-self: end; }
