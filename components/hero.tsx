@@ -25,18 +25,18 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          className="hero-logo-stage motion-card"
+          className="hero-logo-field"
           initial={{ opacity: 0, y: 24, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ delay: 0.12, duration: 0.72 }}
-          whileHover={{ ...cardHover, transition: cardTransition }}
+          whileHover={{ scale: 1.01, transition: { duration: 0.45 } }}
         >
-          <div className="hero-logo-stage-head">
+          <div className="hero-logo-field-meta">
             <span>DEVFEST HACKATHON 2026</span>
             <span>BUILD / SHARE / GROW</span>
           </div>
           <img className="hero-event-logo" src="/brand/devfest-hackathon-logo.png" alt="DevFest Hackathon 2026" />
-          <div className="hero-logo-stage-foot">
+          <div className="hero-logo-field-meta hero-logo-field-meta--bottom">
             <strong>5 DAYS</strong>
             <span>Regional Round → Demo Day</span>
           </div>
@@ -58,13 +58,8 @@ export function Hero() {
           </motion.div>
         </motion.div>
 
-        <motion.aside
-          className="hero-info-panel motion-card"
-          initial={{ opacity: 0, x: 42, scale: 0.97 }}
-          animate={{ opacity: 1, x: 0, scale: 1 }}
-          transition={{ delay: 0.42, duration: 0.78 }}
-          whileHover={{ ...cardHover, transition: cardTransition }}
-        >
+        <motion.div className="hero-side-rail" initial={{ opacity: 0, x: 42 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.42, duration: 0.78 }}>
+          <motion.aside className="hero-info-panel motion-card" whileHover={{ ...cardHover, transition: cardTransition }}>
           <div className="hero-info-heading">
             <Braces aria-hidden="true" />
             <div><span>EVENT DATA</span><small>AT A GLANCE</small></div>
@@ -86,9 +81,9 @@ export function Hero() {
               <motion.li key={fact} whileHover={{ y: -3, backgroundColor: "#ffe7a5" }} transition={cardTransition}>{fact}</motion.li>
             ))}
           </ul>
-        </motion.aside>
+          </motion.aside>
 
-        <motion.div
+          <motion.div
           className="hero-brand-lockup motion-card"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -97,6 +92,7 @@ export function Hero() {
         >
           <img src="/brand/gdg-lockup.svg" alt="Google Developer Groups" />
           <span><b>Google Developer Groups</b><small>On Campus · Japan</small></span>
+          </motion.div>
         </motion.div>
       </div>
     </section>

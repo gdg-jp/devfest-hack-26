@@ -1053,6 +1053,7 @@ p { text-wrap: pretty; }
 .hero-event-logo { display: block; width: min(100%, 980px); height: auto; margin: auto; object-fit: contain; }
 .hero-copy-block { align-self: start; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 42px; padding: 24px 0 8px; border-top: 2px solid var(--ink); }
 .hero-copy-block .hero-year-row { margin-top: 0; }
+.hero-copy-block .hero-year-row > p { white-space: nowrap; }
 .hero-copy-block .hero-actions { margin-top: 0; }
 .hero-info-panel { align-self: start; height: fit-content; }
 .hero-brand-lockup { align-self: start; justify-self: end; }
@@ -1074,5 +1075,93 @@ p { text-wrap: pretty; }
   .hero-logo-stage { min-height: 250px; padding: 18px; border-radius: 22px 22px 22px 7px; }
   .hero-logo-stage-head, .hero-logo-stage-foot { font-size: 9px; }
   .hero-logo-stage-foot strong { font-size: 15px; }
+  .hero-copy-block { padding-top: 20px; }
+}
+
+/* Final hero composition: the event mark is an editorial masthead, not a card. */
+.hero-inner {
+  grid-template-columns: minmax(0, 1.45fr) minmax(320px, .75fr);
+  grid-template-areas:
+    "topline topline"
+    "logo side"
+    "copy side";
+  grid-template-rows: auto auto auto;
+  gap: 24px clamp(32px, 4.5vw, 72px);
+  align-items: start;
+}
+.hero-logo-field {
+  grid-area: logo;
+  min-height: 470px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px 0 0;
+}
+.hero-logo-field-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding-bottom: 13px;
+  border-bottom: 2px solid var(--ink);
+  font-family: "Google Sans Mono", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+.hero-logo-field-meta span:last-child { color: var(--blue-deep); }
+.hero-logo-field-meta--bottom {
+  padding: 16px 0 0;
+  border-top: 2px solid var(--ink);
+  border-bottom: 0;
+}
+.hero-logo-field-meta--bottom strong { color: var(--blue-deep); font-size: 18px; }
+.hero-logo-field-meta--bottom span { color: var(--muted); }
+.hero-event-logo {
+  display: block;
+  width: min(100%, 1080px);
+  height: auto;
+  margin: auto;
+  object-fit: contain;
+}
+.hero-copy-block {
+  grid-area: copy;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 32px;
+  padding: 22px 0 4px;
+  border-top: 2px solid var(--ink);
+}
+.hero-copy-block .hero-year-row { margin-top: 0; }
+.hero-copy-block .hero-actions { margin-top: 0; }
+.hero-side-rail {
+  grid-area: side;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-self: stretch;
+}
+.hero-side-rail .hero-info-panel { align-self: stretch; height: auto; }
+.hero-side-rail .hero-brand-lockup { align-self: stretch; justify-self: auto; }
+
+@media (max-width: 980px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    grid-template-areas: "topline" "logo" "side" "copy";
+    grid-template-rows: auto;
+    gap: 22px;
+  }
+  .hero-logo-field { min-height: 360px; }
+  .hero-side-rail { align-self: start; width: 100%; }
+  .hero-copy-block { grid-template-columns: 1fr; row-gap: 20px; }
+  .hero-copy-block .hero-year-row > p { white-space: normal; }
+}
+
+@media (max-width: 640px) {
+  .hero-logo-field { min-height: 250px; padding-top: 0; }
+  .hero-logo-field-meta { font-size: 9px; }
+  .hero-logo-field-meta--bottom { padding-top: 12px; }
+  .hero-logo-field-meta--bottom strong { font-size: 15px; }
   .hero-copy-block { padding-top: 20px; }
 }
