@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowDown, ArrowRight, Braces, Globe2 } from "lucide-react";
+import { ArrowDown, Braces } from "lucide-react";
 import { motion } from "motion/react";
 import { cardHover, cardTransition } from "@/components/motion-presets";
 import { ApplyButton } from "@/components/application-modal";
@@ -15,43 +15,15 @@ export function Hero() {
     <section className="hero" id="top">
       <div className="hero-inner">
         <motion.div
-          className="hero-symbols"
-          aria-hidden="true"
-          initial="hidden"
-          animate="visible"
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.12 } } }}
-        >
-          <div className="symbol-dots">
-            {[0, 1, 2].map((dot) => (
-              <motion.span
-                key={dot}
-                variants={{
-                  hidden: { opacity: 0, scale: 0 },
-                  visible: { opacity: 1, scale: 1, y: [0, -5, 0], transition: { y: { delay: 1 + dot * 0.12, duration: 2.4, repeat: Infinity } } },
-                }}
-              />
-            ))}
-          </div>
-          <div className="symbol-line">
-            <motion.span variants={{ hidden: { scaleX: 0 }, visible: { scaleX: 1 } }} />
-            <motion.div variants={{ hidden: { opacity: 0, x: -10 }, visible: { opacity: 1, x: 0 } }}><ArrowRight /></motion.div>
-          </div>
-          <motion.div variants={{ hidden: { opacity: 0, rotate: -20 }, visible: { opacity: 1, rotate: 0 } }}>
-            <motion.div animate={{ rotate: 360 }} transition={{ duration: 28, repeat: Infinity, ease: "linear" }}><Globe2 className="symbol-globe" /></motion.div>
-          </motion.div>
-          <motion.div className="symbol-slashes" variants={{ hidden: { opacity: 0, x: 18 }, visible: { opacity: 1, x: 0 } }}>
-            <i /><i />
-          </motion.div>
-        </motion.div>
-
-        <motion.div
           className="hero-copy-block"
           initial="hidden"
           animate="visible"
           variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.25 } } }}
         >
           <motion.p className="hero-overline" variants={item}>GOOGLE DEVELOPER GROUPS ON CAMPUS · JAPAN</motion.p>
-          <motion.h1 variants={item}>DevFest<br /><span>Hackathon</span></motion.h1>
+          <motion.div className="hero-event-logo-wrap" variants={item}>
+            <img className="hero-event-logo" src="/brand/devfest-hackathon-logo.png" alt="DevFest Hackathon 2026" />
+          </motion.div>
           <motion.div className="hero-year-row" variants={item}>
             <strong>2026</strong>
             <p>つくる5日間。<br />つながる、その先へ。</p>
