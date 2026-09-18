@@ -15,12 +15,31 @@ export function Hero() {
     <section className="hero" id="top">
       <div className="hero-inner">
         <motion.div
-          className="hero-event-logo-wrap"
-          initial={{ opacity: 0, y: 18, scale: 0.98 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ delay: 0.16, duration: 0.72 }}
+          className="hero-topline"
+          initial={{ opacity: 0, y: -12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55 }}
         >
+          <span>GOOGLE DEVELOPER GROUPS ON CAMPUS · JAPAN</span>
+          <strong>01 / 04 — OPEN CALL</strong>
+        </motion.div>
+
+        <motion.div
+          className="hero-logo-stage motion-card"
+          initial={{ opacity: 0, y: 24, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ delay: 0.12, duration: 0.72 }}
+          whileHover={{ ...cardHover, transition: cardTransition }}
+        >
+          <div className="hero-logo-stage-head">
+            <span>DEVFEST HACKATHON 2026</span>
+            <span>BUILD / SHARE / GROW</span>
+          </div>
           <img className="hero-event-logo" src="/brand/devfest-hackathon-logo.png" alt="DevFest Hackathon 2026" />
+          <div className="hero-logo-stage-foot">
+            <strong>5 DAYS</strong>
+            <span>Regional Round → Demo Day</span>
+          </div>
         </motion.div>
 
         <motion.div
@@ -29,7 +48,6 @@ export function Hero() {
           animate="visible"
           variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.25 } } }}
         >
-          <motion.p className="hero-overline" variants={item}>GOOGLE DEVELOPER GROUPS ON CAMPUS · JAPAN</motion.p>
           <motion.div className="hero-year-row" variants={item}>
             <strong>2026</strong>
             <p>つくる5日間。<br />つながる、その先へ。</p>
@@ -49,7 +67,7 @@ export function Hero() {
         >
           <div className="hero-info-heading">
             <Braces aria-hidden="true" />
-            <div><span>EVENT OVERVIEW</span><small>AT A GLANCE</small></div>
+            <div><span>EVENT DATA</span><small>AT A GLANCE</small></div>
           </div>
 
           <div className="hero-main-date">

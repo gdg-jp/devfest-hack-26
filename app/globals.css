@@ -1028,3 +1028,47 @@ p { text-wrap: pretty; }
   .hero-event-logo-wrap { margin-top: 4px; }
   .hero-year-row { margin-top: 28px; }
 }
+
+/* Hero reconstruction: the event mark is the primary visual, with the data rail kept secondary. */
+.hero {
+  min-height: 0;
+  padding-top: 104px;
+  padding-bottom: 58px;
+}
+.hero-inner {
+  min-height: 0;
+  grid-template-columns: minmax(0, 1.42fr) minmax(350px, .78fr);
+  grid-template-areas: "topline topline" "stage panel" "copy panel" "brand panel";
+  grid-template-rows: auto auto auto auto;
+  gap: 18px clamp(26px, 4vw, 58px);
+}
+.hero-topline { grid-area: topline; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-bottom: 13px; border-bottom: 2px solid var(--ink); font-family: "Google Sans Mono", monospace; font-size: 12px; font-weight: 700; letter-spacing: .045em; }
+.hero-topline strong { padding: 8px 12px; border: 2px solid var(--ink); border-radius: 999px; background: var(--yellow-soft); font-size: 11px; white-space: nowrap; }
+.hero-logo-stage { grid-area: stage; min-height: 400px; display: flex; flex-direction: column; justify-content: space-between; padding: clamp(22px, 3vw, 38px); border: 2px solid var(--ink); border-radius: 30px 30px 30px 8px; background: var(--white); box-shadow: 10px 10px 0 rgba(30, 30, 30, .1); overflow: hidden; }
+.hero-logo-stage-head, .hero-logo-stage-foot { display: flex; align-items: center; justify-content: space-between; gap: 18px; font-family: "Google Sans Mono", monospace; font-size: 12px; font-weight: 700; letter-spacing: .04em; }
+.hero-logo-stage-head span:last-child { color: var(--blue-deep); }
+.hero-logo-stage-foot { padding-top: 18px; border-top: 2px solid var(--ink); }
+.hero-logo-stage-foot strong { color: var(--blue-deep); font-size: 18px; }
+.hero-logo-stage-foot span { color: var(--muted); }
+.hero-event-logo { display: block; width: min(100%, 980px); height: auto; margin: auto; object-fit: contain; }
+.hero-copy-block { align-self: start; padding: 16px 0 10px; }
+.hero-copy-block .hero-year-row { margin-top: 0; }
+.hero-info-panel { align-self: stretch; }
+.hero-brand-lockup { align-self: start; }
+
+@media (max-width: 980px) {
+  .hero-inner { grid-template-columns: 1fr; grid-template-areas: "topline" "stage" "copy" "panel" "brand"; }
+  .hero-topline { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .hero-logo-stage { min-height: 360px; }
+  .hero-info-panel { align-self: start; }
+}
+
+@media (max-width: 640px) {
+  .hero { padding-top: 88px; }
+  .hero-topline { font-size: 10px; }
+  .hero-topline strong { font-size: 10px; }
+  .hero-logo-stage { min-height: 250px; padding: 18px; border-radius: 22px 22px 22px 7px; }
+  .hero-logo-stage-head, .hero-logo-stage-foot { font-size: 9px; }
+  .hero-logo-stage-foot strong { font-size: 15px; }
+  .hero-copy-block { padding-top: 8px; }
+}
