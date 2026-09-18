@@ -464,6 +464,25 @@ a { color: inherit; text-decoration: none; }
 .hero-brand-lockup > span { display: flex; flex-direction: column; gap: 2px; font-size: 15px; line-height: 1; }
 .hero-brand-lockup small { color: var(--blue); font-size: 12px; font-weight: 700; }
 
+/* The organizer lockup is a footer rail, not a floating third card. */
+.hero-inner { grid-template-areas: "symbols symbols" "copy panel" "brand brand"; }
+.hero-brand-lockup {
+  justify-self: stretch;
+  width: auto;
+  padding: 18px 0 0;
+  border: 0;
+  border-top: 2px solid var(--ink);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.hero-brand-lockup img { width: 64px; height: 38px; }
+
+@media (max-width: 980px) {
+  .hero-inner { grid-template-areas: "symbols" "copy" "panel" "brand"; }
+  .hero-brand-lockup { justify-self: stretch; width: auto; }
+}
+
 .countdown { background: var(--red-soft); border-bottom-width: 2px; }
 .countdown-grid { border-width: 2px; box-shadow: none; }
 .countdown-unit { border-right-width: 2px; }
