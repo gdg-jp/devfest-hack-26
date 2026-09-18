@@ -1111,6 +1111,7 @@ p { text-wrap: pretty; }
   letter-spacing: .04em;
 }
 .hero-logo-field-meta span:last-child { color: var(--blue-deep); }
+.hero-logo-field-meta:not(.hero-logo-field-meta--bottom) { border-bottom: 0; }
 .hero-logo-field-meta--bottom {
   padding: 16px 0 0;
   border-top: 2px solid var(--ink);
@@ -1132,7 +1133,7 @@ p { text-wrap: pretty; }
   align-items: center;
   column-gap: 32px;
   padding: 22px 0 4px;
-  border-top: 2px solid var(--ink);
+  border-top: 0;
 }
 .hero-copy-block .hero-year-row { margin-top: 0; }
 .hero-copy-block .hero-actions { margin-top: 0; }
