@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowDown, Braces } from "lucide-react";
+import { ArrowDown, ArrowRight, Braces, Globe2 } from "lucide-react";
 import { motion } from "motion/react";
 import { cardHover, cardTransition } from "@/components/motion-presets";
 import { ApplyButton } from "@/components/application-modal";
@@ -15,31 +15,33 @@ export function Hero() {
     <section className="hero" id="top">
       <div className="hero-inner">
         <motion.div
-          className="hero-topline"
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55 }}
+          className="hero-symbols"
+          aria-hidden="true"
+          initial="hidden"
+          animate="visible"
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.12 } } }}
         >
-          <span>GOOGLE DEVELOPER GROUPS ON CAMPUS · JAPAN</span>
-          <strong>01 / 04 — OPEN CALL</strong>
-        </motion.div>
-
-        <motion.div
-          className="hero-logo-field"
-          initial={{ opacity: 0, y: 24, scale: 0.98 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ delay: 0.12, duration: 0.72 }}
-          whileHover={{ scale: 1.01, transition: { duration: 0.45 } }}
-        >
-          <div className="hero-logo-field-meta">
-            <span>DEVFEST HACKATHON 2026</span>
-            <span>BUILD / SHARE / GROW</span>
+          <div className="symbol-dots">
+            {[0, 1, 2].map((dot) => (
+              <motion.span
+                key={dot}
+                variants={{
+                  hidden: { opacity: 0, scale: 0 },
+                  visible: { opacity: 1, scale: 1, y: [0, -5, 0], transition: { y: { delay: 1 + dot * 0.12, duration: 2.4, repeat: Infinity } } },
+                }}
+              />
+            ))}
           </div>
-          <img className="hero-event-logo" src="/brand/devfest-hackathon-logo.png" alt="DevFest Hackathon 2026" />
-          <div className="hero-logo-field-meta hero-logo-field-meta--bottom">
-            <strong>5 DAYS</strong>
-            <span>Regional Round → Demo Day</span>
+          <div className="symbol-line">
+            <motion.span variants={{ hidden: { scaleX: 0 }, visible: { scaleX: 1 } }} />
+            <motion.div variants={{ hidden: { opacity: 0, x: -10 }, visible: { opacity: 1, x: 0 } }}><ArrowRight /></motion.div>
           </div>
+          <motion.div variants={{ hidden: { opacity: 0, rotate: -20 }, visible: { opacity: 1, rotate: 0 } }}>
+            <motion.div animate={{ rotate: 360 }} transition={{ duration: 28, repeat: Infinity, ease: "linear" }}><Globe2 className="symbol-globe" /></motion.div>
+          </motion.div>
+          <motion.div className="symbol-slashes" variants={{ hidden: { opacity: 0, x: 18 }, visible: { opacity: 1, x: 0 } }}>
+            <i /><i />
+          </motion.div>
         </motion.div>
 
         <motion.div
@@ -48,6 +50,8 @@ export function Hero() {
           animate="visible"
           variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.25 } } }}
         >
+          <motion.p className="hero-overline" variants={item}>GOOGLE DEVELOPER GROUPS ON CAMPUS · JAPAN</motion.p>
+          <motion.h1 variants={item}>DevFest<br /><span>Hackathon</span></motion.h1>
           <motion.div className="hero-year-row" variants={item}>
             <strong>2026</strong>
             <p>つくる5日間。<br />つながる、その先へ。</p>
@@ -58,11 +62,16 @@ export function Hero() {
           </motion.div>
         </motion.div>
 
-        <motion.div className="hero-side-rail" initial={{ opacity: 0, x: 42 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.42, duration: 0.78 }}>
-          <motion.aside className="hero-info-panel motion-card" whileHover={{ ...cardHover, transition: cardTransition }}>
+        <motion.aside
+          className="hero-info-panel motion-card"
+          initial={{ opacity: 0, x: 42, scale: 0.97 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ delay: 0.42, duration: 0.78 }}
+          whileHover={{ ...cardHover, transition: cardTransition }}
+        >
           <div className="hero-info-heading">
             <Braces aria-hidden="true" />
-            <div><span>EVENT DATA</span><small>AT A GLANCE</small></div>
+            <div><span>EVENT OVERVIEW</span><small>AT A GLANCE</small></div>
           </div>
 
           <div className="hero-main-date">
@@ -81,9 +90,9 @@ export function Hero() {
               <motion.li key={fact} whileHover={{ y: -3, backgroundColor: "#ffe7a5" }} transition={cardTransition}>{fact}</motion.li>
             ))}
           </ul>
-          </motion.aside>
+        </motion.aside>
 
-          <motion.div
+        <motion.div
           className="hero-brand-lockup motion-card"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -92,7 +101,6 @@ export function Hero() {
         >
           <img src="/brand/gdg-lockup.svg" alt="Google Developer Groups" />
           <span><b>Google Developer Groups</b><small>On Campus · Japan</small></span>
-          </motion.div>
         </motion.div>
       </div>
     </section>
