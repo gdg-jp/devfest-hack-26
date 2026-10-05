@@ -2,8 +2,10 @@
 
 import type { ReactNode } from "react";
 import { createContext, useContext, useState } from "react";
-import { ArrowUpRight, X } from "lucide-react";
+import { ArrowUpRight, Check, X } from "lucide-react";
 import { motion } from "motion/react";
+import { Dots } from "@/components/brand-shapes";
+import { useI18n } from "@/components/i18n-provider";
 import {
   Dialog,
   DialogClose,
@@ -12,8 +14,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-
-export const APPLICATION_URL = "https://www.craftstadium.com/organizer/google-developer-groups-on-campus-japan-96";
+import { APPLICATION_URL } from "@/lib/event";
 
 type ApplicationModalContextValue = {
   open: () => void;
@@ -35,13 +36,16 @@ export function ApplicationModalProvider({ children }: { children: ReactNode }) 
 }
 
 export function ApplyButton({
-  children = "応募する",
+  children,
   className,
+  onOpen,
 }: {
   children?: ReactNode;
   className?: string;
+  onOpen?: () => void;
 }) {
   const context = useContext(ApplicationModalContext);
+  const { t } = useI18n();
 
   if (!context) {
     throw new Error("ApplyButton must be used inside ApplicationModalProvider");
@@ -52,58 +56,99 @@ export function ApplyButton({
       type="button"
       className={className}
       aria-haspopup="dialog"
-      onClick={context.open}
-      whileHover={{ y: -3 }}
-      whileTap={{ scale: 0.98 }}
+      onClick={() => {
+        onOpen?.();
+        context.open();
+      }}
+      whileHover="hover"
+      whileTap={{ scale: 0.97 }}
     >
-      <span>{children}</span>
-      <ArrowUpRight aria-hidden="true" />
+      <span className="btn-label">{children ?? t.common.apply}</span>
+      <motion.span
+        className="btn-icon"
+        variants={{ hover: { rotate: 45 } }}
+        transition={{ type: "spring", stiffness: 400, damping: 18 }}
+        aria-hidden="true"
+      >
+        <ArrowUpRight />
+      </motion.span>
     </motion.button>
   );
 }
 
+const listMotion = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.05, delayChildren: 0.15 } },
+};
+
+const itemMotion = {
+  hidden: { opacity: 0, x: -12 },
+  visible: { opacity: 1, x: 0 },
+};
+
 function ApplicationModalContent() {
+  const { t } = useI18n();
+  const copy = t.modal;
+
   return (
     <DialogContent className="application-dialog" showCloseButton={false}>
       <div className="application-dialog-bar" aria-hidden="true">
         <span /><span /><span /><span />
       </div>
-      <DialogClose className="application-dialog-close" aria-label="応募条件を閉じる">
+      <DialogClose className="application-dialog-close" aria-label={copy.close}>
         <X aria-hidden="true" size={20} />
       </DialogClose>
       <DialogHeader className="application-dialog-header">
-        <p className="application-dialog-kicker">BEFORE YOU APPLY</p>
-        <DialogTitle>応募対象を確認してください</DialogTitle>
-        <DialogDescription>
-          以下の条件を満たしていることを確認してから、応募ページへ進んでください。
-        </DialogDescription>
+        <Dots className="application-dialog-dots" bounce />
+        <p className="application-dialog-kicker">{copy.kicker}</p>
+        <DialogTitle>{copy.title}</DialogTitle>
+        <DialogDescription>{copy.description}</DialogDescription>
       </DialogHeader>
       <div className="application-dialog-scroll">
         <section aria-labelledby="application-eligibility-title">
-          <h3 id="application-eligibility-title">応募対象</h3>
-          <ul>
-            <li>応募期間の開始時から賞品授与時（ハッカソン開催日当日）まで、日本国内の大学・大学院に在籍し、日本に居住する学生であること</li>
-            <li>2 名以上 4 名以下のチームであること</li>
-            <li>
-              チームメンバー全員が、以下の条件を満たしていること
-              <ul>
-                <li>応募期間の開始時から賞品授与時（ハッカソン開催日当日）まで、日本国内の大学・大学院に在籍し、日本に居住していること</li>
-                <li>応募時点で 18 歳以上であること</li>
-              </ul>
-            </li>
-            <li>異なる大学に所属するメンバー同士でのチーム編成も可能です</li>
-            <li>ソフトウェア開発やコーディングの経験は問いません。ただし、AI を活用したプロダクト開発に関心があることが必要です</li>
-            <li>留学生および外国籍の方も応募可能です。プログラムは日本語で進行するため、チーム活動、メンタリング、発表に参加できる日本語力が必要です</li>
-          </ul>
+          <h3 id="application-eligibility-title">{copy.sectionTitle}</h3>
+          <motion.ul initial="hidden" animate="visible" variants={listMotion}>
+            {copy.items.map((item) => (
+              <motion.li key={item} variants={itemMotion}>
+                <Check aria-hidden="true" />
+                <div>{item}</div>
+              </motion.li>
+            ))}
+            <motion.li variants={itemMotion}>
+              <Check aria-hidden="true" />
+              <div>
+                {copy.memberLead}
+                <ul>
+                  {copy.memberItems.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </motion.li>
+            {copy.notes.map((item) => (
+              <motion.li key={item} variants={itemMotion}>
+                <Check aria-hidden="true" />
+                <div>{item}</div>
+              </motion.li>
+            ))}
+          </motion.ul>
         </section>
       </div>
       <div className="application-dialog-actions">
         <DialogClose asChild>
-          <button type="button" className="application-dialog-back">戻る</button>
+          <button type="button" className="btn btn-ghost">{copy.back}</button>
         </DialogClose>
-        <a href={APPLICATION_URL} target="_blank" rel="noreferrer" className="application-dialog-continue">
-          応募ページへ進む <ArrowUpRight aria-hidden="true" size={19} />
-        </a>
+        <motion.a
+          href={APPLICATION_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="btn btn-apply"
+          whileHover={{ y: -2 }}
+          whileTap={{ scale: 0.97 }}
+        >
+          <span className="btn-label">{copy.continue}</span>
+          <span className="btn-icon" aria-hidden="true"><ArrowUpRight /></span>
+        </motion.a>
       </div>
     </DialogContent>
   );
