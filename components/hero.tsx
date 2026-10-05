@@ -53,8 +53,6 @@ type ShapeConfig = {
   className: string;
   depth: number;
   delay: number;
-  float: number;
-  duration: number;
   children: ReactNode;
 };
 
@@ -69,21 +67,17 @@ function HeroShape({ config, pointerX, pointerY, draggable }: { config: ShapeCon
         animate={{ scale: 1, rotate: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 190, damping: 14, delay: INTRO + config.delay }}
       >
+        {/* Shapes sit still: only the asterisk and globe keep their own rotation. */}
         <motion.div
-          animate={{ y: [0, -config.float, 0] }}
-          transition={{ duration: config.duration, repeat: Infinity, ease: "easeInOut", delay: config.delay }}
+          className="hero-shape-grip"
+          drag={draggable}
+          dragSnapToOrigin
+          dragElastic={0.55}
+          whileHover={{ scale: 1.07, rotate: -4 }}
+          whileDrag={{ scale: 1.14, rotate: 8, cursor: "grabbing" }}
+          transition={spring}
         >
-          <motion.div
-            className="hero-shape-grip"
-            drag={draggable}
-            dragSnapToOrigin
-            dragElastic={0.55}
-            whileHover={{ scale: 1.07, rotate: -4 }}
-            whileDrag={{ scale: 1.14, rotate: 8, cursor: "grabbing" }}
-            transition={spring}
-          >
-            {config.children}
-          </motion.div>
+          {config.children}
         </motion.div>
       </motion.div>
     </motion.div>
@@ -91,12 +85,12 @@ function HeroShape({ config, pointerX, pointerY, draggable }: { config: ShapeCon
 }
 
 const shapes: ShapeConfig[] = [
-  { className: "shape-slashes", depth: 0.6, delay: 0.05, float: 8, duration: 5.2, children: <Slashes colors={["#c3ecf6", "#4285f4"]} /> },
-  { className: "shape-bars", depth: 0.25, delay: 0.12, float: 5, duration: 4.4, children: <Bars /> },
-  { className: "shape-asterisk", depth: 1, delay: 0.2, float: 10, duration: 6, children: <Asterisk /> },
-  { className: "shape-arc", depth: 0.5, delay: 0.28, float: 7, duration: 5.6, children: <Arc /> },
-  { className: "shape-globe", depth: 0.8, delay: 0.34, float: 9, duration: 6.4, children: <Globe fill="#ccf6c5" /> },
-  { className: "shape-chain", depth: 0.4, delay: 0.42, float: 6, duration: 4.8, children: <Chain fill="#ffd427" /> },
+  { className: "shape-slashes", depth: 0.6, delay: 0.05, children: <Slashes colors={["#c3ecf6", "#4285f4"]} /> },
+  { className: "shape-bars", depth: 0.25, delay: 0.12, children: <Bars /> },
+  { className: "shape-asterisk", depth: 1, delay: 0.2, children: <Asterisk /> },
+  { className: "shape-arc", depth: 0.5, delay: 0.28, children: <Arc /> },
+  { className: "shape-globe", depth: 0.8, delay: 0.34, children: <Globe fill="#ccf6c5" /> },
+  { className: "shape-chain", depth: 0.4, delay: 0.42, children: <Chain fill="#ffd427" /> },
 ];
 
 export function Hero() {
@@ -130,7 +124,7 @@ export function Hero() {
           variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08, delayChildren: INTRO } } }}
         >
           <motion.span variants={{ hidden: { opacity: 0, scale: 0.6 }, visible: { opacity: 1, scale: 1 } }}>
-            <Dots className="hero-lockup-dots" colors={["#4285f4", "#ea4335", "#f9ab00"]} bounce={!reduceMotion} />
+            <Dots className="hero-lockup-dots" colors={["#4285f4", "#ea4335", "#f9ab00"]} />
           </motion.span>
           <motion.span className="hero-lockup-pill" variants={{ hidden: { opacity: 0, scaleX: 0.3 }, visible: { opacity: 1, scaleX: 1 } }}>
             {t.hero.tab}

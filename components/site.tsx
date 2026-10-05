@@ -26,8 +26,8 @@ export function Site({ locale }: { locale: Locale }) {
           <Header />
           <main id="main">
             <Hero />
-            <Marquee />
             <Countdown />
+            <Marquee />
             <Overview />
             <Schedule />
             <Venues />
