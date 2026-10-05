@@ -267,17 +267,6 @@ h1, h2, h3, p { text-wrap: pretty; }
   grid-template-columns: repeat(4, 1fr);
 }
 .locale-wipe span { display: block; height: 100%; }
-.locale-wipe-label {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  margin: 0;
-  color: var(--ink);
-  font-size: clamp(44px, 8vw, 112px);
-  font-weight: 700;
-  letter-spacing: -.04em;
-}
 
 .scroll-progress {
   position: fixed;
@@ -499,35 +488,51 @@ h1, h2, h3, p { text-wrap: pretty; }
 
 /* ---------- Countdown ---------- */
 
-.countdown { padding: clamp(24px, 4vw, 48px) 0 0; background: var(--paper); }
+/* Reads as one sentence: "<milestone>まで あと [26]日 [21]時間 [42]分 [39]秒". */
+.countdown { padding: 0 0 clamp(4px, 1vw, 12px); background: var(--paper); }
 .countdown-card {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 32px;
-  padding: clamp(24px, 3vw, 40px) clamp(24px, 3.4vw, 48px);
-}
-.countdown-label { display: flex; align-items: center; gap: 10px; margin: 0; color: var(--muted); font: 700 12px/1 var(--font-mono-stack); letter-spacing: .1em; text-transform: uppercase; }
-.countdown-title { margin: 14px 0 8px; font-size: clamp(30px, 3.6vw, 52px); line-height: 1.1; letter-spacing: -.035em; }
-.countdown-when { margin: 0; font: 700 13px/1.4 var(--font-mono-stack); letter-spacing: .04em; }
-.countdown-digits { position: relative; display: grid; grid-template-columns: repeat(4, minmax(86px, 1fr)); gap: 10px; }
-.countdown-unit {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px 40px;
+  padding: clamp(22px, 2.6vw, 34px) clamp(22px, 3vw, 44px);
+  border: 2px solid var(--ink);
+  border-radius: 32px;
+  color: var(--ink);
+  background: var(--blue);
+}
+.countdown-tag {
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 18px 10px 14px;
-  border: 2px solid var(--ink);
-  border-radius: 22px;
-  background: var(--tone-soft);
+  margin: 0 0 10px;
+  padding: 6px 12px;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  background: var(--white);
+  font: 700 11.5px/1 var(--font-mono-stack);
+  letter-spacing: .14em;
 }
-.countdown-unit strong { display: flex; font-size: clamp(38px, 4.4vw, 64px); line-height: 1; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.countdown-until { margin: 0; font-size: clamp(24px, 2.6vw, 38px); line-height: 1.2; letter-spacing: -.02em; }
+.countdown-when { margin: 6px 0 0; font: 700 12.5px/1.4 var(--font-mono-stack); letter-spacing: .04em; }
+.countdown-clock { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px; margin: 0; }
+.countdown-prefix { font-size: clamp(20px, 2vw, 28px); font-weight: 700; }
+.countdown-part { display: inline-flex; align-items: baseline; gap: 6px; }
+.countdown-part strong {
+  display: inline-flex;
+  padding: 10px 12px 8px;
+  border: 2px solid var(--ink);
+  border-radius: 18px;
+  background: var(--tone-soft);
+  font-size: clamp(40px, 4.6vw, 68px);
+  line-height: 1;
+  letter-spacing: -.03em;
+  font-variant-numeric: tabular-nums;
+}
+.countdown-unit { font-size: clamp(16px, 1.5vw, 22px); font-weight: 700; }
 .rolling-digit { position: relative; display: inline-block; width: .6em; height: 1em; overflow: hidden; text-align: center; }
 .rolling-digit > span { display: block; }
-.countdown-unit-label { font: 700 11px/1 var(--font-mono-stack); letter-spacing: .1em; }
-.countdown-seconds { position: absolute; left: 0; right: 0; bottom: -16px; height: 4px; overflow: hidden; border-radius: 4px; background: rgba(30, 30, 30, .12); }
-.countdown-seconds span { display: block; height: 100%; background: var(--ink); transform-origin: left; }
-.countdown-globe { position: absolute; right: -24px; top: -54px; width: 92px; overflow: visible; }
 
 /* ---------- Section heading ---------- */
 
@@ -554,7 +559,6 @@ h1, h2, h3, p { text-wrap: pretty; }
 .sec-kicker { color: var(--blue-deep); font: 700 13px/1 var(--font-mono-stack); letter-spacing: .16em; }
 .sec-rule { flex: 1; height: 2px; background: currentColor; transform-origin: left; }
 .sec-title { margin: 0; font-size: clamp(40px, 5.8vw, 86px); line-height: 1.1; letter-spacing: -.03em; }
-.sec-title .mask-line:not(:last-child), .final-cta-title .mask-line:not(:last-child) { font-weight: 400; }
 .sec-desc { max-width: 38em; margin: 0; color: var(--body-text); font-size: clamp(15px, 1.15vw, 17px); line-height: 1.95; }
 
 /* ---------- 01 About ---------- */
@@ -971,12 +975,14 @@ h1, h2, h3, p { text-wrap: pretty; }
 
 .judging { border-top: 2px solid var(--ink); background: var(--blue-soft); }
 .criteria { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin: 0; padding: 0; list-style: none; }
+/* Number, title and body share row tracks across each row of cards (subgrid). */
 .criterion {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  min-height: 360px;
+  display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+  align-content: start;
+  row-gap: 12px;
   padding: 26px 26px 34px;
   overflow: hidden;
   border: 2px solid var(--ink);
@@ -988,7 +994,7 @@ h1, h2, h3, p { text-wrap: pretty; }
 .criterion:hover .criterion-number { color: var(--tone); }
 .criterion-icon { position: absolute; right: 22px; top: 22px; display: grid; place-items: center; width: 54px; height: 54px; border: 2px solid var(--ink); border-radius: 50%; background: var(--tone-soft); }
 .criterion-icon svg { width: 24px; height: 24px; }
-.criterion h3 { margin: auto 0 0; font-size: clamp(20px, 1.8vw, 26px); line-height: 1.3; letter-spacing: -.02em; }
+.criterion h3 { margin: clamp(40px, 6vw, 96px) 0 0; font-size: clamp(20px, 1.8vw, 26px); line-height: 1.3; letter-spacing: -.02em; }
 .criterion p { margin: 0; color: var(--body-text); font-size: 14px; line-height: 1.75; }
 .criterion-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 12px; border-top: 2px solid var(--ink); background: var(--tone); transform-origin: left; }
 
@@ -1147,9 +1153,7 @@ h1, h2, h3, p { text-wrap: pretty; }
   .hero-dates { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hero-dates-rail { display: none; }
   .hero-date { min-height: 132px; }
-  .countdown-card { grid-template-columns: 1fr; }
   .criteria { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .criterion { min-height: 300px; }
 }
 
 /* Narrow two-column layouts: drop decorations that would collide with copy. */
@@ -1228,9 +1232,13 @@ h1, h2, h3, p { text-wrap: pretty; }
   .hero-art { min-height: 124px; }
   .tab-card-tab { height: 38px; padding: 0 14px; font-size: 11px; }
   .tab-card { margin-top: 38px; border-radius: 0 26px 26px 26px; }
-  .countdown-digits { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
-  .countdown-unit { padding: 14px 4px 10px; border-radius: 16px; }
-  .countdown-globe { width: 64px; right: -6px; top: -48px; }
+  .countdown-card { border-radius: 26px; }
+  /* Keep all four units on one row; "あと" sits on its own line above. */
+  .countdown-clock { display: grid; grid-template-columns: repeat(4, auto); justify-content: space-between; width: 100%; gap: 8px 4px; }
+  .countdown-prefix { grid-column: 1 / -1; font-size: 18px; }
+  .countdown-part { gap: 3px; }
+  .countdown-part strong { padding: 7px 5px 5px; border-radius: 14px; font-size: 26px; }
+  .countdown-unit { font-size: 13px; }
   .span-3 { grid-column: span 12; }
   .bento-card { min-height: 220px; padding: 22px; }
   .bento-who, .bento-judges { min-height: 270px; }
@@ -1243,7 +1251,7 @@ h1, h2, h3, p { text-wrap: pretty; }
   .phase { grid-template-columns: 1fr; gap: 10px; padding: 18px; }
   .phase.is-focus, .phase.is-focus .phase-node { translate: none; }
   .criteria, .support-grid { grid-template-columns: 1fr; }
-  .criterion { min-height: 250px; }
+  .criterion h3 { margin-top: 36px; }
   .grand-badges { grid-template-columns: 1fr; justify-items: center; }
   .lanyard { width: 100%; max-width: 320px; }
   .demo-venue-meta { grid-template-columns: 1fr; }

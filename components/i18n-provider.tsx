@@ -73,15 +73,6 @@ export function I18nProvider({ initialLocale, children }: { initialLocale: Local
                 }}
               />
             ))}
-            <motion.p
-              className="locale-wipe-label"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.2, delay: 0.12 }}
-            >
-              {pending === "en" ? "English" : "日本語"}
-            </motion.p>
           </motion.div>
         ) : null}
       </AnimatePresence>
