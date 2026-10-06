@@ -91,7 +91,7 @@ const ja = {
       build: { date: "11.05–11.10", day: "木–火", title: "開発期間", mode: "ONLINE · 全会場共通", detail: "全会場共通の6日間。企画・開発・検証・提出までをオンラインで進めます。", legend: "開発期間" },
       regional: { date: "11.14", day: "土", title: "Regional Day", mode: "ON-SITE · 現地開催", detail: "東京・大阪・名古屋・会津の各会場とオンライン会場で、同日に開催します。", legend: "Regional Day" },
       demo: { date: "11.27", day: "金", title: "Demo Day", mode: "ON-SITE · 10:00–12:00", detail: "Top 10 チームが Google 渋谷オフィスに集結。プレゼンテーション・審査・表彰を行います。", legend: "Demo Day" },
-      devfest: { date: "11.29", day: "日", title: "DevFest Tokyo", mode: "WINNERS", detail: "優勝チームの LT 登壇と、受賞チームによる学生展示。", legend: "DevFest Tokyo" },
+      devfest: { date: "11.29", day: "日", title: "GDG DevFest Tokyo", mode: "WINNERS", detail: "優勝チームの LT 登壇と、受賞チームによる学生展示。", legend: "GDG DevFest Tokyo" },
     } satisfies Record<PhaseId, { date: string; day: string; title: string; mode: string; detail: string; legend: string }>,
   },
   venues: {
@@ -121,16 +121,16 @@ const ja = {
     kicker: "PRIZES",
     title: ["優勝の先に、", "次の舞台を。"],
     description:
-      "Demo Day で選ばれたチームは、11月29日の DevFest Tokyo へ。LT 登壇や学生展示を通じて、つくったプロダクトをより多くの開発者に届けられます。",
+      "Demo Day で選ばれたチームは、11月29日の GDG DevFest Tokyo へ。LT 登壇や学生展示を通じて、つくったプロダクトをより多くの開発者に届けられます。",
     grand: {
       tab: "GRAND PRIZE",
       title: "優勝チーム",
-      lead: "DevFest Tokyo のステージと展示スペースへ。",
+      lead: "GDG DevFest Tokyo のステージと展示スペースへ。",
       badges: [
-        { role: "SPEAKER", title: "LT 登壇権", note: "DevFest Tokyo のステージで、プロダクトをライトニングトークで紹介" },
-        { role: "EXHIBITOR", title: "学生展示権", note: "ハッカソンで開発したプロダクトを DevFest Tokyo で展示" },
+        { role: "SPEAKER", title: "LT 登壇権", note: "GDG DevFest Tokyo のステージで、プロダクトをライトニングトークで紹介" },
+        { role: "EXHIBITOR", title: "学生展示権", note: "ハッカソンで開発したプロダクトを GDG DevFest Tokyo で展示" },
       ],
-      badgeEvent: "DevFest Tokyo",
+      badgeEvent: "GDG DevFest Tokyo",
       badgeDate: "11.29 SUN",
       perksTitle: "さらに優勝チームには",
       perks: [
@@ -151,7 +151,7 @@ const ja = {
       title: "GDG Tokyo Organizer 賞",
       count: "4",
       unit: "チーム",
-      body: "GDG Tokyo Organizer 賞に選ばれた4チームに、11月29日の DevFest Tokyo 学生展示権を贈ります。",
+      body: "GDG Tokyo Organizer 賞に選ばれた4チームに、11月29日の GDG DevFest Tokyo 学生展示権を贈ります。",
       role: "EXHIBITOR × 4",
     },
     travel: {
@@ -165,7 +165,7 @@ const ja = {
       title: "Google Cloud Credit",
       body: "参加者へ、開発に利用できる Google Cloud Credit を配布します。",
     },
-    exhibitionNote: "DevFest Tokyo の学生展示では、ハッカソンで開発したプロダクトを展示していただきます。",
+    exhibitionNote: "GDG DevFest Tokyo の学生展示では、ハッカソンで開発したプロダクトを展示していただきます。",
   },
   judging: {
     kicker: "JUDGING",
@@ -305,7 +305,7 @@ const en: Dictionary = {
       build: { date: "11.05–11.10", day: "THU–TUE", title: "Development Period", mode: "ONLINE · ALL VENUES", detail: "Six days on one shared schedule: plan, build, test, and submit — all online.", legend: "Development" },
       regional: { date: "11.14", day: "SAT", title: "Regional Day", mode: "ON-SITE", detail: "Held on the same day at venues in Tokyo, Osaka, Nagoya, and Aizu, plus online.", legend: "Regional Day" },
       demo: { date: "11.27", day: "FRI", title: "Demo Day", mode: "ON-SITE · 10:00–12:00", detail: "The top 10 teams gather at Google's Shibuya office to present, be judged, and receive awards.", legend: "Demo Day" },
-      devfest: { date: "11.29", day: "SUN", title: "DevFest Tokyo", mode: "WINNERS", detail: "A lightning talk by the winning team and a student showcase by award-winning teams.", legend: "DevFest Tokyo" },
+      devfest: { date: "11.29", day: "SUN", title: "GDG DevFest Tokyo", mode: "WINNERS", detail: "A lightning talk by the winning team and a student showcase by award-winning teams.", legend: "GDG DevFest Tokyo" },
     },
   },
   venues: {
@@ -335,16 +335,16 @@ const en: Dictionary = {
     kicker: "PRIZES",
     title: ["Beyond the win,", "your next stage."],
     description:
-      "Teams selected at Demo Day head to DevFest Tokyo on November 29, sharing what they built with many more developers through a lightning talk and the student showcase.",
+      "Teams selected at Demo Day head to GDG DevFest Tokyo on November 29, sharing what they built with many more developers through a lightning talk and the student showcase.",
     grand: {
       tab: "GRAND PRIZE",
       title: "Winning team",
-      lead: "A stage and a booth at DevFest Tokyo.",
+      lead: "A stage and a booth at GDG DevFest Tokyo.",
       badges: [
-        { role: "SPEAKER", title: "Lightning talk slot", note: "Present your product in a lightning talk on the DevFest Tokyo stage" },
-        { role: "EXHIBITOR", title: "Student showcase slot", note: "Exhibit the product you built during the hackathon at DevFest Tokyo" },
+        { role: "SPEAKER", title: "Lightning talk slot", note: "Present your product in a lightning talk on the GDG DevFest Tokyo stage" },
+        { role: "EXHIBITOR", title: "Student showcase slot", note: "Exhibit the product you built during the hackathon at GDG DevFest Tokyo" },
       ],
-      badgeEvent: "DevFest Tokyo",
+      badgeEvent: "GDG DevFest Tokyo",
       badgeDate: "11.29 SUN",
       perksTitle: "The winning team also receives",
       perks: [
@@ -365,7 +365,7 @@ const en: Dictionary = {
       title: "GDG Tokyo Organizer Award",
       count: "4",
       unit: "teams",
-      body: "Four teams chosen for the GDG Tokyo Organizer Award receive a student showcase slot at DevFest Tokyo on November 29.",
+      body: "Four teams chosen for the GDG Tokyo Organizer Award receive a student showcase slot at GDG DevFest Tokyo on November 29.",
       role: "EXHIBITOR × 4",
     },
     travel: {
@@ -379,7 +379,7 @@ const en: Dictionary = {
       title: "Google Cloud Credit",
       body: "Every participant receives Google Cloud credits to use for development.",
     },
-    exhibitionNote: "At the DevFest Tokyo student showcase, teams exhibit the products they built during the hackathon.",
+    exhibitionNote: "At the GDG DevFest Tokyo student showcase, teams exhibit the products they built during the hackathon.",
   },
   judging: {
     kicker: "JUDGING",
