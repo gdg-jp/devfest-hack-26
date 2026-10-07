@@ -1,6 +1,6 @@
 // Locale-independent event facts. Copy lives in `lib/i18n.ts`.
 
-export const APPLICATION_URL = "https://www.craftstadium.com/organizer/google-developer-groups-on-campus-japan-96";
+export const APPLICATION_URL = "https://devfest26-form.gdgs.jp/";
 
 export type PhaseId = "kickoff" | "entry" | "build" | "regional" | "demo" | "devfest";
 
