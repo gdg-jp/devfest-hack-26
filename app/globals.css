@@ -225,6 +225,8 @@ h1, h2, h3, p { text-wrap: pretty; }
 .btn-apply:hover { background: var(--yellow-half); }
 .btn-ghost { background: transparent; }
 .btn-ghost:hover { background: var(--white); }
+/* Text-only buttons: the base padding leaves room for a trailing icon. */
+.btn-text { justify-content: center; padding: 0 24px; }
 .btn-sm { min-height: 44px; padding-left: 18px; gap: 10px; font-size: 14px; }
 .btn-sm .btn-icon { width: 30px; height: 30px; }
 .btn-sm .btn-icon svg { width: 16px; height: 16px; }

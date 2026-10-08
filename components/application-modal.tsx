@@ -136,7 +136,7 @@ function ApplicationModalContent() {
       </div>
       <div className="application-dialog-actions">
         <DialogClose asChild>
-          <button type="button" className="btn btn-ghost">{copy.back}</button>
+          <button type="button" className="btn btn-ghost btn-text">{copy.back}</button>
         </DialogClose>
         <motion.a
           href={APPLICATION_URL}
