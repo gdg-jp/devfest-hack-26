@@ -41,6 +41,9 @@ export type VenueId = "tokyo" | "osaka" | "nagoya" | "aizu" | "online";
 
 export const venueOrder: VenueId[] = ["tokyo", "osaka", "nagoya", "aizu", "online"];
 
+// Regional Day is on-site first; the online venue is only for those who cannot attend in person.
+export const onsiteVenueOrder = venueOrder.filter((id) => id !== "online");
+
 export const venueTone: Record<VenueId, Tone> = {
   tokyo: "blue",
   osaka: "red",
