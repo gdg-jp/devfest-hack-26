@@ -47,7 +47,7 @@ export function Judging() {
   return (
     <section className="section judging" id="judging">
       <div className="container">
-        <SectionHeading index="05" kicker={copy.kicker} title={copy.title} description={copy.description} />
+        <SectionHeading index="06" kicker={copy.kicker} title={copy.title} description={copy.description} />
 
         <motion.ol
           className="criteria"

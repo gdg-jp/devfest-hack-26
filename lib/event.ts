@@ -39,6 +39,8 @@ export const milestones: { id: MilestoneId; at: number }[] = [
 
 export type VenueId = "tokyo" | "osaka" | "nagoya" | "aizu" | "online";
 
+export const venueOrder: VenueId[] = ["tokyo", "osaka", "nagoya", "aizu", "online"];
+
 export const venueTone: Record<VenueId, Tone> = {
   tokyo: "blue",
   osaka: "red",

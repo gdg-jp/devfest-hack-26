@@ -622,7 +622,239 @@ h1, h2, h3, p { text-wrap: pretty; }
 }
 .chip-row svg { width: 18px; height: 18px; padding: 2px; border-radius: 50%; color: var(--white); background: var(--green); }
 
-/* ---------- 02 Schedule ---------- */
+/* ---------- 02 How to apply ---------- */
+
+.how-to-apply { border-top: 2px solid var(--ink); background: var(--green-soft); }
+.apply-board {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 24px clamp(24px, 3.4vw, 52px);
+  padding: clamp(18px, 2.4vw, 32px);
+}
+
+/* Stage: an illustrated walkthrough. Actors are placed in `cqw` from its centre. */
+.apply-stage {
+  position: relative;
+  min-height: clamp(440px, 38vw, 540px);
+  overflow: hidden;
+  isolation: isolate;
+  container-type: inline-size;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-lg);
+}
+.apply-stage-bg { position: absolute; inset: 0; z-index: -1; background-image: radial-gradient(rgba(30, 30, 30, .16) 1.3px, transparent 1.6px); background-size: 16px 16px; }
+.apply-stage-scene { position: absolute; inset: 0; }
+.stage-actor { position: absolute; left: 50%; top: 50%; translate: -50% -50%; }
+.stage-actor svg { display: block; width: 100%; height: auto; overflow: visible; }
+.stage-person { width: 11cqw; }
+.stage-person-body { position: relative; }
+.stage-label {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 1.2cqw);
+  translate: -50% 0;
+  padding: .5em .85em;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  background: var(--white);
+  font: 700 clamp(9px, 1.45cqw, 12px)/1 var(--font-mono-stack);
+  letter-spacing: .1em;
+  white-space: nowrap;
+}
+.stage-chip {
+  position: absolute;
+  right: -2.6cqw;
+  top: -1.4cqw;
+  display: grid;
+  place-items: center;
+  width: max(16px, 5.4cqw);
+  height: max(16px, 5.4cqw);
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: var(--white);
+}
+.stage-chip svg { width: 55%; height: 55%; }
+.stage-brace { width: 10.5cqw; }
+.stage-ticket, .stage-mail { display: flex; align-items: center; border: 2px solid var(--ink); background: var(--white); white-space: nowrap; }
+.stage-ticket { gap: 1.4cqw; padding: .9cqw 2.4cqw .9cqw .9cqw; border-radius: 999px; }
+.stage-ticket-key, .stage-code, .stage-mail-icon { display: grid; flex: none; place-items: center; border: 2px solid var(--ink); border-radius: 50%; }
+.stage-ticket-key { width: max(30px, 6.4cqw); height: max(30px, 6.4cqw); background: var(--yellow-half); }
+.stage-ticket-key svg, .stage-code svg, .stage-mail-icon svg { width: 50%; height: 50%; }
+.stage-ticket-copy, .stage-mail-copy { display: flex; flex-direction: column; gap: .8cqw; }
+.stage-ticket-copy small, .stage-mail-copy small, .stage-skills-head { color: var(--muted); font: 700 clamp(8.5px, 1.3cqw, 11px)/1 var(--font-mono-stack); letter-spacing: .12em; }
+.stage-ticket-code { font: 700 clamp(13px, 2.7cqw, 22px)/1 var(--font-mono-stack); letter-spacing: .06em; }
+.stage-code { z-index: 3; width: max(22px, 4.8cqw); height: max(22px, 4.8cqw); background: var(--yellow-half); }
+.stage-skills { display: flex; flex-direction: column; gap: 1.5cqw; width: max(132px, 30cqw); padding: max(12px, 2.2cqw); border: 2px solid var(--ink); border-radius: 18px; background: var(--white); }
+.stage-skills-row { display: flex; align-items: center; gap: 1.4cqw; }
+.stage-skills-icon { display: grid; flex: none; place-items: center; width: max(22px, 5cqw); height: max(22px, 5cqw); border: 1.5px solid var(--ink); border-radius: 50%; background: var(--blue-soft); }
+.stage-skills-icon svg { width: 55%; height: 55%; }
+.stage-skills-track { flex: 1; height: max(9px, 1.9cqw); overflow: hidden; border: 1.5px solid var(--ink); border-radius: 999px; background: var(--paper); }
+.stage-skills-track i { display: block; height: 100%; border-right: 1.5px solid var(--ink); background: var(--blue); transform-origin: left; }
+.stage-mail { gap: 1.8cqw; padding: 1.6cqw 3cqw 1.6cqw 1.6cqw; border-radius: 20px; }
+.stage-mail-icon { position: relative; width: max(34px, 7cqw); height: max(34px, 7cqw); background: var(--blue-half); }
+.stage-mail-icon i {
+  position: absolute;
+  right: -6px;
+  top: -6px;
+  display: grid;
+  place-items: center;
+  width: max(17px, 3.2cqw);
+  height: max(17px, 3.2cqw);
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  color: var(--white);
+  background: var(--red);
+  font: 700 clamp(9px, 1.5cqw, 12px)/1 var(--font-mono-stack);
+  font-style: normal;
+}
+.stage-mail-copy b { font-size: clamp(13px, 2.4cqw, 20px); line-height: 1.2; letter-spacing: -.01em; }
+
+.apply-stage-status {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 40px;
+  padding: 0 16px 0 4px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--white);
+  font: 700 11.5px/1 var(--font-mono-stack);
+  letter-spacing: .1em;
+}
+.apply-stage-status-no { display: grid; place-items: center; width: 30px; height: 30px; overflow: hidden; border-radius: 50%; color: var(--white); background: var(--ink); }
+.apply-stage-status-no span, .apply-stage-status-text span { display: block; }
+.apply-stage-status-text { display: grid; overflow: hidden; padding: .3em 0; }
+.apply-stage-meter {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 40px;
+  padding: 0 16px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--white);
+  font: 700 11.5px/1 var(--font-mono-stack);
+  letter-spacing: .1em;
+  translate: -50% 0;
+  white-space: nowrap;
+}
+.apply-stage-meter-seats { display: flex; gap: 5px; }
+.apply-stage-meter-seats i { width: 16px; height: 16px; border: 2px solid var(--ink); border-radius: 50%; }
+.apply-stage-meter-seats i.is-empty { border-style: dashed; }
+.apply-stage-control {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: var(--white);
+  cursor: pointer;
+}
+.apply-stage-control span { display: grid; }
+.apply-stage-control svg { width: 18px; height: 18px; }
+
+/* Side: path picker, steps and Regional Day venues. */
+.apply-side, .apply-panel { display: flex; flex-direction: column; gap: 26px; min-width: 0; }
+.apply-panel { flex: 1; }
+.apply-picker { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; padding: 5px; border: 2px solid var(--ink); border-radius: 30px; background: var(--paper); }
+.apply-picker-tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 76px;
+  padding: 10px 16px 10px 14px;
+  border: 0;
+  border-radius: 24px;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color .2s ease;
+}
+.apply-picker-tab:not(.is-active):hover { background: rgba(255, 255, 255, .8); }
+.apply-picker-pill { position: absolute; inset: 0; border: 2px solid var(--ink); border-radius: 24px; }
+.apply-picker-glyph { position: relative; display: grid; flex: none; place-items: center; width: 50px; height: 36px; }
+.apply-picker-glyph.is-team svg { width: 50px; overflow: visible; }
+.apply-picker-glyph.is-solo svg { width: 22px; overflow: visible; }
+.apply-picker-copy { position: relative; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.apply-picker-title { font-size: clamp(16px, 1.4vw, 19px); font-weight: 700; line-height: 1.2; letter-spacing: -.01em; }
+.apply-picker-meta { color: var(--muted); font: 700 11.5px/1.25 var(--font-mono-stack); letter-spacing: .04em; }
+.apply-picker-tab.is-active .apply-picker-meta { color: var(--ink); }
+
+.apply-steps { display: flex; flex-direction: column; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.apply-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
+  padding: 16px 18px 18px;
+  border-radius: 22px;
+  cursor: pointer;
+}
+/* Connector from each step's number to the next. */
+.apply-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 39px;
+  top: 60px;
+  bottom: -22px;
+  width: 2px;
+  background: rgba(30, 30, 30, .18);
+  transition: background-color .4s ease;
+}
+.apply-step.is-past::after { background: var(--ink); }
+.apply-step-highlight { position: absolute; inset: 0; overflow: hidden; border: 2px solid var(--ink); border-radius: 22px; background: var(--tone-soft); }
+.apply-step-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: var(--ink); transform-origin: left; }
+.apply-step-no { position: relative; display: grid; place-items: center; width: 44px; height: 44px; border: 2px solid var(--ink); border-radius: 50%; background: var(--white); font: 700 13px/1 var(--font-mono-stack); }
+.apply-step-no > span { position: absolute; inset: 3px; border-radius: 50%; background: var(--tone); }
+.apply-step-no b { position: relative; }
+.apply-step-text { position: relative; display: grid; padding-top: 9px; color: var(--muted); font-size: clamp(15px, 1.25vw, 17px); font-weight: 700; line-height: 1.6; transition: color .3s ease; }
+.apply-step.is-active .apply-step-text { color: var(--ink); }
+
+.apply-venues { margin-top: auto; padding-top: 22px; border-top: 1.5px solid var(--ink); }
+.apply-venues-label { margin: 0 0 12px; font: 700 11.5px/1 var(--font-mono-stack); letter-spacing: .12em; }
+.apply-venue-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.apply-venue-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 38px;
+  padding: 0 15px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background-color .3s ease;
+}
+.apply-venue-chip.is-off { border-style: dashed; }
+.apply-venue-chip.is-picked { background: var(--blue-soft); }
+.apply-venue-check { display: inline-grid; place-items: center; overflow: hidden; }
+.apply-venue-check svg { width: 16px; height: 16px; stroke-width: 3; }
+.apply-venues-note { margin: 12px 0 0; color: var(--body-text); font-size: 14px; font-weight: 700; line-height: 1.6; }
+
+.apply-cta { display: flex; align-items: center; gap: 20px 28px; margin-top: 36px; }
+.apply-cta-copy p { margin: 0; }
+.apply-cta-entry { display: flex; align-items: center; gap: 10px; font: 700 13px/1.4 var(--font-mono-stack); letter-spacing: .04em; }
+.apply-cta-note { margin-top: 6px !important; color: var(--body-text); font-size: 15px; font-weight: 700; }
+.apply-cta-arrow { flex: 1; min-width: 48px; }
+
+/* ---------- 03 Schedule ---------- */
 
 .schedule { color: var(--white); background: var(--ink); }
 .schedule .sec-kicker { color: var(--blue-half); }
@@ -723,7 +955,7 @@ h1, h2, h3, p { text-wrap: pretty; }
 .calendar-legend .phase-entry .legend-swatch { background: repeating-linear-gradient(-45deg, var(--blue-soft) 0 3px, var(--white) 3px 6px); }
 .schedule-note { margin: 32px 0 0; color: rgba(255, 255, 255, .66); font: 400 12.5px/1.6 var(--font-mono-stack); }
 
-/* ---------- 03 Venues ---------- */
+/* ---------- 04 Venues ---------- */
 
 .venues { background: var(--paper); }
 .venue-panels { display: flex; gap: 12px; height: clamp(480px, 42vw, 580px); }
@@ -834,7 +1066,7 @@ h1, h2, h3, p { text-wrap: pretty; }
 .demo-venue-logo { position: absolute; right: clamp(24px, 4vw, 52px); top: clamp(24px, 4vw, 52px); width: 88px; cursor: default; }
 .demo-venue-logo svg { width: 100%; height: auto; overflow: visible; }
 
-/* ---------- 04 Prizes ---------- */
+/* ---------- 05 Prizes ---------- */
 
 .prizes { border-top: 2px solid var(--ink); background: var(--yellow-soft); }
 .grand {
@@ -971,7 +1203,7 @@ h1, h2, h3, p { text-wrap: pretty; }
 .mini-badges i:nth-child(4) { background: var(--green-half); }
 .prizes-note { margin: 26px 0 0; color: var(--body-text); font: 400 12.5px/1.6 var(--font-mono-stack); }
 
-/* ---------- 05 Judging ---------- */
+/* ---------- 06 Judging ---------- */
 
 .judging { border-top: 2px solid var(--ink); background: var(--blue-soft); }
 .criteria { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin: 0; padding: 0; list-style: none; }
@@ -1174,6 +1406,10 @@ h1, h2, h3, p { text-wrap: pretty; }
   .hero-dates { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .span-6 { grid-column: span 12; }
   .span-3 { grid-column: span 6; }
+  .apply-board { grid-template-columns: 1fr; }
+  .apply-side { display: contents; }
+  .apply-picker { order: -1; }
+  .apply-stage { min-height: 0; aspect-ratio: 16 / 11; }
   .schedule-grid { grid-template-columns: 1fr; }
   .calendar-wrap { position: relative; top: 0; order: -1; max-width: 560px; }
   .venue-panels { flex-direction: column; height: auto; }
@@ -1244,6 +1480,24 @@ h1, h2, h3, p { text-wrap: pretty; }
   .bento-who, .bento-judges { min-height: 270px; }
   .bento-who .bento-art, .bento-judges .bento-art { width: 116px; top: 22px; right: 22px; }
   .bento-judges .bento-headline { font-size: 30px; }
+  .apply-stage { aspect-ratio: 1 / 1.05; border-radius: 22px; }
+  .apply-stage-status { left: 12px; top: 12px; height: 36px; gap: 8px; padding-right: 12px; font-size: 10.5px; }
+  .apply-stage-status-no { width: 26px; height: 26px; }
+  .apply-stage-control { right: 12px; top: 12px; width: 38px; height: 38px; }
+  .apply-stage-meter { bottom: 12px; height: 34px; gap: 8px; padding: 0 12px; font-size: 10.5px; }
+  .apply-stage-meter-seats i { width: 13px; height: 13px; }
+  .apply-picker { border-radius: 26px; }
+  .apply-picker-tab { flex-direction: column; align-items: flex-start; gap: 10px; min-height: 0; padding: 12px 14px 14px; border-radius: 20px; }
+  .apply-picker-pill { border-radius: 20px; }
+  .apply-picker-glyph { justify-items: start; width: 44px; height: 28px; }
+  .apply-picker-glyph.is-team svg { width: 44px; }
+  .apply-picker-glyph.is-solo svg { width: 18px; }
+  .apply-step { grid-template-columns: 38px minmax(0, 1fr); gap: 12px; padding: 14px 14px 16px; }
+  .apply-step:not(:last-child)::after { left: 32px; top: 52px; bottom: -20px; }
+  .apply-step-no { width: 38px; height: 38px; font-size: 12px; }
+  .apply-step-text { padding-top: 6px; }
+  .apply-cta { flex-direction: column; align-items: flex-start; }
+  .apply-cta-arrow { display: none; }
   .phase-list { padding-left: 34px; }
   .phase-track { left: 10px; }
   .phase-node { left: -34px; width: 24px; height: 24px; }
