@@ -90,7 +90,7 @@ const ja = {
         meta: "2–4名",
         steps: ["代表者がチームを作成して申請", "発行された招待コードをメンバーに共有", "メンバーが招待コードでチームに参加"],
         status: ["TEAM CREATED", "INVITE SENT", "TEAM READY"],
-        venue: "東京・大阪・名古屋・会津・オンラインから選択",
+        venue: "東京・大阪・名古屋・会津から、お近くの現地会場を選択",
       },
       solo: {
         title: "1人で応募",
@@ -100,6 +100,7 @@ const ja = {
         venue: "オンライン会場で参加",
       },
     },
+    onlineFallback: "現地参加が難しい場合のみ",
     stage: { leader: "LEADER", you: "YOU", skills: "SKILLS", invite: "INVITE CODE", mailKicker: "NEW MESSAGE", mailSubject: "チームが決まりました！" },
     controls: { pause: "アニメーションを一時停止", play: "アニメーションを再生", replay: "アニメーションをもう一度再生" },
     note: "どちらの方法も、応募ページで選べます。",
@@ -125,8 +126,15 @@ const ja = {
     kicker: "VENUES",
     title: ["地域を越えて、", "ともにつくる。"],
     description:
-      "11月14日の Regional Day は、全国4会場とオンライン会場で同日開催します。地域の仲間と集まり、全国のコミュニティとつながりましょう。1人で応募した方は、オンライン会場で参加します。",
+      "11月14日の Regional Day は、全国4会場で同日開催します。お近くの会場に集まり、地域の仲間や全国のコミュニティとつながりましょう。",
     regionalTag: "REGIONAL DAY · 11.14 SAT",
+    online: {
+      kicker: "ONLINE · 現地参加が難しい方へ",
+      title: "オンライン会場",
+      body: "現地会場での参加が難しい場合に限り、オンライン会場から参加できます。できる限り、お近くの現地会場での参加をご検討ください。",
+      caution: "オンライン参加は希望者が多く、現地参加より倍率が高くなる見込みです。",
+      note: "1人で応募した方は、オンライン会場で参加します",
+    },
     list: {
       tokyo: { city: "TOKYO", region: "東京", name: "メルカリ本社", place: "六本木ヒルズ森タワー", address: "東京都港区六本木6-10-1" },
       osaka: { city: "OSAKA", region: "大阪", name: "イノゲート大阪 エンザリーナ", place: "JR大阪駅 西口直結", address: "大阪府大阪市北区梅田3-2-123" },
@@ -332,7 +340,7 @@ const en: Dictionary = {
         meta: "2–4 members",
         steps: ["Your team lead creates the team and applies", "Share the invite code you receive with your teammates", "Teammates join the team with the invite code"],
         status: ["TEAM CREATED", "INVITE SENT", "TEAM READY"],
-        venue: "Choose Tokyo, Osaka, Nagoya, Aizu, or online",
+        venue: "Pick the venue nearest you: Tokyo, Osaka, Nagoya, or Aizu",
       },
       solo: {
         title: "Apply on your own",
@@ -342,6 +350,7 @@ const en: Dictionary = {
         venue: "Join at the online venue",
       },
     },
+    onlineFallback: "Only if you can't attend in person",
     stage: { leader: "LEADER", you: "YOU", skills: "SKILLS", invite: "INVITE CODE", mailKicker: "NEW MESSAGE", mailSubject: "Your team is ready!" },
     controls: { pause: "Pause animation", play: "Play animation", replay: "Replay animation" },
     note: "You can choose either option on the application page.",
@@ -367,8 +376,15 @@ const en: Dictionary = {
     kicker: "VENUES",
     title: ["Across regions,", "building together."],
     description:
-      "Regional Day on November 14 takes place on the same day at four venues across Japan and online. Meet builders in your region and connect with the community nationwide. Solo applicants join at the online venue.",
+      "Regional Day on November 14 takes place on the same day at four venues across Japan. Join us at the venue nearest you to meet builders in your region and connect with the community nationwide.",
     regionalTag: "REGIONAL DAY · SAT, NOV 14",
+    online: {
+      kicker: "ONLINE · IF YOU CAN'T ATTEND IN PERSON",
+      title: "Online venue",
+      body: "Join online only if you can't make it to a venue in person. Please consider attending at the venue nearest you.",
+      caution: "We expect many requests to join online, so online spots will be more competitive than on-site ones.",
+      note: "Solo applicants join at the online venue",
+    },
     list: {
       tokyo: { city: "TOKYO", region: "Tokyo", name: "Mercari HQ", place: "Roppongi Hills Mori Tower", address: "6-10-1 Roppongi, Minato-ku, Tokyo" },
       osaka: { city: "OSAKA", region: "Osaka", name: "INOGATE OSAKA — ENZALINA", place: "Directly connected to JR Osaka Station (West Exit)", address: "3-2-123 Umeda, Kita-ku, Osaka" },

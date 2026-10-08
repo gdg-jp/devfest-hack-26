@@ -18,7 +18,7 @@ import { useI18n } from "@/components/i18n-provider";
 import { Magnetic, ScrambleText } from "@/components/motion-kit";
 import { easeOut } from "@/components/motion-presets";
 import { SectionHeading } from "@/components/section-heading";
-import { venueOrder } from "@/lib/event";
+import { onsiteVenueOrder } from "@/lib/event";
 
 type PathId = "team" | "solo";
 
@@ -543,36 +543,55 @@ function ApplyVenues({ path }: { path: PathId }) {
     >
       <p className="apply-venues-label">{t.venues.regionalTag}</p>
       <ul className="apply-venue-chips">
-        {venueOrder.map((id) => {
-          const available = !solo || id === "online";
-          const picked = solo && id === "online";
-          return (
-            <motion.li
-              key={id}
-              layout
-              className={`apply-venue-chip${available ? "" : " is-off"}${picked ? " is-picked" : ""}`}
-              animate={{ opacity: available ? 1 : 0.4 }}
-              transition={{ layout: { type: "spring", stiffness: 380, damping: 30 }, opacity: { duration: 0.3 } }}
-            >
-              <AnimatePresence initial={false}>
-                {picked ? (
-                  <motion.span
-                    key="check"
-                    className="apply-venue-check"
-                    initial={{ scale: 0, width: 0 }}
-                    animate={{ scale: 1, width: "auto" }}
-                    exit={{ scale: 0, width: 0 }}
-                    transition={{ type: "spring", stiffness: 380, damping: 22 }}
-                  >
-                    <Check aria-hidden="true" />
-                  </motion.span>
-                ) : null}
-              </AnimatePresence>
-              {t.venues.list[id].region}
-            </motion.li>
-          );
-        })}
+        {onsiteVenueOrder.map((id) => (
+          <motion.li
+            key={id}
+            className={`apply-venue-chip${solo ? " is-off" : ""}`}
+            animate={{ opacity: solo ? 0.4 : 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            {t.venues.list[id].region}
+          </motion.li>
+        ))}
       </ul>
+      {/* Online is a fallback for teams, and where solo applicants take part. */}
+      <div className="apply-venue-online">
+        <motion.span
+          layout
+          className={`apply-venue-chip ${solo ? "is-picked" : "is-fallback"}`}
+          transition={{ layout: { type: "spring", stiffness: 380, damping: 30 } }}
+        >
+          <AnimatePresence initial={false}>
+            {solo ? (
+              <motion.span
+                key="check"
+                className="apply-venue-check"
+                initial={{ scale: 0, width: 0 }}
+                animate={{ scale: 1, width: "auto" }}
+                exit={{ scale: 0, width: 0 }}
+                transition={{ type: "spring", stiffness: 380, damping: 22 }}
+              >
+                <Check aria-hidden="true" />
+              </motion.span>
+            ) : null}
+          </AnimatePresence>
+          {t.venues.list.online.region}
+        </motion.span>
+        <AnimatePresence mode="popLayout" initial={false}>
+          {solo ? null : (
+            <motion.span
+              key="fallback"
+              className="apply-venue-fallback"
+              initial={{ opacity: 0, x: -8 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -8 }}
+              transition={{ duration: 0.3, ease: easeOut }}
+            >
+              {t.howToApply.onlineFallback}
+            </motion.span>
+          )}
+        </AnimatePresence>
+      </div>
       <AnimatePresence mode="popLayout" initial={false}>
         <motion.p
           key={path}

@@ -2,13 +2,13 @@
 
 import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
-import { ArrowUpRight, TrainFront } from "lucide-react";
+import { ArrowUpRight, TrainFront, UserRound } from "lucide-react";
 import { motion, useSpring } from "motion/react";
 import { Arc, GdgLogo, Globe, People, Pin, Slashes } from "@/components/brand-shapes";
 import { useI18n } from "@/components/i18n-provider";
 import { easeOut } from "@/components/motion-presets";
 import { SectionHeading } from "@/components/section-heading";
-import { mapsUrl, venueMapQuery, venueOrder, venueTone, type VenueId } from "@/lib/event";
+import { mapsUrl, onsiteVenueOrder, venueMapQuery, venueTone, type VenueId } from "@/lib/event";
 
 const venueArt: Record<VenueId, ReactNode> = {
   tokyo: <Pin fill="#4285f4" />,
@@ -73,6 +73,41 @@ function VenuePanel({ id, index, active, onActivate }: { id: VenueId; index: num
   );
 }
 
+/** The online venue sits below the on-site panels as a fallback, not as a fifth equal choice. */
+function OnlineVenue() {
+  const { t } = useI18n();
+  const copy = t.venues.online;
+
+  return (
+    <motion.aside
+      className="online-venue"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.5 }}
+      variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: easeOut, staggerChildren: 0.08 } } }}
+    >
+      <motion.div
+        className="online-venue-art"
+        aria-hidden="true"
+        variants={{ hidden: { scale: 0.6, rotate: -30 }, visible: { scale: 1, rotate: 0, transition: { type: "spring", stiffness: 220, damping: 14 } } }}
+        whileHover={{ rotate: -10, scale: 1.08 }}
+      >
+        {venueArt.online}
+      </motion.div>
+      <div className="online-venue-copy">
+        <span className="online-venue-kicker">{copy.kicker}</span>
+        <h3>{copy.title}</h3>
+        <p>{copy.body}</p>
+        <p className="online-venue-caution">{copy.caution}</p>
+      </div>
+      <motion.p className="online-venue-note" variants={{ hidden: { opacity: 0, x: 16 }, visible: { opacity: 1, x: 0 } }}>
+        <UserRound aria-hidden="true" />
+        {copy.note}
+      </motion.p>
+    </motion.aside>
+  );
+}
+
 export function Venues() {
   const { t } = useI18n();
   const [active, setActive] = useState<VenueId>("tokyo");
@@ -90,10 +125,12 @@ export function Venues() {
           viewport={{ once: true, amount: 0.25 }}
           variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
         >
-          {venueOrder.map((id, index) => (
+          {onsiteVenueOrder.map((id, index) => (
             <VenuePanel key={id} id={id} index={index} active={active === id} onActivate={() => setActive(id)} />
           ))}
         </motion.div>
+
+        <OnlineVenue />
 
         <motion.div
           className="demo-venue"
