@@ -147,11 +147,11 @@ const ja = {
       disclaimer: "※ Google における採用・インターンシップへの参加や、選考の結果を保証するものではありません。",
     },
     organizer: {
-      kicker: "GDG TOKYO ORGANIZER AWARD",
-      title: "GDG Tokyo Organizer 賞",
+      kicker: "GDG DEVFEST TOKYO AWARD",
+      title: "GDG DevFest Tokyo 賞",
       count: "4",
       unit: "チーム",
-      body: "GDG Tokyo Organizer 賞に選ばれた4チームに、11月29日の GDG DevFest Tokyo 学生展示権を贈ります。",
+      body: "GDG DevFest Tokyo 賞に選ばれた4チームに、11月29日の GDG DevFest Tokyo 学生展示権を贈ります。",
       role: "EXHIBITOR × 4",
     },
     travel: {
@@ -361,11 +361,11 @@ const en: Dictionary = {
       disclaimer: "* This does not guarantee an internship, employment, or any outcome in Google's hiring process.",
     },
     organizer: {
-      kicker: "GDG TOKYO ORGANIZER AWARD",
-      title: "GDG Tokyo Organizer Award",
+      kicker: "GDG DEVFEST TOKYO AWARD",
+      title: "GDG DevFest Tokyo Award",
       count: "4",
       unit: "teams",
-      body: "Four teams chosen for the GDG Tokyo Organizer Award receive a student showcase slot at GDG DevFest Tokyo on November 29.",
+      body: "Four teams chosen for the GDG DevFest Tokyo Award receive a student showcase slot at GDG DevFest Tokyo on November 29.",
       role: "EXHIBITOR × 4",
     },
     travel: {
