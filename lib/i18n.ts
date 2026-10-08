@@ -69,8 +69,8 @@ const ja = {
     description:
       "DevFest GDGoC Japan Hackathon 2026 は、全国の学生が Google Cloud や Gemini を活用し、6日間でプロダクトを形にするハッカソンです。開発期間は全会場共通でオンライン。11月14日の Regional Day には、各地域の会場に集まります。",
     cards: {
-      who: { label: "WHO", value: "18歳以上の学生", note: "日本国内の大学・大学院に在籍し、日本に居住する学生" },
-      team: { label: "TEAM", value: "2–4", unit: "名のチームで参加", note: "異なる大学のメンバーでもOK。1人で応募すれば運営がチームを組みます" },
+      who: { label: "WHO", value: "18歳以上の学生", note: "日本国内の大学・大学院・高専・専門学校に在籍し、日本に居住する学生" },
+      team: { label: "TEAM", value: "2–4", unit: "名のチームで参加", note: "異なる学校のメンバーでもOK。1人で応募すれば運営がチームを組みます" },
       build: { label: "BUILD WITH", value: "Google Cloud / Gemini", note: "参加者に Google Cloud Credit を配布" },
       venues: { label: "VENUES", value: "4 + Online", note: "東京・大阪・名古屋・会津・オンライン" },
       demo: { label: "DEMO DAY", value: "TOP 10", note: "Top 10 チームが Google 渋谷オフィスで発表" },
@@ -132,7 +132,7 @@ const ja = {
       osaka: { city: "OSAKA", region: "大阪", name: "イノゲート大阪 エンザリーナ", place: "JR大阪駅 西口直結", address: "大阪府大阪市北区梅田3-2-123" },
       nagoya: { city: "NAGOYA", region: "名古屋", name: "名古屋大学", place: "Nagoya University", address: "愛知県名古屋市" },
       aizu: { city: "AIZU", region: "会津", name: "会津大学", place: "The University of Aizu", address: "福島県会津若松市" },
-      online: { city: "ONLINE", region: "オンライン", name: "オンライン会場", place: "全国どこからでも", address: "自宅や大学から参加できます" },
+      online: { city: "ONLINE", region: "オンライン", name: "オンライン会場", place: "全国どこからでも", address: "自宅や学校から参加できます" },
     } satisfies Record<VenueId, { city: string; region: string; name: string; place: string; address: string }>,
     demo: {
       kicker: "DEMO DAY VENUE",
@@ -226,16 +226,16 @@ const ja = {
     description: "以下の条件を満たしていることを確認してから、応募ページへ進んでください。",
     sectionTitle: "応募対象",
     items: [
-      "応募期間の開始時から賞品授与時（ハッカソン開催日当日）まで、日本国内の大学・大学院に在籍し、日本に居住する学生であること",
+      "応募期間の開始時から賞品授与時（ハッカソン開催日当日）まで、日本国内の大学・大学院・高等専門学校・専門学校に在籍し、日本に居住する学生であること",
       "2 名以上 4 名以下のチームで出場すること（1人で応募した場合は、運営がチームを編成します）",
     ],
     memberLead: "チームメンバー全員が、以下の条件を満たしていること",
     memberItems: [
-      "応募期間の開始時から賞品授与時（ハッカソン開催日当日）まで、日本国内の大学・大学院に在籍し、日本に居住していること",
+      "応募期間の開始時から賞品授与時（ハッカソン開催日当日）まで、日本国内の大学・大学院・高等専門学校・専門学校に在籍し、日本に居住していること",
       "応募時点で 18 歳以上であること",
     ],
     notes: [
-      "異なる大学に所属するメンバー同士でのチーム編成も可能です",
+      "異なる学校に所属するメンバー同士でのチーム編成も可能です",
       "1人で応募した場合、Regional Day はオンライン会場での参加になります",
       "ソフトウェア開発やコーディングの経験は問いません。ただし、AI を活用したプロダクト開発に関心があることが必要です",
       "留学生および外国籍の方も応募可能です。プログラムは日本語で進行するため、チーム活動、メンタリング、発表に参加できる日本語力が必要です",
@@ -252,7 +252,7 @@ const en: Dictionary = {
   meta: {
     title: "DevFest GDGoC Japan Hackathon 2026 | Google Developer Groups on Campus Japan",
     description:
-      "A six-day hackathon for university students across Japan, building with Google Cloud and Gemini. Kickoff Nov 1, Regional Day Nov 14, Demo Day Nov 27.",
+      "A six-day hackathon for students across Japan, building with Google Cloud and Gemini. Kickoff Nov 1, Regional Day Nov 14, Demo Day Nov 27.",
   },
   common: {
     apply: "Apply",
@@ -311,8 +311,8 @@ const en: Dictionary = {
     description:
       "DevFest GDGoC Japan Hackathon 2026 brings students from across Japan together to build products with Google Cloud and Gemini in just six days. Development happens online on a shared schedule, and on November 14 teams gather at venues in their region for Regional Day.",
     cards: {
-      who: { label: "WHO", value: "Students aged 18+", note: "Enrolled at a university or graduate school in Japan and living in Japan" },
-      team: { label: "TEAM", value: "2–4", unit: "members per team", note: "Teams across universities are welcome. Apply solo and we'll form a team for you" },
+      who: { label: "WHO", value: "Students aged 18+", note: "Enrolled at a university, graduate school, kosen (college of technology), or vocational school in Japan and living in Japan" },
+      team: { label: "TEAM", value: "2–4", unit: "members per team", note: "Teams across schools are welcome. Apply solo and we'll form a team for you" },
       build: { label: "BUILD WITH", value: "Google Cloud / Gemini", note: "Google Cloud credits provided to participants" },
       venues: { label: "VENUES", value: "4 + Online", note: "Tokyo, Osaka, Nagoya, Aizu, and online" },
       demo: { label: "DEMO DAY", value: "TOP 10", note: "The top 10 teams present at Google's Shibuya office" },
@@ -374,7 +374,7 @@ const en: Dictionary = {
       osaka: { city: "OSAKA", region: "Osaka", name: "INOGATE OSAKA — ENZALINA", place: "Directly connected to JR Osaka Station (West Exit)", address: "3-2-123 Umeda, Kita-ku, Osaka" },
       nagoya: { city: "NAGOYA", region: "Nagoya", name: "Nagoya University", place: "名古屋大学", address: "Nagoya, Aichi" },
       aizu: { city: "AIZU", region: "Aizu", name: "The University of Aizu", place: "会津大学", address: "Aizuwakamatsu, Fukushima" },
-      online: { city: "ONLINE", region: "Online", name: "Online venue", place: "From anywhere in Japan", address: "Join from home or your campus" },
+      online: { city: "ONLINE", region: "Online", name: "Online venue", place: "From anywhere in Japan", address: "Join from home or your school" },
     },
     demo: {
       kicker: "DEMO DAY VENUE",
@@ -468,16 +468,16 @@ const en: Dictionary = {
     description: "Please confirm that you meet the requirements below before continuing to the application page.",
     sectionTitle: "Eligibility",
     items: [
-      "From the start of the application period until prizes are awarded (the day of the hackathon event), you are a student enrolled at a university or graduate school in Japan and living in Japan",
+      "From the start of the application period until prizes are awarded (the day of the hackathon event), you are a student enrolled at a university, graduate school, kosen (college of technology), or vocational school in Japan and living in Japan",
       "You compete in a team of 2 to 4 members (if you apply on your own, we'll form a team for you)",
     ],
     memberLead: "Every team member meets the following",
     memberItems: [
-      "Enrolled at a university or graduate school in Japan and living in Japan from the start of the application period until prizes are awarded (the day of the hackathon event)",
+      "Enrolled at a university, graduate school, kosen (college of technology), or vocational school in Japan and living in Japan from the start of the application period until prizes are awarded (the day of the hackathon event)",
       "Aged 18 or older at the time of application",
     ],
     notes: [
-      "Teams may include members from different universities",
+      "Teams may include members from different schools",
       "If you apply on your own, you'll join Regional Day at the online venue",
       "No software development or coding experience is required, but you must be interested in building products with AI",
       "International students and non-Japanese nationals are welcome. The program is run in Japanese, so you need enough Japanese to take part in team activities, mentoring, and presentations",
