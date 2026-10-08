@@ -137,7 +137,7 @@ export function Prizes() {
   return (
     <section className="section prizes" id="prizes">
       <div className="container">
-        <SectionHeading index="04" kicker={copy.kicker} title={copy.title} description={copy.description} />
+        <SectionHeading index="05" kicker={copy.kicker} title={copy.title} description={copy.description} />
 
         <motion.article
           className="grand tab-card"

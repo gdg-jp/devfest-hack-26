@@ -8,9 +8,7 @@ import { Arc, GdgLogo, Globe, People, Pin, Slashes } from "@/components/brand-sh
 import { useI18n } from "@/components/i18n-provider";
 import { easeOut } from "@/components/motion-presets";
 import { SectionHeading } from "@/components/section-heading";
-import { mapsUrl, venueMapQuery, venueTone, type VenueId } from "@/lib/event";
-
-const venueOrder: VenueId[] = ["tokyo", "osaka", "nagoya", "aizu", "online"];
+import { mapsUrl, venueMapQuery, venueOrder, venueTone, type VenueId } from "@/lib/event";
 
 const venueArt: Record<VenueId, ReactNode> = {
   tokyo: <Pin fill="#4285f4" />,
@@ -83,7 +81,7 @@ export function Venues() {
   return (
     <section className="section venues" id="venues">
       <div className="container">
-        <SectionHeading index="03" kicker={t.venues.kicker} title={t.venues.title} description={t.venues.description} />
+        <SectionHeading index="04" kicker={t.venues.kicker} title={t.venues.title} description={t.venues.description} />
 
         <motion.div
           className="venue-panels"

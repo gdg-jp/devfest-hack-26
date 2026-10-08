@@ -50,7 +50,7 @@ export function Schedule() {
   return (
     <section className="section schedule" id="schedule">
       <div className="container">
-        <SectionHeading index="02" kicker={copy.kicker} title={copy.title} description={copy.description} />
+        <SectionHeading index="03" kicker={copy.kicker} title={copy.title} description={copy.description} />
 
         <div className="schedule-grid">
           <ol ref={listRef} className="phase-list" data-hovering={hovered !== null}>

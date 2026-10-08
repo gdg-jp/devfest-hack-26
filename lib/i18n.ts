@@ -24,6 +24,7 @@ const ja = {
   },
   nav: [
     { id: "about", label: "概要" },
+    { id: "how-to-apply", label: "応募方法" },
     { id: "schedule", label: "日程" },
     { id: "venues", label: "会場" },
     { id: "prizes", label: "賞・特典" },
@@ -69,13 +70,39 @@ const ja = {
       "DevFest GDGoC Japan Hackathon 2026 は、全国の学生が Google Cloud や Gemini を活用し、6日間でプロダクトを形にするハッカソンです。開発期間は全会場共通でオンライン。11月14日の Regional Day には、各地域の会場に集まります。",
     cards: {
       who: { label: "WHO", value: "18歳以上の学生", note: "日本国内の大学・大学院に在籍し、日本に居住する学生" },
-      team: { label: "TEAM", value: "2–4", unit: "名のチームで参加", note: "異なる大学のメンバーでのチーム編成もOK" },
+      team: { label: "TEAM", value: "2–4", unit: "名のチームで参加", note: "異なる大学のメンバーでもOK。1人で応募すれば運営がチームを組みます" },
       build: { label: "BUILD WITH", value: "Google Cloud / Gemini", note: "参加者に Google Cloud Credit を配布" },
       venues: { label: "VENUES", value: "4 + Online", note: "東京・大阪・名古屋・会津・オンライン" },
       demo: { label: "DEMO DAY", value: "TOP 10", note: "Top 10 チームが Google 渋谷オフィスで発表" },
       judges: { label: "JUDGES", value: "Google Software Engineers", note: "Google のソフトウェアエンジニアが審査員として参加予定" },
     },
-    chips: ["コーディング経験は不問", "AI を活用したプロダクト開発に関心がある方", "留学生・外国籍の方も応募可（日本語で進行）"],
+    chips: ["1人でも応募OK（運営がチームを編成）", "コーディング経験は不問", "AI を活用したプロダクト開発に関心がある方", "留学生・外国籍の方も応募可（日本語で進行）"],
+  },
+  howToApply: {
+    kicker: "HOW TO APPLY",
+    title: ["チームでも、", "1人でも。"],
+    description: "出場は 2〜4 名のチームです。チームが決まっていなくても大丈夫。1人で応募すれば、運営がチームを組みます。",
+    tab: "2 WAYS · 3 STEPS",
+    pickerLabel: "応募方法を選ぶ",
+    paths: {
+      team: {
+        title: "チームで応募",
+        meta: "2–4名",
+        steps: ["代表者がチームを作成して申請", "発行された招待コードをメンバーに共有", "メンバーが招待コードでチームに参加"],
+        status: ["TEAM CREATED", "INVITE SENT", "TEAM READY"],
+        venue: "東京・大阪・名古屋・会津・オンラインから選択",
+      },
+      solo: {
+        title: "1人で応募",
+        meta: "運営がチームを編成",
+        steps: ["開発経験や得意な技術を自己申告して申請", "回答をもとに、運営が技術力のバランスを見て 2〜4 名のチームを編成", "チームが決まり次第、メールでお知らせ"],
+        status: ["APPLIED", "TEAM MATCHED", "EMAIL SENT"],
+        venue: "オンライン会場で参加",
+      },
+    },
+    stage: { leader: "LEADER", you: "YOU", skills: "SKILLS", invite: "INVITE CODE", mailKicker: "NEW MESSAGE", mailSubject: "チームが決まりました！" },
+    controls: { pause: "アニメーションを一時停止", play: "アニメーションを再生", replay: "アニメーションをもう一度再生" },
+    note: "どちらの方法も、応募ページで選べます。",
   },
   schedule: {
     kicker: "SCHEDULE",
@@ -98,7 +125,7 @@ const ja = {
     kicker: "VENUES",
     title: ["地域を越えて、", "ともにつくる。"],
     description:
-      "11月14日の Regional Day は、全国4会場とオンライン会場で同日開催します。地域の仲間と集まり、全国のコミュニティとつながりましょう。",
+      "11月14日の Regional Day は、全国4会場とオンライン会場で同日開催します。地域の仲間と集まり、全国のコミュニティとつながりましょう。1人で応募した方は、オンライン会場で参加します。",
     regionalTag: "REGIONAL DAY · 11.14 SAT",
     list: {
       tokyo: { city: "TOKYO", region: "東京", name: "メルカリ本社", place: "六本木ヒルズ森タワー", address: "東京都港区六本木6-10-1" },
@@ -200,7 +227,7 @@ const ja = {
     sectionTitle: "応募対象",
     items: [
       "応募期間の開始時から賞品授与時（ハッカソン開催日当日）まで、日本国内の大学・大学院に在籍し、日本に居住する学生であること",
-      "2 名以上 4 名以下のチームであること",
+      "2 名以上 4 名以下のチームで出場すること（1人で応募した場合は、運営がチームを編成します）",
     ],
     memberLead: "チームメンバー全員が、以下の条件を満たしていること",
     memberItems: [
@@ -209,6 +236,7 @@ const ja = {
     ],
     notes: [
       "異なる大学に所属するメンバー同士でのチーム編成も可能です",
+      "1人で応募した場合、Regional Day はオンライン会場での参加になります",
       "ソフトウェア開発やコーディングの経験は問いません。ただし、AI を活用したプロダクト開発に関心があることが必要です",
       "留学生および外国籍の方も応募可能です。プログラムは日本語で進行するため、チーム活動、メンタリング、発表に参加できる日本語力が必要です",
     ],
@@ -239,6 +267,7 @@ const en: Dictionary = {
   },
   nav: [
     { id: "about", label: "About" },
+    { id: "how-to-apply", label: "How to apply" },
     { id: "schedule", label: "Schedule" },
     { id: "venues", label: "Venues" },
     { id: "prizes", label: "Prizes" },
@@ -283,13 +312,39 @@ const en: Dictionary = {
       "DevFest GDGoC Japan Hackathon 2026 brings students from across Japan together to build products with Google Cloud and Gemini in just six days. Development happens online on a shared schedule, and on November 14 teams gather at venues in their region for Regional Day.",
     cards: {
       who: { label: "WHO", value: "Students aged 18+", note: "Enrolled at a university or graduate school in Japan and living in Japan" },
-      team: { label: "TEAM", value: "2–4", unit: "members per team", note: "Teams across different universities are welcome" },
+      team: { label: "TEAM", value: "2–4", unit: "members per team", note: "Teams across universities are welcome. Apply solo and we'll form a team for you" },
       build: { label: "BUILD WITH", value: "Google Cloud / Gemini", note: "Google Cloud credits provided to participants" },
       venues: { label: "VENUES", value: "4 + Online", note: "Tokyo, Osaka, Nagoya, Aizu, and online" },
       demo: { label: "DEMO DAY", value: "TOP 10", note: "The top 10 teams present at Google's Shibuya office" },
       judges: { label: "JUDGES", value: "Google Software Engineers", note: "Software engineers from Google are scheduled to join as judges" },
     },
-    chips: ["No coding experience required", "For anyone interested in building with AI", "International students welcome (run in Japanese)"],
+    chips: ["Solo applicants welcome (we form the teams)", "No coding experience required", "For anyone interested in building with AI", "International students welcome (run in Japanese)"],
+  },
+  howToApply: {
+    kicker: "HOW TO APPLY",
+    title: ["With a team,", "or on your own."],
+    description: "Everyone competes in a team of 2 to 4. No team yet? No problem — apply on your own and we'll put a team together for you.",
+    tab: "2 WAYS · 3 STEPS",
+    pickerLabel: "Choose how to apply",
+    paths: {
+      team: {
+        title: "Apply as a team",
+        meta: "2–4 members",
+        steps: ["Your team lead creates the team and applies", "Share the invite code you receive with your teammates", "Teammates join the team with the invite code"],
+        status: ["TEAM CREATED", "INVITE SENT", "TEAM READY"],
+        venue: "Choose Tokyo, Osaka, Nagoya, Aizu, or online",
+      },
+      solo: {
+        title: "Apply on your own",
+        meta: "We form your team",
+        steps: ["Apply with a self-assessment of your dev experience and skills", "We form teams of 2 to 4 with a balanced mix of skills", "We email you as soon as your team is set"],
+        status: ["APPLIED", "TEAM MATCHED", "EMAIL SENT"],
+        venue: "Join at the online venue",
+      },
+    },
+    stage: { leader: "LEADER", you: "YOU", skills: "SKILLS", invite: "INVITE CODE", mailKicker: "NEW MESSAGE", mailSubject: "Your team is ready!" },
+    controls: { pause: "Pause animation", play: "Play animation", replay: "Replay animation" },
+    note: "You can choose either option on the application page.",
   },
   schedule: {
     kicker: "SCHEDULE",
@@ -312,7 +367,7 @@ const en: Dictionary = {
     kicker: "VENUES",
     title: ["Across regions,", "building together."],
     description:
-      "Regional Day on November 14 takes place on the same day at four venues across Japan and online. Meet builders in your region and connect with the community nationwide.",
+      "Regional Day on November 14 takes place on the same day at four venues across Japan and online. Meet builders in your region and connect with the community nationwide. Solo applicants join at the online venue.",
     regionalTag: "REGIONAL DAY · SAT, NOV 14",
     list: {
       tokyo: { city: "TOKYO", region: "Tokyo", name: "Mercari HQ", place: "Roppongi Hills Mori Tower", address: "6-10-1 Roppongi, Minato-ku, Tokyo" },
@@ -414,7 +469,7 @@ const en: Dictionary = {
     sectionTitle: "Eligibility",
     items: [
       "From the start of the application period until prizes are awarded (the day of the hackathon event), you are a student enrolled at a university or graduate school in Japan and living in Japan",
-      "You apply as a team of 2 to 4 members",
+      "You compete in a team of 2 to 4 members (if you apply on your own, we'll form a team for you)",
     ],
     memberLead: "Every team member meets the following",
     memberItems: [
@@ -423,6 +478,7 @@ const en: Dictionary = {
     ],
     notes: [
       "Teams may include members from different universities",
+      "If you apply on your own, you'll join Regional Day at the online venue",
       "No software development or coding experience is required, but you must be interested in building products with AI",
       "International students and non-Japanese nationals are welcome. The program is run in Japanese, so you need enough Japanese to take part in team activities, mentoring, and presentations",
     ],

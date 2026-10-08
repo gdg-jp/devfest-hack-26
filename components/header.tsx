@@ -30,7 +30,7 @@ function useActiveSection(ids: string[]) {
 }
 
 // "top" is observed so the nav clears while the hero is in view.
-const sectionIds = ["top", "about", "schedule", "venues", "prizes", "judging"];
+const sectionIds = ["top", "about", "how-to-apply", "schedule", "venues", "prizes", "judging"];
 
 export function Header() {
   const { t } = useI18n();

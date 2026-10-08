@@ -2,6 +2,7 @@ import { ApplicationModalProvider } from "@/components/application-modal";
 import { Countdown } from "@/components/countdown";
 import { FinalCta, Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { HowToApply } from "@/components/how-to-apply";
 import { Hero } from "@/components/hero";
 import { I18nProvider } from "@/components/i18n-provider";
 import { Judging } from "@/components/judging";
@@ -29,6 +30,7 @@ export function Site({ locale }: { locale: Locale }) {
             <Countdown />
             <Marquee />
             <Overview />
+            <HowToApply />
             <Schedule />
             <Venues />
             <Prizes />
