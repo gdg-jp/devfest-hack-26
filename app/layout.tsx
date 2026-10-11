@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import { dictionaries } from "@/lib/i18n";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "DevFest Hackathon 2026 | GDG Japan",
-  description: "全国のビルダーと5日間で未来をつくる、DevFest Hackathon 2026。",
+  title: dictionaries.ja.meta.title,
+  description: dictionaries.ja.meta.description,
+  alternates: { languages: { ja: "/", en: "/en" } },
+  openGraph: { title: dictionaries.ja.meta.title, description: dictionaries.ja.meta.description, locale: "ja_JP" },
   icons: {
     icon: "/brand/gdg-lockup.svg",
     shortcut: "/brand/gdg-lockup.svg",

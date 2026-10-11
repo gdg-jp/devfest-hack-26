@@ -1,81 +1,117 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { useI18n } from "@/components/i18n-provider";
+import { easeOut } from "@/components/motion-presets";
+import { milestones } from "@/lib/event";
 
-const EVENT_START = new Date("2026-11-01T00:00:00+09:00").getTime();
-const INITIAL_REMAINING = { days: 0, hours: 0, minutes: 0, seconds: 0 };
-
-function getRemaining() {
-  const distance = Math.max(0, EVENT_START - Date.now());
-  return {
-    days: Math.floor(distance / 86_400_000),
-    hours: Math.floor((distance / 3_600_000) % 24),
-    minutes: Math.floor((distance / 60_000) % 60),
-    seconds: Math.floor((distance / 1_000) % 60),
-  };
+function subscribe(onTick: () => void) {
+  const timer = window.setInterval(onTick, 1_000);
+  return () => window.clearInterval(timer);
 }
 
-export function Countdown() {
-  // Keep the first server and client render identical. The live clock begins
-  // immediately after hydration, preventing a one-second SSR/client mismatch.
-  const [remaining, setRemaining] = useState(INITIAL_REMAINING);
+const getSecond = () => Math.floor(Date.now() / 1_000);
 
-  useEffect(() => {
-    setRemaining(getRemaining());
-    const timer = window.setInterval(() => setRemaining(getRemaining()), 1_000);
-    return () => window.clearInterval(timer);
-  }, []);
+// The server renders placeholders; the live clock takes over after hydration.
+const getServerSecond = () => null;
 
-  const units = [
-    ["DAYS", remaining.days],
-    ["HRS", remaining.hours],
-    ["MIN", remaining.minutes],
-    ["SEC", remaining.seconds],
+function split(distance: number) {
+  return [
+    Math.floor(distance / 86_400),
+    Math.floor((distance / 3_600) % 24),
+    Math.floor((distance / 60) % 60),
+    Math.floor(distance % 60),
   ];
+}
+
+function RollingDigit({ digit }: { digit: string }) {
+  return (
+    <span className="rolling-digit">
+      <AnimatePresence mode="popLayout" initial={false}>
+        <motion.span
+          key={digit}
+          initial={{ y: "-100%", opacity: 0 }}
+          animate={{ y: "0%", opacity: 1 }}
+          exit={{ y: "100%", opacity: 0 }}
+          transition={{ duration: 0.38, ease: easeOut }}
+        >
+          {digit}
+        </motion.span>
+      </AnimatePresence>
+    </span>
+  );
+}
+
+const tones = ["blue", "red", "yellow", "green"];
+
+export function Countdown() {
+  const { t } = useI18n();
+  const copy = t.countdown;
+  const now = useSyncExternalStore(subscribe, getSecond, getServerSecond);
+  const next = now === null ? milestones[0] : milestones.find((milestone) => milestone.at / 1_000 > now);
+  const values = now === null || !next ? null : split(next.at / 1_000 - now);
+  const target = next ? copy.milestones[next.id] : null;
 
   return (
-    <motion.section
-      className="countdown"
-      aria-label="共通キックオフまでのカウントダウン"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.72 }}
-    >
-      <div className="countdown-inner">
-        <div className="countdown-head">
-          <motion.div className="countdown-label" initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.82 }}>
-            <span className="live-dot" />
-            <div><p>COMMON KICKOFF STARTS IN</p><small>共通キックオフまで</small></div>
-          </motion.div>
-          <motion.p className="countdown-foot" initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.82 }}>2026.11.01 / JST</motion.p>
-        </div>
-        <motion.div className="countdown-grid motion-card" aria-live="polite" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.88 }} whileHover={{ y: -6 }}>
-          {units.map(([label, value], index) => (
-            <motion.div
-              className="countdown-unit"
-              key={label}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              whileHover={{ backgroundColor: ["#c3ecf6", "#f8d8d8", "#ffe7a5", "#ccf6c5"][index], scale: 1.025, transition: { duration: 0.2, delay: 0 } }}
-              transition={{ delay: 0.92 + index * 0.06 }}
-            >
-              <AnimatePresence mode="popLayout" initial={false}>
-                <motion.strong
-                  key={value}
-                  initial={{ opacity: 0, y: -8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 8 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {String(value).padStart(2, "0")}
-                </motion.strong>
-              </AnimatePresence>
-              <span>{label}</span>
-            </motion.div>
-          ))}
+    <section className="countdown" aria-label={copy.label}>
+      <div className="container">
+        <motion.div
+          className="countdown-card"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.8, ease: easeOut }}
+        >
+          <div className="countdown-target">
+            <p className="countdown-tag">
+              <span className="live-dot" aria-hidden="true" />
+              {copy.tab}
+            </p>
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={next ? next.id : "done"}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -16 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h2 className="countdown-until">{target ? target.until : copy.done}</h2>
+                {target ? <p className="countdown-when">{target.when}</p> : null}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {next ? (
+            <p className="countdown-clock">
+              {copy.prefix ? <span className="countdown-prefix">{copy.prefix}</span> : null}
+              {copy.units.other.map((unit, index) => {
+                const value = values ? values[index] : null;
+                const text = value === null ? "--" : String(value).padStart(2, "0");
+                const label = value === 1 ? copy.units.one[index] : unit;
+                return (
+                  <motion.span
+                    key={index}
+                    className={`countdown-part tone-${tones[index]}`}
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.15 + index * 0.06 }}
+                  >
+                    <strong aria-hidden="true">
+                      {Array.from(text).map((digit, position) => (
+                        <RollingDigit key={position} digit={digit} />
+                      ))}
+                    </strong>
+                    <span className="sr-only">{text}</span>
+                    <span className="countdown-unit">{label}</span>
+                  </motion.span>
+                );
+              })}
+            </p>
+          ) : null}
         </motion.div>
       </div>
-    </motion.section>
+    </section>
   );
 }

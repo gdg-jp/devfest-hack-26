@@ -1,96 +1,103 @@
 "use client";
 
-import { CalendarDays, Cloud, MapPin, TrainFront, Users } from "lucide-react";
+import type { ReactNode } from "react";
+import { Check } from "lucide-react";
 import { motion } from "motion/react";
+import { Brace, Dots, People, Pin } from "@/components/brand-shapes";
+import { useI18n } from "@/components/i18n-provider";
+import { CountUp, useTilt } from "@/components/motion-kit";
+import { easeOut } from "@/components/motion-presets";
 import { SectionHeading } from "@/components/section-heading";
-import { cardHover, cardTap, cardTransition, rowHover } from "@/components/motion-presets";
 
-const facts = [
-  { icon: Users, label: "WHO", value: "18歳以上の学生", note: "大学・大学院・博士課程／休学中を含む" },
-  { icon: Cloud, label: "BUILD WITH", value: "Google Cloud / Gemini", note: "Cloud Creditを参加者へ配布" },
-  { icon: MapPin, label: "FORMAT", value: "全国5地域 + Online", note: "東京・大阪・名古屋・会津・オンライン" },
-];
+const cardMotion = {
+  hidden: { opacity: 0, y: 48, scale: 0.96 },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, ease: easeOut } },
+};
 
-const schedule = [
-  { date: "11.01", eyebrow: "SUN · ONLINE", title: "共通 Kickoff", detail: "テーマ発表とルール説明" },
-  { date: "11.02—14", eyebrow: "REGIONAL ROUND", title: "会場ごとに連続5日間", detail: "企画・開発・検証・提出" },
-  { date: "11.27", eyebrow: "FRI · PM", title: "Demo Day", detail: "Google 渋谷オフィス" },
-];
+function BentoCard({ className, label, children, note, art }: { className: string; label: string; children: ReactNode; note: string; art?: ReactNode }) {
+  const tilt = useTilt(5);
+  return (
+    <motion.article className={`bento-card ${className}`} variants={cardMotion} whileHover="hover" {...tilt}>
+      <span className="bento-label">{label}</span>
+      <div className="bento-value">{children}</div>
+      <p className="bento-note">{note}</p>
+      {art ? (
+        <motion.div className="bento-art" aria-hidden="true" variants={{ hover: { scale: 1.08, rotate: -6 } }} transition={{ type: "spring", stiffness: 300, damping: 15 }}>
+          {art}
+        </motion.div>
+      ) : null}
+    </motion.article>
+  );
+}
 
 export function Overview() {
+  const { t } = useI18n();
+  const cards = t.about.cards;
+
   return (
-    <section className="section-shell overview-section" id="about">
-      <SectionHeading
-        number="01"
-        kicker="EVENT OVERVIEW"
-        title={<><span className="section-title-line">アイデアを、</span><span className="section-title-line">動かす5日間。</span></>}
-        description="全国の学生がGoogle Cloud PlatformやGeminiを活用し、連続した5日間でプロトタイプを形にするハッカソンです。Regional Roundの日程は会場ごとに異なります。"
-      />
+    <section className="section overview" id="about">
+      <div className="container">
+        <SectionHeading index="01" kicker={t.about.kicker} title={t.about.title} description={t.about.description} />
 
-      <motion.div
-        className="overview-facts"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.25 }}
-        variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
-      >
-        {facts.map(({ icon: Icon, label, value, note }) => (
-          <motion.article
-            className="overview-fact motion-card"
-            key={label}
-            variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }}
-            whileHover={cardHover}
-            whileTap={cardTap}
-            transition={cardTransition}
+        <motion.div
+          className="bento"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
+        >
+          <BentoCard className="tone-blue span-6 bento-who" label={cards.who.label} note={cards.who.note} art={<People wave fill="#ffffff" />}>
+            <strong className="bento-headline">{cards.who.value}</strong>
+          </BentoCard>
+
+          <BentoCard className="tone-yellow span-3" label={cards.team.label} note={cards.team.note}>
+            <strong className="bento-number">2<span className="bento-dash">–</span><CountUp value={4} /></strong>
+            <span className="bento-unit">{cards.team.unit}</span>
+          </BentoCard>
+
+          <BentoCard
+            className="tone-green span-3 bento-build"
+            label={cards.build.label}
+            note={cards.build.note}
+            art={
+              <span className="bento-braces">
+                <Brace fill="#ffffff" side="open" />
+                <Dots colors={["#34a853", "#f9ab00"]} />
+                <Brace fill="#ffffff" side="close" />
+              </span>
+            }
           >
-            <Icon aria-hidden="true" />
-            <div><span>{label}</span><strong>{value}</strong><p>{note}</p></div>
-          </motion.article>
-        ))}
-      </motion.div>
+            <strong className="bento-headline is-compact">{cards.build.value}</strong>
+          </BentoCard>
 
-      <motion.div
-        className="overview-schedule motion-card"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.25 }}
-        variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.11 } } }}
-        whileHover={{ y: -6 }}
-        transition={cardTransition}
-      >
-        <div className="overview-schedule-head">
-          <CalendarDays aria-hidden="true" />
-          <div><span>KEY DATES</span><h3>2026年11月</h3></div>
-        </div>
-        <div className="overview-schedule-list">
-          {schedule.map((event, index) => (
-            <motion.article
-              className={index === 1 ? "overview-schedule-item is-primary" : "overview-schedule-item"}
-              key={event.date}
-              variants={{ hidden: { opacity: 0, x: 28 }, visible: { opacity: 1, x: 0 } }}
-              whileHover={rowHover}
-              transition={cardTransition}
-            >
-              <strong>{event.date}</strong>
-              <div><span>{event.eyebrow}</span><h4>{event.title}</h4><p>{event.detail}</p></div>
-            </motion.article>
+          <BentoCard className="tone-red span-3" label={cards.venues.label} note={cards.venues.note} art={<Pin fill="#ea4335" />}>
+            <strong className="bento-number"><CountUp value={4} /><span className="bento-plus">+ Online</span></strong>
+          </BentoCard>
+
+          <BentoCard className="tone-white span-3" label={cards.demo.label} note={cards.demo.note}>
+            <strong className="bento-number"><span className="bento-top">TOP</span><CountUp value={10} /></strong>
+          </BentoCard>
+
+          <BentoCard className="tone-core-blue span-6 bento-judges" label={cards.judges.label} note={cards.judges.note} art={<People wave fill="#ffe7a5" />}>
+            <strong className="bento-headline">{cards.judges.value}</strong>
+          </BentoCard>
+        </motion.div>
+
+        <motion.ul
+          className="chip-row"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.6 }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
+        >
+          {t.about.chips.map((chip, index) => (
+            <motion.li key={index} variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0 } }} whileHover={{ y: -3 }}>
+              <Check aria-hidden="true" />
+              {chip}
+            </motion.li>
           ))}
-        </div>
-      </motion.div>
-
-      <motion.aside
-        className="overview-note motion-card"
-        initial={{ opacity: 0, y: 18 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.6 }}
-        whileHover={cardHover}
-        transition={cardTransition}
-      >
-        <TrainFront aria-hidden="true" />
-        <span>FOR FINALISTS</span>
-        <p>決勝進出者には、Demo Day参加のため東京までの交通費を支援します。</p>
-        <small>支援条件・上限額は決定後に掲載します。</small>
-      </motion.aside>
+        </motion.ul>
+      </div>
     </section>
   );
 }

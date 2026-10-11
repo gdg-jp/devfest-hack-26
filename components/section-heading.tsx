@@ -1,37 +1,46 @@
 "use client";
 
 import { motion } from "motion/react";
-import type { ReactNode } from "react";
+import { MaskLines, ScrambleText } from "@/components/motion-kit";
+import { easeOut } from "@/components/motion-presets";
 
 type SectionHeadingProps = {
-  number: string;
+  index: string;
   kicker: string;
-  title: ReactNode;
+  title: string[];
   description?: string;
-  light?: boolean;
 };
 
-export function SectionHeading({ number, kicker, title, description, light = false }: SectionHeadingProps) {
+export function SectionHeading({ index, kicker, title, description }: SectionHeadingProps) {
   return (
     <motion.header
-      className={`section-heading${light ? " section-heading-light" : ""}`}
+      className="sec-head"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.35 }}
-      variants={{
-        hidden: {},
-        visible: { transition: { staggerChildren: 0.09 } },
-      }}
     >
-      <motion.p className="section-index" variants={{ hidden: { opacity: 0, scale: 0.82 }, visible: { opacity: 1, scale: 1 } }}>{number}</motion.p>
-      <motion.div variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }}>
-        <p className="section-kicker">{kicker}</p>
-        <h2>{title}</h2>
-      </motion.div>
+      <div className="sec-head-meta">
+        <motion.span
+          className="sec-index"
+          variants={{ hidden: { opacity: 0, scale: 0.5, rotate: -20 }, visible: { opacity: 1, scale: 1, rotate: 0 } }}
+          transition={{ type: "spring", stiffness: 300, damping: 16 }}
+        >
+          {index}
+        </motion.span>
+        <ScrambleText className="sec-kicker" text={kicker} />
+        <motion.span
+          className="sec-rule"
+          aria-hidden="true"
+          variants={{ hidden: { scaleX: 0 }, visible: { scaleX: 1, transition: { duration: 1.1, ease: easeOut } } }}
+        />
+      </div>
+      <h2 className="sec-title">
+        <MaskLines lines={title} delay={0.1} />
+      </h2>
       {description ? (
         <motion.p
-          className="section-description"
-          variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+          className="sec-desc"
+          variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: easeOut, delay: 0.3 } } }}
         >
           {description}
         </motion.p>
