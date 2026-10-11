@@ -7,11 +7,11 @@ import { cardHover, cardTap, cardTransition } from "@/components/motion-presets"
 
 const venues = [
   { id: "01", city: "TOKYO", name: "東京会場 A", place: "会場調整中", color: "blue" },
-  { id: "02", city: "TOKYO", name: "東京会場 B", place: "会場調整中", color: "red" },
-  { id: "03", city: "OSAKA", name: "Enz'Arena", place: "イノゲート大阪", color: "yellow" },
-  { id: "04", city: "NAGOYA", name: "名古屋大学", place: "愛知県名古屋市", color: "green" },
-  { id: "05", city: "AIZU", name: "会津大学", place: "福島県会津若松市", color: "blue" },
-  { id: "06", city: "ONLINE", name: "オンライン会場", place: "全国から参加可能", color: "red", online: true },
+  // { id: "02", city: "TOKYO", name: "東京会場 B", place: "会場調整中", color: "red" },
+  { id: "02", city: "OSAKA", name: "船井総研グループ大阪本社 サステナグローススクエア OSAKA Enz'Arena", place: "イノゲート大阪", color: "yellow" },
+  { id: "03", city: "NAGOYA", name: "名古屋大学", place: "愛知県名古屋市", color: "green" },
+  { id: "04", city: "AIZU", name: "会津大学", place: "福島県会津若松市", color: "blue" },
+  { id: "05", city: "ONLINE", name: "オンライン会場", place: "全国から参加可能", color: "red", online: true },
 ];
 
 export function Locations() {
