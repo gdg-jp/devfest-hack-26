@@ -137,7 +137,7 @@ const ja = {
     },
     list: {
       tokyo: { city: "TOKYO", region: "東京", name: "メルカリ本社", place: "六本木ヒルズ森タワー", address: "東京都港区六本木6-10-1" },
-      osaka: { city: "OSAKA", region: "大阪", name: "イノゲート大阪 エンザリーナ", place: "JR大阪駅 西口直結", address: "大阪府大阪市北区梅田3-2-123" },
+      osaka: { city: "OSAKA", region: "大阪", name: "船井総研グループ大阪本社 サステナグローススクエア OSAKA Enz'Arena", place: "JR大阪駅 西口直結", address: "大阪府大阪市北区梅田3-2-123" },
       nagoya: { city: "NAGOYA", region: "名古屋", name: "名古屋大学", place: "Nagoya University", address: "愛知県名古屋市" },
       aizu: { city: "AIZU", region: "会津", name: "会津大学", place: "The University of Aizu", address: "福島県会津若松市" },
       online: { city: "ONLINE", region: "オンライン", name: "オンライン会場", place: "全国どこからでも", address: "自宅や学校から参加できます" },
