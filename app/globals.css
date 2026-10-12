@@ -1013,8 +1013,11 @@ h1, h2, h3, p { text-wrap: pretty; }
 .venue[data-active="true"] .venue-body { opacity: 1; visibility: visible; transform: none; transition-delay: .2s, .2s, 0s; }
 .venue-city { margin: 0; font-size: clamp(52px, 6.4vw, 104px); font-weight: 700; line-height: .9; letter-spacing: -.05em; }
 .venue-details { max-width: 26em; margin-top: auto; }
+#venue-osaka .venue-details { max-width: none; }
 .venue-region { margin: 0; color: var(--muted); font: 700 12px/1 var(--font-mono-stack); letter-spacing: .1em; text-transform: uppercase; }
 .venue-details h3 { margin: 10px 0 8px; font-size: clamp(26px, 2.6vw, 38px); line-height: 1.2; letter-spacing: -.025em; }
+#venue-osaka .venue-details h3 { font-size: clamp(25px, 2.2vw, 34px); word-break: keep-all; overflow-wrap: anywhere; }
+.venue-name-line { display: block; }
 .venue-place { margin: 0; font-size: 15px; font-weight: 700; }
 .venue-address { margin: 4px 0 0; color: var(--body-text); font-size: 14px; }
 .venue-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 24px; }
@@ -1490,6 +1493,7 @@ h1, h2, h3, p { text-wrap: pretty; }
 
 @media (max-width: 640px) {
   :root { --header-h: 68px; }
+  #venue-osaka .venue-details h3 { font-size: clamp(20px, 5.8vw, 28px); }
   .header-bar { height: 60px; padding: 0 6px 0 14px; }
   .header-logo { width: 40px; }
   .header-brand-copy, .header-apply { display: none; }

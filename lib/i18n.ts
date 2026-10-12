@@ -137,11 +137,16 @@ const ja = {
     },
     list: {
       tokyo: { city: "TOKYO", region: "東京", name: "メルカリ本社", place: "六本木ヒルズ森タワー", address: "東京都港区六本木6-10-1" },
-      osaka: { city: "OSAKA", region: "大阪", name: "イノゲート大阪 エンザリーナ", place: "JR大阪駅 西口直結", address: "大阪府大阪市北区梅田3-2-123" },
+      osaka: {
+        city: "OSAKA", region: "大阪",
+        name: "船井総研グループ大阪本社 サステナグローススクエア OSAKA Enz'Arena",
+        nameLines: ["船井総研グループ大阪本社", "サステナグローススクエア", "OSAKA Enz'Arena"],
+        place: "JR大阪駅 西口直結", address: "大阪府大阪市北区梅田3-2-123",
+      },
       nagoya: { city: "NAGOYA", region: "名古屋", name: "名古屋大学", place: "Nagoya University", address: "愛知県名古屋市" },
       aizu: { city: "AIZU", region: "会津", name: "会津大学", place: "The University of Aizu", address: "福島県会津若松市" },
       online: { city: "ONLINE", region: "オンライン", name: "オンライン会場", place: "全国どこからでも", address: "自宅や学校から参加できます" },
-    } satisfies Record<VenueId, { city: string; region: string; name: string; place: string; address: string }>,
+    } satisfies Record<VenueId, { city: string; region: string; name: string; nameLines?: string[]; place: string; address: string }>,
     demo: {
       kicker: "DEMO DAY VENUE",
       name: "Google 渋谷オフィス",
@@ -387,7 +392,12 @@ const en: Dictionary = {
     },
     list: {
       tokyo: { city: "TOKYO", region: "Tokyo", name: "Mercari HQ", place: "Roppongi Hills Mori Tower", address: "6-10-1 Roppongi, Minato-ku, Tokyo" },
-      osaka: { city: "OSAKA", region: "Osaka", name: "INOGATE OSAKA — ENZALINA", place: "Directly connected to JR Osaka Station (West Exit)", address: "3-2-123 Umeda, Kita-ku, Osaka" },
+      osaka: {
+        city: "OSAKA", region: "Osaka",
+        name: "Funai Soken Group Osaka HQ Sustainable Growth Square OSAKA Enz'Arena",
+        nameLines: ["Funai Soken Group Osaka HQ", "Sustainable Growth Square OSAKA", "Enz'Arena"],
+        place: "Directly connected to JR Osaka Station (West Exit)", address: "3-2-123 Umeda, Kita-ku, Osaka",
+      },
       nagoya: { city: "NAGOYA", region: "Nagoya", name: "Nagoya University", place: "名古屋大学", address: "Nagoya, Aichi" },
       aizu: { city: "AIZU", region: "Aizu", name: "The University of Aizu", place: "会津大学", address: "Aizuwakamatsu, Fukushima" },
       online: { city: "ONLINE", region: "Online", name: "Online venue", place: "From anywhere in Japan", address: "Join from home or your school" },

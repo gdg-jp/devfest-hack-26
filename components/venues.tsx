@@ -46,7 +46,11 @@ function VenuePanel({ id, index, active, onActivate }: { id: VenueId; index: num
         <p className="venue-city">{venue.city}</p>
         <div className="venue-details">
           <p className="venue-region">{venue.region}</p>
-          <h3>{venue.name}</h3>
+          <h3 aria-label={venue.name}>
+            {"nameLines" in venue ? venue.nameLines.map((line, index) => (
+              <span className="venue-name-line" key={line}>{line}{index < venue.nameLines.length - 1 ? " " : ""}</span>
+            )) : venue.name}
+          </h3>
           <p className="venue-place">{venue.place}</p>
           <p className="venue-address">{venue.address}</p>
         </div>
