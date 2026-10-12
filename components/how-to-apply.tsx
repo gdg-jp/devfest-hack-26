@@ -340,7 +340,7 @@ function ApplyStage({ path, step, mode, status, controlLabel, onControl, onFirst
       className="apply-stage"
       variants={{
         hidden: { clipPath: "inset(6% 6% 6% 6% round 28px)", opacity: 0 },
-        visible: { clipPath: "inset(0% 0% 0% 0% round 28px)", opacity: 1, transition: { duration: 1, ease: easeOut } },
+        visible: { clipPath: "inset(0%)", opacity: 1, transition: { duration: 1, ease: easeOut } },
       }}
       onViewportEnter={onFirstView}
       viewport={{ once: true, amount: 0.5 }}

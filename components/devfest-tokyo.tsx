@@ -46,7 +46,7 @@ export function DevFestTokyo() {
       </div>
 
       <motion.div className="container tokyo-experience" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.12 }} variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}>
-        <motion.figure className="tokyo-photo" variants={{ hidden: { opacity: 0, y: 70, clipPath: "inset(12% 2% 12% 2% round 40px 40px 0 0)" }, visible: { opacity: 1, y: 0, clipPath: "inset(0% 0% 0% 0% round 40px 40px 0 0)", transition: { duration: 1.05, ease: easeOut } } }}>
+        <motion.figure className="tokyo-photo" variants={{ hidden: { opacity: 0, y: 70, clipPath: "inset(12% 2% 12% 2% round 40px 40px 0 0)" }, visible: { opacity: 1, y: 0, clipPath: "inset(0%)", transition: { duration: 1.05, ease: easeOut } } }}>
           <motion.img src="/images/devfest-tokyo-2025.webp" alt={copy.photoAlt} width="2400" height="1601" loading="lazy" decoding="async" style={{ y: imageY, scale: imageScale }} />
           <div className="tokyo-photo-shade" aria-hidden="true" />
 
