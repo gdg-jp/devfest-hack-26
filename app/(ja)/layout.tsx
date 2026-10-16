@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { dictionaries } from "@/lib/i18n";
-import "./globals.css";
+import "../globals.css";
 
 export const metadata: Metadata = {
   title: dictionaries.ja.meta.title,
@@ -13,11 +13,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function JaLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ja">
       <body className="antialiased">{children}</body>
