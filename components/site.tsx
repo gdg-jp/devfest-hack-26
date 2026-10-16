@@ -1,5 +1,6 @@
 import { ApplicationModalProvider } from "@/components/application-modal";
 import { Countdown } from "@/components/countdown";
+import { Cohost } from "@/components/cohost";
 import { DevFestTokyo } from "@/components/devfest-tokyo";
 import { FinalCta, Footer } from "@/components/footer";
 import { Header } from "@/components/header";
@@ -34,6 +35,7 @@ export function Site({ locale }: { locale: Locale }) {
             <HowToApply />
             <Schedule />
             <Venues />
+            <Cohost />
             <Prizes />
             <Judging />
             <DevFestTokyo />
