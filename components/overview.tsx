@@ -71,7 +71,7 @@ export function Overview() {
           </BentoCard>
 
           <BentoCard className="tone-red span-3" label={cards.venues.label} note={cards.venues.note} art={<Pin fill="#ea4335" />}>
-            <strong className="bento-number"><CountUp value={4} /><span className="bento-plus">+ Online</span></strong>
+            <strong className="bento-number"><CountUp value={3} /><span className="bento-plus">+ Online</span></strong>
           </BentoCard>
 
           <BentoCard className="tone-white span-3" label={cards.demo.label} note={cards.demo.note}>

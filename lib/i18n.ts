@@ -38,14 +38,14 @@ const ja = {
     keyDates: [
       { date: "11.01", day: "日", label: "共通キックオフ", meta: "ONLINE" },
       { date: "11.05–10", day: "木–火", label: "開発期間", meta: "ONLINE" },
-      { date: "11.14", day: "土", label: "Regional Day", meta: "4会場 + ONLINE" },
+      { date: "11.14", day: "土", label: "Regional Day", meta: "3会場 + ONLINE" },
       { date: "11.27", day: "金", label: "Demo Day", meta: "TOP 10" },
     ],
   },
   marquee: [
     "DevFest GDGoC Japan Hackathon 2026",
     "Build with Google Cloud & Gemini",
-    "Tokyo · Osaka · Nagoya · Aizu · Online",
+    "Tokyo · Osaka · Nagoya · Online",
     "Kickoff 11.01",
     "Demo Day 11.27",
     "#GDGOnCampus",
@@ -73,7 +73,7 @@ const ja = {
       who: { label: "WHO", value: "18歳以上の学生", note: "日本国内の大学・大学院・高専・専門学校に在籍し、日本に居住する学生" },
       team: { label: "TEAM", value: "2–4", unit: "名のチームで参加", note: "異なる学校のメンバーでもOK。1人で応募すれば運営がチームを組みます" },
       build: { label: "BUILD WITH", value: "Google Cloud / Gemini", note: "参加者に Google Cloud Credit を配布" },
-      venues: { label: "VENUES", value: "4 + Online", note: "東京・大阪・名古屋・会津・オンライン" },
+      venues: { label: "VENUES", value: "3 + Online", note: "東京・大阪・名古屋・オンライン" },
       demo: { label: "DEMO DAY", value: "TOP 10", note: "Top 10 チームが Google 渋谷オフィスで発表" },
       judges: { label: "JUDGES", value: "Google Software Engineers", note: "Google のソフトウェアエンジニアが審査員として参加予定" },
     },
@@ -91,7 +91,7 @@ const ja = {
         meta: "2–4名",
         steps: ["代表者がチームを作成して申請", "発行された招待コードをメンバーに共有", "メンバーが招待コードでチームに参加"],
         status: ["TEAM CREATED", "INVITE SENT", "TEAM READY"],
-        venue: "東京・大阪・名古屋・会津から、お近くの現地会場を選択",
+        venue: "東京・大阪・名古屋から、お近くの現地会場を選択",
       },
       solo: {
         title: "1人で応募",
@@ -118,7 +118,7 @@ const ja = {
       kickoff: { date: "11.01", day: "日", title: "共通キックオフ", mode: "ONLINE", detail: "テーマ発表とルール説明。全国の参加者がオンラインで集まります。", legend: "キックオフ" },
       entry: { date: "〜11.04", day: "水", title: "参加受付 締切", mode: "ENTRY", detail: "キックオフ後も、11月4日まで参加受付を行います。", legend: "受付期間" },
       build: { date: "11.05–11.10", day: "木–火", title: "開発期間", mode: "ONLINE · 全会場共通", detail: "全会場共通の6日間。企画・開発・検証・提出までをオンラインで進めます。", legend: "開発期間" },
-      regional: { date: "11.14", day: "土", title: "Regional Day", mode: "ON-SITE · 現地開催", detail: "東京・大阪・名古屋・会津の各会場とオンライン会場で、同日に開催します。", legend: "Regional Day" },
+      regional: { date: "11.14", day: "土", title: "Regional Day", mode: "ON-SITE · 現地開催", detail: "東京・大阪・名古屋の各会場とオンライン会場で、同日に開催します。", legend: "Regional Day" },
       demo: { date: "11.27", day: "金", title: "Demo Day", mode: "ON-SITE · 10:00–12:00", detail: "Top 10 チームが Google 渋谷オフィスに集結。プレゼンテーション・審査・表彰を行います。", legend: "Demo Day" },
       devfest: { date: "11.29", day: "日", title: "GDG DevFest Tokyo", mode: "WINNERS", detail: "優勝チームの LT 登壇と、受賞チームによる学生展示。", legend: "GDG DevFest Tokyo" },
     } satisfies Record<PhaseId, { date: string; day: string; title: string; mode: string; detail: string; legend: string }>,
@@ -127,7 +127,7 @@ const ja = {
     kicker: "VENUES",
     title: ["地域を越えて、", "ともにつくる。"],
     description:
-      "11月14日の Regional Day は、全国4会場で同日開催します。お近くの会場に集まり、地域の仲間や全国のコミュニティとつながりましょう。",
+      "11月14日の Regional Day は、全国3会場で同日開催します。お近くの会場に集まり、地域の仲間や全国のコミュニティとつながりましょう。",
     regionalTag: "REGIONAL DAY · 11.14 SAT",
     online: {
       kicker: "ONLINE · 現地参加が難しい方へ",
@@ -145,7 +145,6 @@ const ja = {
         place: "JR大阪駅 西口直結", address: "大阪府大阪市北区梅田3-2-123",
       },
       nagoya: { city: "NAGOYA", region: "名古屋", name: "名古屋大学", place: "Nagoya University", address: "愛知県名古屋市" },
-      aizu: { city: "AIZU", region: "会津", name: "会津大学", place: "The University of Aizu", address: "福島県会津若松市" },
       online: { city: "ONLINE", region: "オンライン", name: "オンライン会場", place: "全国どこからでも", address: "自宅や学校から参加できます" },
     } satisfies Record<VenueId, { city: string; region: string; name: string; nameLines?: string[]; place: string; address: string }>,
     demo: {
@@ -317,14 +316,14 @@ const en: Dictionary = {
     keyDates: [
       { date: "11.01", day: "SUN", label: "Common Kickoff", meta: "ONLINE" },
       { date: "11.05–10", day: "THU–TUE", label: "Development", meta: "ONLINE" },
-      { date: "11.14", day: "SAT", label: "Regional Day", meta: "4 VENUES + ONLINE" },
+      { date: "11.14", day: "SAT", label: "Regional Day", meta: "3 VENUES + ONLINE" },
       { date: "11.27", day: "FRI", label: "Demo Day", meta: "TOP 10" },
     ],
   },
   marquee: [
     "DevFest GDGoC Japan Hackathon 2026",
     "Build with Google Cloud & Gemini",
-    "Tokyo · Osaka · Nagoya · Aizu · Online",
+    "Tokyo · Osaka · Nagoya · Online",
     "Kickoff 11.01",
     "Demo Day 11.27",
     "#GDGOnCampus",
@@ -351,7 +350,7 @@ const en: Dictionary = {
       who: { label: "WHO", value: "Students aged 18+", note: "Enrolled at a university, graduate school, kosen (college of technology), or vocational school in Japan and living in Japan" },
       team: { label: "TEAM", value: "2–4", unit: "members per team", note: "Teams across schools are welcome. Apply solo and we'll form a team for you" },
       build: { label: "BUILD WITH", value: "Google Cloud / Gemini", note: "Google Cloud credits provided to participants" },
-      venues: { label: "VENUES", value: "4 + Online", note: "Tokyo, Osaka, Nagoya, Aizu, and online" },
+      venues: { label: "VENUES", value: "3 + Online", note: "Tokyo, Osaka, Nagoya, and online" },
       demo: { label: "DEMO DAY", value: "TOP 10", note: "The top 10 teams present at Google's Shibuya office" },
       judges: { label: "JUDGES", value: "Google Software Engineers", note: "Software engineers from Google are scheduled to join as judges" },
     },
@@ -369,7 +368,7 @@ const en: Dictionary = {
         meta: "2–4 members",
         steps: ["Your team lead creates the team and applies", "Share the invite code you receive with your teammates", "Teammates join the team with the invite code"],
         status: ["TEAM CREATED", "INVITE SENT", "TEAM READY"],
-        venue: "Pick the venue nearest you: Tokyo, Osaka, Nagoya, or Aizu",
+        venue: "Pick the venue nearest you: Tokyo, Osaka, or Nagoya",
       },
       solo: {
         title: "Apply on your own",
@@ -396,7 +395,7 @@ const en: Dictionary = {
       kickoff: { date: "11.01", day: "SUN", title: "Common Kickoff", mode: "ONLINE", detail: "Theme reveal and rules briefing. Participants from across Japan meet online.", legend: "Kickoff" },
       entry: { date: "→11.04", day: "WED", title: "Entries close", mode: "ENTRY", detail: "Entries stay open after the Kickoff, until November 4.", legend: "Entry window" },
       build: { date: "11.05–11.10", day: "THU–TUE", title: "Development Period", mode: "ONLINE · ALL VENUES", detail: "Six days on one shared schedule: plan, build, test, and submit — all online.", legend: "Development" },
-      regional: { date: "11.14", day: "SAT", title: "Regional Day", mode: "ON-SITE", detail: "Held on the same day at venues in Tokyo, Osaka, Nagoya, and Aizu, plus online.", legend: "Regional Day" },
+      regional: { date: "11.14", day: "SAT", title: "Regional Day", mode: "ON-SITE", detail: "Held on the same day at venues in Tokyo, Osaka, and Nagoya, plus online.", legend: "Regional Day" },
       demo: { date: "11.27", day: "FRI", title: "Demo Day", mode: "ON-SITE · 10:00–12:00", detail: "The top 10 teams gather at Google's Shibuya office to present, be judged, and receive awards.", legend: "Demo Day" },
       devfest: { date: "11.29", day: "SUN", title: "GDG DevFest Tokyo", mode: "WINNERS", detail: "A lightning talk by the winning team and a student showcase by award-winning teams.", legend: "GDG DevFest Tokyo" },
     },
@@ -405,7 +404,7 @@ const en: Dictionary = {
     kicker: "VENUES",
     title: ["Across regions,", "building together."],
     description:
-      "Regional Day on November 14 takes place on the same day at four venues across Japan. Join us at the venue nearest you to meet builders in your region and connect with the community nationwide.",
+      "Regional Day on November 14 takes place on the same day at three venues across Japan. Join us at the venue nearest you to meet builders in your region and connect with the community nationwide.",
     regionalTag: "REGIONAL DAY · SAT, NOV 14",
     online: {
       kicker: "ONLINE · IF YOU CAN'T ATTEND IN PERSON",
@@ -423,7 +422,6 @@ const en: Dictionary = {
         place: "Directly connected to JR Osaka Station (West Exit)", address: "3-2-123 Umeda, Kita-ku, Osaka",
       },
       nagoya: { city: "NAGOYA", region: "Nagoya", name: "Nagoya University", place: "名古屋大学", address: "Nagoya, Aichi" },
-      aizu: { city: "AIZU", region: "Aizu", name: "The University of Aizu", place: "会津大学", address: "Aizuwakamatsu, Fukushima" },
       online: { city: "ONLINE", region: "Online", name: "Online venue", place: "From anywhere in Japan", address: "Join from home or your school" },
     },
     demo: {
