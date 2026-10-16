@@ -8,7 +8,7 @@ import { useI18n } from "@/components/i18n-provider";
 import { Magnetic, MaskLines, ScrambleText } from "@/components/motion-kit";
 import { easeOut } from "@/components/motion-presets";
 
-const eventUrl = "https://df26.gdgs.jp/tokyo/";
+const eventUrl = "https://gdgs.jp/df26-tokyoh";
 
 const reveal = {
   hidden: { opacity: 0, y: 28 },
