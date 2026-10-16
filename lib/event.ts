@@ -37,9 +37,9 @@ export const milestones: { id: MilestoneId; at: number }[] = [
   { id: "demo", at: Date.parse("2026-11-27T10:00:00+09:00") },
 ];
 
-export type VenueId = "tokyo" | "osaka" | "nagoya" | "aizu" | "online";
+export type VenueId = "tokyo" | "osaka" | "nagoya" | "online";
 
-export const venueOrder: VenueId[] = ["tokyo", "osaka", "nagoya", "aizu", "online"];
+export const venueOrder: VenueId[] = ["tokyo", "osaka", "nagoya", "online"];
 
 // Regional Day is on-site first; the online venue is only for those who cannot attend in person.
 export const onsiteVenueOrder = venueOrder.filter((id) => id !== "online");
@@ -48,7 +48,6 @@ export const venueTone: Record<VenueId, Tone> = {
   tokyo: "blue",
   osaka: "red",
   nagoya: "yellow",
-  aizu: "green",
   online: "ink",
 };
 
@@ -56,7 +55,6 @@ export const venueMapQuery: Partial<Record<VenueId, string>> = {
   tokyo: "メルカリ 六本木ヒルズ森タワー",
   osaka: "船井総研グループ大阪本社 サステナグローススクエア OSAKA Enz'Arena",
   nagoya: "名古屋大学",
-  aizu: "会津大学",
 };
 
 export function mapsUrl(query: string) {

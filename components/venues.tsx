@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import { ArrowUpRight, TrainFront, UserRound } from "lucide-react";
 import { motion, useSpring } from "motion/react";
-import { Arc, GdgLogo, Globe, People, Pin, Slashes } from "@/components/brand-shapes";
+import { Arc, GdgLogo, Globe, Pin, Slashes } from "@/components/brand-shapes";
 import { useI18n } from "@/components/i18n-provider";
 import { easeOut } from "@/components/motion-presets";
 import { SectionHeading } from "@/components/section-heading";
@@ -14,7 +14,6 @@ const venueArt: Record<VenueId, ReactNode> = {
   tokyo: <Pin fill="#4285f4" />,
   osaka: <Slashes colors={["#ff7daf", "#ea4335"]} />,
   nagoya: <Arc fill="#f9ab00" />,
-  aizu: <People fill="#5cdb6d" wave />,
   online: <Globe fill="#ffffff" duration={7} />,
 };
 
@@ -77,7 +76,7 @@ function VenuePanel({ id, index, active, onActivate }: { id: VenueId; index: num
   );
 }
 
-/** The online venue sits below the on-site panels as a fallback, not as a fifth equal choice. */
+/** The online venue sits below the on-site panels as a fallback. */
 function OnlineVenue() {
   const { t } = useI18n();
   const copy = t.venues.online;
