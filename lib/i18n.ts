@@ -250,6 +250,12 @@ const ja = {
     title: ["アイデアを、", "動く未来に。"],
     note: "参加受付は 11月4日（水）まで",
   },
+  cohost: {
+    kicker: "VENUE CO-HOST",
+    title: "会場共催",
+    name: "株式会社メルカリ",
+    logoAlt: "株式会社メルカリのロゴ",
+  },
   footer: {
     organizedBy: "主催",
     organizer: "Google Developer Groups on Campus Japan",
@@ -526,6 +532,12 @@ const en: Dictionary = {
     kicker: "YOUR IDEA. SIX DAYS. ONE DEMO.",
     title: ["Turn your idea", "into what's next."],
     note: "Entries close Wednesday, November 4",
+  },
+  cohost: {
+    kicker: "VENUE CO-HOST",
+    title: "Venue co-host",
+    name: "Mercari, Inc.",
+    logoAlt: "Mercari, Inc. logo",
   },
   footer: {
     organizedBy: "Organized by",
