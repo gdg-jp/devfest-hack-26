@@ -254,7 +254,6 @@ const ja = {
     kicker: "VENUE CO-HOST",
     title: "会場共催",
     name: "株式会社メルカリ",
-    logoAlt: "株式会社メルカリのロゴ",
   },
   footer: {
     organizedBy: "主催",
@@ -537,7 +536,6 @@ const en: Dictionary = {
     kicker: "VENUE CO-HOST",
     title: "Venue co-host",
     name: "Mercari, Inc.",
-    logoAlt: "Mercari, Inc. logo",
   },
   footer: {
     organizedBy: "Organized by",

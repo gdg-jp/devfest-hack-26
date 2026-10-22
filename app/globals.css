@@ -1423,8 +1423,6 @@ h1, h2, h3, p { text-wrap: pretty; }
 .cohost-heading h2 { margin: 0; font-size: clamp(20px, 2.4vw, 30px); line-height: 1.2; letter-spacing: -.025em; white-space: nowrap; }
 .cohost-partner { display: flex; align-items: center; gap: 14px; min-height: 76px; padding-left: clamp(24px, 4vw, 56px); border-left: 1px solid rgba(30, 30, 30, .25); }
 .cohost-partner strong { font-size: clamp(18px, 2vw, 24px); line-height: 1.25; letter-spacing: -.02em; white-space: nowrap; }
-.cohost-logo { position: relative; width: 76px; height: 76px; flex: none; overflow: hidden; }
-.cohost-logo img { position: absolute; top: 50%; left: 50%; width: 240px; max-width: none; height: auto; transform: translate(-50%, -50%); }
 
 @media (max-width: 800px) {
   .cohost-inner { grid-template-columns: 1fr; gap: 18px; }
@@ -1709,8 +1707,6 @@ h1, h2, h3, p { text-wrap: pretty; }
   .final-cta { padding: 150px 0 110px; }
   .cohost-inner { padding-block: 26px; }
   .cohost-heading { gap: 16px; }
-  .cohost-logo { width: 64px; height: 64px; }
-  .cohost-logo img { width: 205px; }
   .final-arrow, .final-asterisk, .final-chain, .final-slashes { display: none; }
   .final-globe { right: 5%; top: 40px; width: 72px; }
   .footer-grid { grid-template-columns: 1fr; }

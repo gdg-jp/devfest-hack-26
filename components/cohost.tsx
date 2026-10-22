@@ -14,16 +14,6 @@ export function Cohost() {
           <h2 id="cohost-title">{copy.title}</h2>
         </div>
         <div className="cohost-partner">
-          <div className="cohost-logo">
-            <img
-              src="/images/mercari-logo-transparent.png"
-              alt={copy.logoAlt}
-              width="1672"
-              height="941"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
           <strong>{copy.name}</strong>
         </div>
       </div>
