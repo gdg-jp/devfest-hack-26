@@ -105,6 +105,10 @@ const ja = {
     stage: { leader: "LEADER", you: "YOU", skills: "SKILLS", invite: "INVITE CODE", mailKicker: "NEW MESSAGE", mailSubject: "チームが決まりました！" },
     controls: { pause: "アニメーションを一時停止", play: "アニメーションを再生", replay: "アニメーションをもう一度再生" },
     note: "どちらの方法も、応募ページで選べます。",
+    screening: {
+      title: "応募多数の場合",
+      body: "事前提出物を採点し、予選でピッチするチームを選考します。",
+    },
   },
   schedule: {
     kicker: "SCHEDULE",
@@ -387,6 +391,10 @@ const en: Dictionary = {
     stage: { leader: "LEADER", you: "YOU", skills: "SKILLS", invite: "INVITE CODE", mailKicker: "NEW MESSAGE", mailSubject: "Your team is ready!" },
     controls: { pause: "Pause animation", play: "Play animation", replay: "Replay animation" },
     note: "You can choose either option on the application page.",
+    screening: {
+      title: "If we receive many applications",
+      body: "We will score advance submissions to select the teams that can pitch in the preliminary round.",
+    },
   },
   schedule: {
     kicker: "SCHEDULE",
