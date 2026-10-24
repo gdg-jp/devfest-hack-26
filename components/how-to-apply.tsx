@@ -711,6 +711,11 @@ export function HowToApply() {
           </div>
         </motion.div>
 
+        <div className="apply-screening">
+          <h3>{copy.screening.title}</h3>
+          <p>{copy.screening.body}</p>
+        </div>
+
         <motion.div
           className="apply-cta"
           initial="hidden"

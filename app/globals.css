@@ -853,6 +853,10 @@ h1, h2, h3, p { text-wrap: pretty; }
 .apply-venue-check svg { width: 16px; height: 16px; stroke-width: 3; }
 .apply-venues-note { margin: 12px 0 0; color: var(--body-text); font-size: 14px; font-weight: 700; line-height: 1.6; }
 
+.apply-screening { display: grid; grid-template-columns: minmax(140px, .25fr) 1fr; align-items: baseline; gap: 12px 24px; margin-top: 28px; padding: 20px 24px; border-left: 4px solid var(--ink); background: var(--paper); }
+.apply-screening h3 { margin: 0; font: 700 12px/1.5 var(--font-mono-stack); letter-spacing: .05em; }
+.apply-screening p { margin: 0; color: var(--body-text); font-size: 16px; font-weight: 700; line-height: 1.7; }
+
 .apply-cta { display: flex; align-items: center; gap: 20px 28px; margin-top: 36px; }
 .apply-cta-copy p { margin: 0; }
 .apply-cta-entry { display: flex; align-items: center; gap: 10px; font: 700 13px/1.4 var(--font-mono-stack); letter-spacing: .04em; }
@@ -1683,6 +1687,7 @@ h1, h2, h3, p { text-wrap: pretty; }
   .apply-step:not(:last-child)::after { left: 32px; top: 52px; bottom: -20px; }
   .apply-step-no { width: 38px; height: 38px; font-size: 12px; }
   .apply-step-text { padding-top: 6px; }
+  .apply-screening { grid-template-columns: 1fr; padding: 18px 20px; }
   .apply-cta { flex-direction: column; align-items: flex-start; }
   .apply-cta-arrow { display: none; }
   .phase-list { padding-left: 34px; }
