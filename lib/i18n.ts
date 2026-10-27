@@ -75,7 +75,7 @@ const ja = {
       build: { label: "BUILD WITH", value: "Google Cloud / Gemini", note: "参加者に Google Cloud Credit を配布" },
       venues: { label: "VENUES", value: "3 + Online", note: "東京・大阪・名古屋・オンライン" },
       demo: { label: "DEMO DAY", value: "TOP 10", note: "Top 10 チームが Google 渋谷オフィスで発表" },
-      judges: { label: "JUDGES", value: "Google Software Engineers", note: "Google のソフトウェアエンジニアが審査員として参加予定" },
+      judges: { label: "FINAL JUDGES", value: "Google Software Engineers", note: "Demo Day（決勝）の審査員を、Google のソフトウェアエンジニアが務める予定" },
     },
     chips: ["1人でも応募OK（運営がチームを編成）", "コーディング経験は不問", "AI を活用したプロダクト開発に関心がある方", "留学生・外国籍の方も応募可（日本語で進行）"],
   },
@@ -187,7 +187,7 @@ const ja = {
     google: {
       kicker: "GOOGLE インターンシップ / 新卒採用",
       title: "Google のインターンシップ / 新卒採用に関する機会を、優勝チームへ。",
-      body: "審査には Google のソフトウェアエンジニアが参加予定。優勝チームには、Google エンジニアリングリーダーシップへのプレゼンテーションや、インターン採用チームとのランチセッションの機会があります。",
+      body: "Demo Day（決勝）の審査員は、Google のソフトウェアエンジニアが務める予定。優勝チームには、Google エンジニアリングリーダーシップへのプレゼンテーションや、インターン採用チームとのランチセッションの機会があります。",
       disclaimer: "※ Google における採用・インターンシップへの参加や、選考の結果を保証するものではありません。",
     },
     organizer: {
@@ -214,17 +214,20 @@ const ja = {
   judging: {
     kicker: "JUDGING",
     title: ["4つの視点で、", "審査します。"],
-    description: "プロダクトとピッチは、次の4つの観点から審査します。審査員として、Google のソフトウェアエンジニアが参加予定です。",
+    description: "プロダクトとピッチは、次の4つの観点から審査します。Demo Day（決勝）の審査員は、Google のソフトウェアエンジニアが務める予定です。",
     criteria: [
       { title: "Google 技術の活用", body: "Gemini や Google Cloud などの Google 技術を、プロダクトの価値に結びつけて活用できているか。" },
       { title: "プロダクトの完成度", body: "実際に動き、使える状態まで作り込まれているか。体験の質と実装の完成度。" },
       { title: "社会課題への解決力", body: "現実の社会課題を捉え、意味のある解決策を示せているか。" },
       { title: "ピッチの構成と説明力", body: "課題・解決策・デモを分かりやすく構成し、プロダクトの魅力を伝えられているか。" },
     ],
-    judges: {
-      kicker: "JUDGES",
-      title: "Google Software Engineers",
-      body: "Google のソフトウェアエンジニアが、審査員として参加予定です。",
+    flow: {
+      kicker: "JUDGING FLOW",
+      stages: [
+        { step: "01 · 応募多数の場合", title: "事前審査", who: "事前提出物を採点", body: "予選でピッチするチームを選考します。" },
+        { step: "02 · 予選 · 11.14 SAT", title: "Regional Day", who: "各会場の審査員", body: "各会場でピッチを行い、Demo Day に進む Top\u00a010 チームを選出します。" },
+        { step: "03 · 決勝 · 11.27 FRI", title: "Demo Day", who: "Google Software Engineers", body: "Top\u00a010 チームのピッチを、Google のソフトウェアエンジニアが審査します。" },
+      ],
     },
   },
   devfestTokyo: {
@@ -361,7 +364,7 @@ const en: Dictionary = {
       build: { label: "BUILD WITH", value: "Google Cloud / Gemini", note: "Google Cloud credits provided to participants" },
       venues: { label: "VENUES", value: "3 + Online", note: "Tokyo, Osaka, Nagoya, and online" },
       demo: { label: "DEMO DAY", value: "TOP 10", note: "The top 10 teams present at Google's Shibuya office" },
-      judges: { label: "JUDGES", value: "Google Software Engineers", note: "Software engineers from Google are scheduled to join as judges" },
+      judges: { label: "FINAL JUDGES", value: "Google Software Engineers", note: "Software engineers from Google are scheduled to judge Demo Day (the final)" },
     },
     chips: ["Solo applicants welcome (we form the teams)", "No coding experience required", "For anyone interested in building with AI", "International students welcome (run in Japanese)"],
   },
@@ -473,7 +476,7 @@ const en: Dictionary = {
     google: {
       kicker: "GOOGLE INTERNSHIP / NEW GRAD",
       title: "Opportunities related to Google Internship / New Grad recruiting — for the winning team.",
-      body: "Software engineers from Google are scheduled to judge. The winning team also gets to present to Google engineering leadership and join a lunch session with Google's internship recruiting team.",
+      body: "Software engineers from Google are scheduled to judge Demo Day (the final). The winning team also gets to present to Google engineering leadership and join a lunch session with Google's internship recruiting team.",
       disclaimer: "* This does not guarantee an internship, employment, or any outcome in Google's hiring process.",
     },
     organizer: {
@@ -500,17 +503,20 @@ const en: Dictionary = {
   judging: {
     kicker: "JUDGING",
     title: ["Judged on", "four criteria."],
-    description: "Products and pitches are evaluated on the four criteria below. Software engineers from Google are scheduled to join the judging panel.",
+    description: "Products and pitches are evaluated on the four criteria below. At Demo Day (the final), software engineers from Google are scheduled to serve as judges.",
     criteria: [
       { title: "Use of Google technology", body: "How well Google technologies such as Gemini and Google Cloud are used to create real value." },
       { title: "Product completeness", body: "Whether it actually works and is usable — the quality of the experience and the build." },
       { title: "Impact on social challenges", body: "Whether it tackles a real social challenge with a meaningful solution." },
       { title: "Pitch structure & clarity", body: "How clearly the pitch frames the problem, the solution, and the demo." },
     ],
-    judges: {
-      kicker: "JUDGES",
-      title: "Google Software Engineers",
-      body: "Software engineers from Google are scheduled to join as judges.",
+    flow: {
+      kicker: "JUDGING FLOW",
+      stages: [
+        { step: "01 · IF OVERSUBSCRIBED", title: "Advance screening", who: "Scored on advance submissions", body: "Selects the teams that pitch in the preliminary round." },
+        { step: "02 · PRELIMINARY · 11.14 SAT", title: "Regional Day", who: "Judges at each venue", body: "Teams pitch at each venue, and the top\u00a010 advance to Demo Day." },
+        { step: "03 · FINAL · 11.27 FRI", title: "Demo Day", who: "Google Software Engineers", body: "Software engineers from Google judge the top\u00a010 teams' pitches." },
+      ],
     },
   },
   devfestTokyo: {

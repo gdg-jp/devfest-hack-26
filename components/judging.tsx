@@ -1,8 +1,8 @@
 "use client";
 
-import { HeartHandshake, Mic, PackageCheck, Sparkles } from "lucide-react";
+import { ArrowRight, HeartHandshake, Mic, PackageCheck, Sparkles } from "lucide-react";
 import { motion } from "motion/react";
-import { Asterisk, People } from "@/components/brand-shapes";
+import { People } from "@/components/brand-shapes";
 import { useI18n } from "@/components/i18n-provider";
 import { useTilt } from "@/components/motion-kit";
 import { easeOut } from "@/components/motion-presets";
@@ -40,6 +40,44 @@ function CriterionCard({ index, title, body }: { index: number; title: string; b
   );
 }
 
+function JudgingFlow() {
+  const { t } = useI18n();
+  const flow = t.judging.flow;
+  const last = flow.stages.length - 1;
+
+  return (
+    <motion.div
+      className="judge-flow tab-card"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.8, ease: easeOut }}
+    >
+      <span className="tab-card-tab">{flow.kicker}</span>
+      <ol className="judge-flow-steps">
+        {flow.stages.map((stage, index) => (
+          <li key={index} className={`judge-stage${index === last ? " is-final" : ""}`}>
+            {index > 0 ? (
+              <span className="judge-stage-arrow" aria-hidden="true">
+                <ArrowRight />
+              </span>
+            ) : null}
+            {index === last ? (
+              <span className="judge-stage-art" aria-hidden="true">
+                <People fill="#c3ecf6" wave />
+              </span>
+            ) : null}
+            <span className="judge-stage-step">{stage.step}</span>
+            <p className="judge-stage-title">{stage.title}</p>
+            <p className="judge-stage-who">{stage.who}</p>
+            <p className="judge-stage-body">{stage.body}</p>
+          </li>
+        ))}
+      </ol>
+    </motion.div>
+  );
+}
+
 export function Judging() {
   const { t } = useI18n();
   const copy = t.judging;
@@ -61,23 +99,7 @@ export function Judging() {
           ))}
         </motion.ol>
 
-        <motion.div
-          className="judges tab-card"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.8, ease: easeOut }}
-        >
-          <span className="tab-card-tab">{copy.judges.kicker}</span>
-          <div className="judges-art" aria-hidden="true">
-            <People fill="#c3ecf6" wave />
-          </div>
-          <div className="judges-copy">
-            <p className="judges-title">{copy.judges.title}</p>
-            <p>{copy.judges.body}</p>
-          </div>
-          <Asterisk className="judges-asterisk" duration={10} />
-        </motion.div>
+        <JudgingFlow />
       </div>
     </section>
   );
