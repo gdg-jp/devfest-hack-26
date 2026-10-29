@@ -1427,12 +1427,13 @@ h1, h2, h3, p { text-wrap: pretty; }
 .cohost-heading { display: flex; align-items: baseline; gap: clamp(18px, 3vw, 42px); }
 .cohost-heading > span { color: var(--blue-deep); font: 700 11px/1 var(--font-mono-stack); letter-spacing: .14em; white-space: nowrap; }
 .cohost-heading h2 { margin: 0; font-size: clamp(20px, 2.4vw, 30px); line-height: 1.2; letter-spacing: -.025em; white-space: nowrap; }
-.cohost-partner { display: flex; align-items: center; gap: 14px; min-height: 76px; padding-left: clamp(24px, 4vw, 56px); border-left: 1px solid rgba(30, 30, 30, .25); }
+.cohost-partners { display: grid; gap: 16px; min-height: 76px; align-content: center; margin: 0; padding: 0 0 0 clamp(24px, 4vw, 56px); border-left: 1px solid rgba(30, 30, 30, .25); list-style: none; }
+.cohost-partner { display: flex; align-items: center; gap: 14px; }
 .cohost-partner strong { font-size: clamp(18px, 2vw, 24px); line-height: 1.25; letter-spacing: -.02em; white-space: nowrap; }
 
 @media (max-width: 800px) {
   .cohost-inner { grid-template-columns: 1fr; gap: 18px; }
-  .cohost-partner { justify-content: center; min-height: 0; padding: 16px 0 0; border-left: 0; border-top: 1px solid rgba(30, 30, 30, .25); }
+  .cohost-partners { justify-items: center; min-height: 0; padding: 16px 0 0; border-left: 0; border-top: 1px solid rgba(30, 30, 30, .25); }
 }
 
 /* ---------- Footer ---------- */

@@ -13,9 +13,13 @@ export function Cohost() {
           <span>{copy.kicker}</span>
           <h2 id="cohost-title">{copy.title}</h2>
         </div>
-        <div className="cohost-partner">
-          <strong>{copy.name}</strong>
-        </div>
+        <ul className="cohost-partners">
+          {copy.names.map((name) => (
+            <li className="cohost-partner" key={name}>
+              <strong>{name}</strong>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

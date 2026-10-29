@@ -260,7 +260,7 @@ const ja = {
   cohost: {
     kicker: "VENUE CO-HOST",
     title: "会場共催",
-    name: "株式会社メルカリ",
+    names: ["株式会社メルカリ", "株式会社船井総研ホールディングス"],
   },
   footer: {
     organizedBy: "主催",
@@ -549,7 +549,7 @@ const en: Dictionary = {
   cohost: {
     kicker: "VENUE CO-HOST",
     title: "Venue co-host",
-    name: "Mercari, Inc.",
+    names: ["Mercari, Inc.", "Funai Soken Holdings Inc."],
   },
   footer: {
     organizedBy: "Organized by",
