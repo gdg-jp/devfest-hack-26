@@ -70,7 +70,7 @@ const ja = {
     description:
       "DevFest GDGoC Japan Hackathon 2026 は、全国の学生が Google Cloud や Gemini を活用し、6日間でプロダクトを形にするハッカソンです。開発期間は全会場共通でオンライン。11月14日の Regional Day には、各地域の会場に集まります。",
     cards: {
-      who: { label: "WHO", value: "18歳以上の学生", note: "日本国内の大学・大学院・高専・専門学校に在籍し、日本に居住する学生" },
+      who: { label: "WHO", value: "18歳以上の学生", note: "日本国内の大学・大学院・短大・高専・専門学校等に在籍し、日本に居住する学生" },
       team: { label: "TEAM", value: "2–4", unit: "名のチームで参加", note: "異なる学校のメンバーでもOK。1人で応募すれば運営がチームを組みます" },
       build: { label: "BUILD WITH", value: "Google Cloud / Gemini", note: "参加者に Google Cloud Credit を配布" },
       venues: { label: "VENUES", value: "3 + Online", note: "東京・大阪・名古屋・オンライン" },
@@ -273,15 +273,16 @@ const ja = {
     description: "以下の条件を満たしていることを確認してから、応募ページへ進んでください。",
     sectionTitle: "応募対象",
     items: [
-      "応募期間の開始時から賞品授与時（ハッカソン開催日当日）まで、日本国内の大学・大学院・高等専門学校・専門学校に在籍し、日本に居住する学生であること",
       "2 名以上 4 名以下のチームで出場すること（1人で応募した場合は、運営がチームを編成します）",
     ],
     memberLead: "チームメンバー全員が、以下の条件を満たしていること",
     memberItems: [
-      "応募期間の開始時から賞品授与時（ハッカソン開催日当日）まで、日本国内の大学・大学院・高等専門学校・専門学校に在籍し、日本に居住していること",
-      "応募時点で 18 歳以上であること",
+      "応募期間の開始時から賞品授与時（ハッカソン開催日当日）まで、日本国内の大学・大学院・短期大学・高等専門学校・専門学校等に在籍し、日本に居住する学生であること",
+      "開催日時点で 18 歳以上であること",
+      "過去に企業・団体等で正社員や契約社員等として 1 年以上常勤勤務した経験がないこと",
     ],
     notes: [
+      "学生としてのアルバイト、インターンシップ、業務委託、起業活動等の経験は参加資格に影響しません",
       "異なる学校に所属するメンバー同士でのチーム編成も可能です",
       "1人で応募した場合、Regional Day はオンライン会場での参加になります",
       "ソフトウェア開発やコーディングの経験は問いません。ただし、AI を活用したプロダクト開発に関心があることが必要です",
@@ -359,7 +360,7 @@ const en: Dictionary = {
     description:
       "DevFest GDGoC Japan Hackathon 2026 brings students from across Japan together to build products with Google Cloud and Gemini in just six days. Development happens online on a shared schedule, and on November 14 teams gather at venues in their region for Regional Day.",
     cards: {
-      who: { label: "WHO", value: "Students aged 18+", note: "Enrolled at a university, graduate school, kosen (college of technology), or vocational school in Japan and living in Japan" },
+      who: { label: "WHO", value: "Students aged 18+", note: "Enrolled at a university, graduate school, junior college, kosen (college of technology), vocational school, or similar in Japan and living in Japan" },
       team: { label: "TEAM", value: "2–4", unit: "members per team", note: "Teams across schools are welcome. Apply solo and we'll form a team for you" },
       build: { label: "BUILD WITH", value: "Google Cloud / Gemini", note: "Google Cloud credits provided to participants" },
       venues: { label: "VENUES", value: "3 + Online", note: "Tokyo, Osaka, Nagoya, and online" },
@@ -562,15 +563,16 @@ const en: Dictionary = {
     description: "Please confirm that you meet the requirements below before continuing to the application page.",
     sectionTitle: "Eligibility",
     items: [
-      "From the start of the application period until prizes are awarded (the day of the hackathon event), you are a student enrolled at a university, graduate school, kosen (college of technology), or vocational school in Japan and living in Japan",
       "You compete in a team of 2 to 4 members (if you apply on your own, we'll form a team for you)",
     ],
     memberLead: "Every team member meets the following",
     memberItems: [
-      "Enrolled at a university, graduate school, kosen (college of technology), or vocational school in Japan and living in Japan from the start of the application period until prizes are awarded (the day of the hackathon event)",
-      "Aged 18 or older at the time of application",
+      "A student enrolled at a university, graduate school, junior college, kosen (college of technology), vocational school, or similar in Japan and living in Japan from the start of the application period until prizes are awarded (the day of the hackathon event)",
+      "Aged 18 or older as of the day of the hackathon event",
+      "Has never worked full-time at a company or organization as a regular or contract employee (or similar) for one year or longer",
     ],
     notes: [
+      "Part-time jobs, internships, freelance work, and startup activities undertaken as a student do not affect eligibility",
       "Teams may include members from different schools",
       "If you apply on your own, you'll join Regional Day at the online venue",
       "No software development or coding experience is required, but you must be interested in building products with AI",
