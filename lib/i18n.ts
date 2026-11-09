@@ -141,7 +141,7 @@ const ja = {
       note: "1人で応募した方は、オンライン会場で参加します",
     },
     list: {
-      tokyo: { city: "TOKYO", region: "東京", name: "メルカリ本社", place: "六本木ヒルズ森タワー", address: "東京都港区六本木6-10-1" },
+      tokyo: { city: "TOKYO", region: "東京", name: "TBD", place: "開催場所は調整中です", address: "決定後、Discord にてアナウンスします" },
       osaka: {
         city: "OSAKA", region: "大阪",
         name: "船井総研グループ大阪本社 サステナグローススクエア OSAKA Enz'Arena",
@@ -260,7 +260,7 @@ const ja = {
   cohost: {
     kicker: "VENUE CO-HOST",
     title: "会場共催",
-    names: ["株式会社メルカリ", "株式会社船井総研ホールディングス"],
+    names: ["株式会社船井総研ホールディングス"],
   },
   footer: {
     organizedBy: "主催",
@@ -431,7 +431,7 @@ const en: Dictionary = {
       note: "Solo applicants join at the online venue",
     },
     list: {
-      tokyo: { city: "TOKYO", region: "Tokyo", name: "Mercari HQ", place: "Roppongi Hills Mori Tower", address: "6-10-1 Roppongi, Minato-ku, Tokyo" },
+      tokyo: { city: "TOKYO", region: "Tokyo", name: "TBD", place: "Venue to be announced", address: "We'll announce the location on Discord once it's confirmed" },
       osaka: {
         city: "OSAKA", region: "Osaka",
         name: "Funai Soken Group Osaka HQ Sustainable Growth Square OSAKA Enz'Arena",
@@ -550,7 +550,7 @@ const en: Dictionary = {
   cohost: {
     kicker: "VENUE CO-HOST",
     title: "Venue co-host",
-    names: ["Mercari, Inc.", "Funai Soken Holdings Inc."],
+    names: ["Funai Soken Holdings Inc."],
   },
   footer: {
     organizedBy: "Organized by",

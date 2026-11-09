@@ -52,7 +52,6 @@ export const venueTone: Record<VenueId, Tone> = {
 };
 
 export const venueMapQuery: Partial<Record<VenueId, string>> = {
-  tokyo: "メルカリ 六本木ヒルズ森タワー",
   osaka: "船井総研グループ大阪本社 サステナグローススクエア OSAKA Enz'Arena",
   nagoya: "名古屋大学",
 };
