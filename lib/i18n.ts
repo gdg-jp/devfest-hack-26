@@ -1,4 +1,4 @@
-import type { CohostId, MilestoneId, PhaseId, VenueId } from "@/lib/event";
+import type { CohostId, MilestoneId, PhaseId, SponsorId, VenueId } from "@/lib/event";
 
 export const locales = ["ja", "en"] as const;
 export type Locale = (typeof locales)[number];
@@ -261,6 +261,11 @@ const ja = {
     kicker: "VENUE CO-HOST",
     title: "会場共催",
     names: { layerx: "株式会社LayerX", funai: "株式会社船井総研ホールディングス" } satisfies Record<CohostId, string>,
+  },
+  sponsor: {
+    kicker: "SPONSOR",
+    title: "スポンサー",
+    names: { findy: "ファインディ株式会社" } satisfies Record<SponsorId, string>,
   },
   footer: {
     organizedBy: "主催",
@@ -551,6 +556,11 @@ const en: Dictionary = {
     kicker: "VENUE CO-HOST",
     title: "Venue co-host",
     names: { layerx: "LayerX Inc.", funai: "Funai Soken Holdings Inc." },
+  },
+  sponsor: {
+    kicker: "SPONSOR",
+    title: "Sponsor",
+    names: { findy: "Findy Inc." },
   },
   footer: {
     organizedBy: "Organized by",
