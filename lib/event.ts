@@ -57,14 +57,24 @@ export const venueMapQuery: Partial<Record<VenueId, string>> = {
   nagoya: "名古屋大学",
 };
 
+// Logo files ship with their brand's required white clear space; render them unmodified.
+export type PartnerLogo = { src: string; width: number; height: number };
+
 export type CohostId = "layerx" | "funai";
 
 // Listed in venue order (Tokyo, Osaka).
 export const cohostOrder: CohostId[] = ["layerx", "funai"];
 
-// Logo files ship with their brand's required white clear space; render them unmodified.
-export const cohostLogo: Partial<Record<CohostId, { src: string; width: number; height: number }>> = {
+export const cohostLogo: Partial<Record<CohostId, PartnerLogo>> = {
   layerx: { src: "/images/layerx-logo.svg", width: 1176, height: 433 },
+};
+
+export type SponsorId = "findy";
+
+export const sponsorOrder: SponsorId[] = ["findy"];
+
+export const sponsorLogo: Partial<Record<SponsorId, PartnerLogo>> = {
+  findy: { src: "/images/findy-logo.jpg", width: 1000, height: 1000 },
 };
 
 export function mapsUrl(query: string) {

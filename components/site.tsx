@@ -16,6 +16,7 @@ import { PageLoader } from "@/components/page-loader";
 import { Prizes } from "@/components/prizes";
 import { Schedule } from "@/components/schedule";
 import { ScrollProgress } from "@/components/scroll-progress";
+import { Sponsor } from "@/components/sponsor";
 import { Venues } from "@/components/venues";
 import type { Locale } from "@/lib/i18n";
 
@@ -36,6 +37,7 @@ export function Site({ locale }: { locale: Locale }) {
             <Schedule />
             <Venues />
             <Cohost />
+            <Sponsor />
             <Prizes />
             <Judging />
             <DevFestTokyo />
