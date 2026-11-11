@@ -1,4 +1,4 @@
-import type { MilestoneId, PhaseId, VenueId } from "@/lib/event";
+import type { CohostId, MilestoneId, PhaseId, VenueId } from "@/lib/event";
 
 export const locales = ["ja", "en"] as const;
 export type Locale = (typeof locales)[number];
@@ -141,7 +141,7 @@ const ja = {
       note: "1人で応募した方は、オンライン会場で参加します",
     },
     list: {
-      tokyo: { city: "TOKYO", region: "東京", name: "TBD", place: "開催場所は調整中です", address: "決定後、Discord にてアナウンスします" },
+      tokyo: { city: "TOKYO", region: "東京", name: "LayerX 本社", place: "東銀座駅 徒歩2分", address: "東京都中央区築地1-13-1 銀座松竹スクエア 5階" },
       osaka: {
         city: "OSAKA", region: "大阪",
         name: "船井総研グループ大阪本社 サステナグローススクエア OSAKA Enz'Arena",
@@ -260,7 +260,7 @@ const ja = {
   cohost: {
     kicker: "VENUE CO-HOST",
     title: "会場共催",
-    names: ["株式会社船井総研ホールディングス"],
+    names: { layerx: "株式会社LayerX", funai: "株式会社船井総研ホールディングス" } satisfies Record<CohostId, string>,
   },
   footer: {
     organizedBy: "主催",
@@ -431,7 +431,7 @@ const en: Dictionary = {
       note: "Solo applicants join at the online venue",
     },
     list: {
-      tokyo: { city: "TOKYO", region: "Tokyo", name: "TBD", place: "Venue to be announced", address: "We'll announce the location on Discord once it's confirmed" },
+      tokyo: { city: "TOKYO", region: "Tokyo", name: "LayerX HQ", place: "2 min walk from Higashi-Ginza Station", address: "Ginza Shochiku Square 5F, 1-13-1 Tsukiji, Chuo-ku, Tokyo" },
       osaka: {
         city: "OSAKA", region: "Osaka",
         name: "Funai Soken Group Osaka HQ Sustainable Growth Square OSAKA Enz'Arena",
@@ -550,7 +550,7 @@ const en: Dictionary = {
   cohost: {
     kicker: "VENUE CO-HOST",
     title: "Venue co-host",
-    names: ["Funai Soken Holdings Inc."],
+    names: { layerx: "LayerX Inc.", funai: "Funai Soken Holdings Inc." },
   },
   footer: {
     organizedBy: "Organized by",
