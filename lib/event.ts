@@ -52,8 +52,19 @@ export const venueTone: Record<VenueId, Tone> = {
 };
 
 export const venueMapQuery: Partial<Record<VenueId, string>> = {
+  tokyo: "銀座松竹スクエア 東京都中央区築地1-13-1",
   osaka: "船井総研グループ大阪本社 サステナグローススクエア OSAKA Enz'Arena",
   nagoya: "名古屋大学",
+};
+
+export type CohostId = "layerx" | "funai";
+
+// Listed in venue order (Tokyo, Osaka).
+export const cohostOrder: CohostId[] = ["layerx", "funai"];
+
+// Logo files ship with their brand's required white clear space; render them unmodified.
+export const cohostLogo: Partial<Record<CohostId, { src: string; width: number; height: number }>> = {
+  layerx: { src: "/images/layerx-logo.svg", width: 1176, height: 433 },
 };
 
 export function mapsUrl(query: string) {

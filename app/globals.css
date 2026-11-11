@@ -1430,6 +1430,7 @@ h1, h2, h3, p { text-wrap: pretty; }
 .cohost-partners { display: grid; gap: 16px; min-height: 76px; align-content: center; margin: 0; padding: 0 0 0 clamp(24px, 4vw, 56px); border-left: 1px solid rgba(30, 30, 30, .25); list-style: none; }
 .cohost-partner { display: flex; align-items: center; gap: 14px; }
 .cohost-partner strong { font-size: clamp(18px, 2vw, 24px); line-height: 1.25; letter-spacing: -.02em; white-space: nowrap; }
+.cohost-logo { display: block; width: auto; height: 56px; flex: none; }
 
 @media (max-width: 800px) {
   .cohost-inner { grid-template-columns: 1fr; gap: 18px; }
@@ -1715,6 +1716,7 @@ h1, h2, h3, p { text-wrap: pretty; }
   .final-cta { padding: 150px 0 110px; }
   .cohost-inner { padding-block: 26px; }
   .cohost-heading { gap: 16px; }
+  .cohost-logo { height: 48px; }
   .final-arrow, .final-asterisk, .final-chain, .final-slashes { display: none; }
   .final-globe { right: 5%; top: 40px; width: 72px; }
   .footer-grid { grid-template-columns: 1fr; }
