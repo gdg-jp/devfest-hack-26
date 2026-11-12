@@ -265,7 +265,7 @@ const ja = {
   sponsor: {
     kicker: "SPONSOR",
     title: "スポンサー",
-    names: { findy: "ファインディ株式会社" } satisfies Record<SponsorId, string>,
+    names: { findy: "ファインディ株式会社", moneyforward: "株式会社マネーフォワード" } satisfies Record<SponsorId, string>,
   },
   footer: {
     organizedBy: "主催",
@@ -560,7 +560,7 @@ const en: Dictionary = {
   sponsor: {
     kicker: "SPONSOR",
     title: "Sponsor",
-    names: { findy: "Findy Inc." },
+    names: { findy: "Findy Inc.", moneyforward: "Money Forward, Inc." },
   },
   footer: {
     organizedBy: "Organized by",
