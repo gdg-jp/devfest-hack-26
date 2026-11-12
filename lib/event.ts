@@ -69,12 +69,14 @@ export const cohostLogo: Partial<Record<CohostId, PartnerLogo>> = {
   layerx: { src: "/images/layerx-logo.svg", width: 1176, height: 433 },
 };
 
-export type SponsorId = "findy";
+export type SponsorId = "findy" | "moneyforward";
 
-export const sponsorOrder: SponsorId[] = ["findy"];
+export const sponsorOrder: SponsorId[] = ["findy", "moneyforward"];
 
 export const sponsorLogo: Partial<Record<SponsorId, PartnerLogo>> = {
   findy: { src: "/images/findy-logo.jpg", width: 1000, height: 1000 },
+  // Transparent canvas that already includes the guideline clear space; the white plate comes from .partner-logo.
+  moneyforward: { src: "/images/moneyforward-logo.svg", width: 1716, height: 500 },
 };
 
 export function mapsUrl(query: string) {
